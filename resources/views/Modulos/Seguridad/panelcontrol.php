@@ -1,5 +1,5 @@
-<?php include_once $fsConfig->getPath() . 'view/parcial/head.php' ?>
-<?php include_once $fsConfig->getPath() . 'view/parcial/header.php' ?>
+<?php include_once ('/../../Templates/Frontend/head.php') ?>
+<?php include_once ('/../../Templates/Frontend/header.php') ?>
     
     <div class="pan"><p class="text-center"> Configuración De La Cuenta</p>
         <ul>
@@ -12,18 +12,20 @@
                 <p><a href="#">Volver</a></p>
             
                                 
-            
+            <h2 style="height: 30px; width:300px">Usuario</h2>
+                <a href="<?php echo url("/usuarios/usuarios/crear") ?>">Crear Usuario</a>
+                    <p><a href="<?php echo url("/usuarios/usuarios/index") ?>">Listar Usuarios</a></p>
             
                 
                 <h2 style="height: 30px; width:300px">Sitios</h2>
-                <a href="<?php echo $fsConfig->getUrl() ?>index.php/seguridad/sitioCrear">Crear Sitio</a>
+                <a href="<?php echo url("/sitios/sitios/crearsitio") ?>">Crear Sitio</a>
                     <p><a href="#">Listar Sitio</a></p>
             
             
             
             
                 <h2 style="height: 30px; width:300px">Eventos</h2>
-                <p><a href="<?php echo $fsConfig->getUrl() ?>index.php/seguridad/eventoCrear">Crear Evento</a></p> 
+                <p><a href="<?php echo url("/evento/crearevento") ?>">Crear Evento</a></p> 
                 <p><a href="#">Listar Evento</a></p>
             
         </ul>
@@ -96,6 +98,6 @@
 
 
  
-<?php include_once $fsConfig->getPath() . 'view/parcial/footer.php' ?>
-<?php include_once $fsConfig->getPath() . 'view/parcial/foot.php' ?>
+<?php include_once ('/../../Templates/Frontend/footer.php') ?>
+<?php include_once ('/../../Templates/Frontend/foot.php') ?>
 

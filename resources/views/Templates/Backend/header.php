@@ -25,23 +25,30 @@
   .TitlesX{z-index: 99999 !important;}
   .headerX{
     position: relative;
-    text-align: center;
-    z-index: 99;
-    font-size: 72px;
-    line-height: 108px;
-    height: 108px;
-    background: transparent;
+   z-index: 99;
     color: #fff;
     font-family:BankGothic Md BT,ralewayBold,Impact, Arial,sans-serif;
     font-weight: bolder;
-
+      display: inline-block;
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px; 
+    font-weight: bolder;
+    margin-bottom: auto;
+    /*        width: 100%;*/
+    background: transparent;
+    text-align: left;
+    padding-left: 20px;
+    right: 0px;
+    left: 0px;
     text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
     /*text-shadow: -3px 1px 30px #49ff18;        */
 
-
     // set animation
-    -webkit-transition: all 0.7s ease;
-    transition: all 0.7s ease;
+    -webkit-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+    transition-delay:  0.9s ;
+          
   }
   .backHead{
 
@@ -65,7 +72,7 @@
              top:50px;
              -webkit-transition: all 1.7s ease;
              transition: all 1.7s ease;}
-  .headerX.smallX, logoheadX {
+  .headerX2, logoheadX {
 
 
     display: inline-block;
@@ -115,7 +122,7 @@
     margin: 0 auto;
     background-color: lavender;
   }
-
+/*
   .BackgroundHead{position: fixed;
                   top: 0px;
                   background-color: black;
@@ -130,7 +137,7 @@
     right:0;
     bottom:0;
     left:0;
-    top: 92px; }
+    top: 92px; }*/
 
   .dropdown-menu li{
     height: auto !important;
@@ -174,12 +181,13 @@
     /*        .floatRightX ul li a{
                 display: none}
         }*/
-    
-    
+
+
   </style>
 
+
   <div class="theHeader" >
-    <header class="headerX" ><h1 class="h1X"><a style="color:blue" class="TitleX" href=""<?php echo url("")?>"" title="Destino Travel" rel="home"><span class="TitleX"><span >B</span>uga<span >T</span>ravel<span >s</span><img class="logohead"  src="<?php echo asset('img/logo.png') ?>" alt="Buga Logo"/></span></a></h1>
+    <header class="headerX" ><h1 class="h1X"><a style="color:blue" class="TitleX" href=""<?php echo url("")?>"" title="Destino Travel" rel="home"><span class="TitleX"><span >B</span>uga<span >T</span>ravel<span >s</span></span></a></h1>
       <div class="backHead"></div></header>
     <div class="BackgroundHead"></div>
 
@@ -190,7 +198,8 @@
     <!-- importar jQuery -->
 
     <script src="<?php echo asset('js/jquery/jquery.min.js') ?>"></script>
-    <script src="<?php echo asset('js/jquery/jstiloX.js') ?>"></script>
+    <!--Quitar efecto del header-->
+<!--    <script src="<?php echo asset('js/jquery/jstiloX.js') ?>"></script>-->
 
 
     <div style="clear:both;"></div>
@@ -216,8 +225,8 @@
 
             <ul class="nav navbar-nav floatLeftX">
 
-              <li class="contInicioX"> <a href=""<?php echo url("/home/index/index") ?>>Inicio <span class="sr-only">(current)</span></a></li>
-              <li class="sitiosX"><a href="<?php echo url("/sitios/sitios/sitios") ?>">Sitios</a></li>
+              <li class="contInicioX"><a href=""<?php echo url("index")?>"">Inicio <span class="sr-only">(current)</span></a></li>
+              <li class="sitiosX"><a href="<?php echo url("/sitios/sitio") ?>">Sitios</a></li>
               <li class="eventosX"><a href="<?php echo url("/eventos/eventos/evento") ?>">Eventos</a></li>
               <li class="eventosX"><a href="<?php echo url("/categorias/categoria") ?>">Categorias</a></li>
 
@@ -285,7 +294,9 @@
   </div>
   <div style="clear:both;"></div>
   <script src="<?php echo asset('js/jquery/jquery.min.js') ?>"></script>
-  <script src="<?php echo asset('js/jquery/jstiloX.js') ?>"></script>
+  
+  
+<!--  <script src="<?php // echo asset('js/jquery/jstiloX.js') ?>"></script>-->
 
 
 
