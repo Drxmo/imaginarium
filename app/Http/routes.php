@@ -24,6 +24,7 @@ Route::controllers([
     'usuarios/roles' => "Modulos\Usuarios\RolesController",
     'eventos/eventos' => "Modulos\Eventos\EventosController",
     'sitios/sitios' => "Modulos\Sitios\SitiosController",
+    'sitios/crear' => "Modulos\Sitios\SitiosController",
 //    'sitios/sitdetalles' => "Modulos\Sitios\SitioController",
 //    'sitios/creasitio' => "Modulos\Sitios\CrearsitioController",
     'categorias/categoria' => "Modulos\Categorias\CategoriasController",

@@ -35,7 +35,7 @@ print_r($res_arr);
       ?>
 
 <div class="container container-fluid ">
-  <a href="<?php echo url("usuarios/usuarios/crear") ?>">Crear usuario </a>
+  <a href="<?php echo url("usuarios/usuarios/crear") ?>"> + Agregar usuario </a>
   <?php Session::get('success')?>
   <?php if (Session::has('success')): ?>
                 <br>
@@ -53,7 +53,7 @@ print_r($res_arr);
         <th>&nbsp&nbsp Nombre &nbsp&nbsp</th>
         <th>&nbsp&nbsp Apellido &nbsp&nbsp</th>
         <th>&nbsp&nbsp Activo &nbsp&nbsp</th>
-        <th>&nbsp&nbsp&nbsp Rol &nbsp&nbsp&nbsp</th>
+        <th>&nbsp&nbsp&nbsp&nbsp Rol &nbsp&nbsp&nbsp&nbsp</th>
         <th> &nbsp&nbsp Editar &nbsp&nbsp</th>
         <th> &nbsp&nbsp Elimiar &nbsp&nbsp</th>
       </tr>
@@ -70,7 +70,7 @@ print_r($res_arr);
           <td><?php nombre ($id);  ?></td>
           <td><?php apellido($id);  ?></td>
           <td><?php $act= $usuario->usu_activado;if ($act== '1'):echo 'Sí' ; else: echo 'No'; endif?></td>
-          <td><?php $ro= $usuario->rol_id;if ($ro== '2'):echo 'Usuario' ; else: echo 'Super Usuario'; endif?></td>
+          <td><?php $ro= $usuario->rol_id;if ($ro== '2'):echo 'Usuario' ; else: echo 'SuperUsuario'; endif?></td>
           <td><a href="<?php echo url("usuarios/usuarios/editar/" . $usuario->usu_id) ?>" >Editar</a></td>
           <td><a href="<?php echo url("usuarios/usuarios/eliminar/" . $usuario->usu_id) ?>" >Eliminar</a></td>
         </tr>

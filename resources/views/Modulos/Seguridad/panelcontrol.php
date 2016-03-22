@@ -18,7 +18,7 @@
             
                 
                 <h2 style="height: 30px; width:300px">Sitios</h2>
-                <a href="<?php echo url("/sitios/sitios/crearsitio") ?>">Crear Sitio</a>
+                <a href="<?php echo url("/sitios/sitios/crear") ?>">Crear Sitio</a>
                     <p><a href="#">Listar Sitio</a></p>
             
             

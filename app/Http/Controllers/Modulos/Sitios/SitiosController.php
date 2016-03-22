@@ -18,8 +18,8 @@ class SitiosController extends controller{
         return view('Modulos.Sitios.sitio');
     }
     
-     function getCrearsitio(){
-    return view('Modulos.Sitios.crearsitio');    
+     function getCrear(){
+    return view('Modulos.Sitios.crearsit');    
     }
      function getSitio(){
         return view('Modulos.Sitios.sitdetalles');

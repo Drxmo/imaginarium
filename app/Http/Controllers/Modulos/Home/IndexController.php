@@ -12,5 +12,6 @@ class IndexController extends Controller
 {
     function getIndex(){
     	return view('Modulos.Home.index');
+            include_once '';
     }
 }
