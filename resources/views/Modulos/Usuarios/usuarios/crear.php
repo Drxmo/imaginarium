@@ -20,7 +20,6 @@
             dateFormat: 'yy-mm-dd'
         });
     });
-
 //  $(function() {
 //    $( "#datepicker" ).datepicker();
 //    $( "#format" ).change(function() {
@@ -50,7 +49,6 @@
             <div class="form-group col-lg-6">
                 <input type="text" class="form-control col-lg-6" placeholder="Digite nombre" name="nombre" />
             </div>
-
             <div class="form-group col-lg-6">
                 <input class="form-control col-lg-6" type="text" placeholder="Digite apellido" name="apellido" />
             </div>
@@ -200,9 +198,9 @@
         <br>
 
 
-        <input type="submit" value="Guardar" />
+        <input class="btn btn-default btn-success" type="submit" value="Guardar" />
 <!--        <a href="http://localhost/imaginarium/public/index.php" class="btn btn-default btn-cancel" value="Guardar">Cancelar</a>-->
-<a href="index.php" class="btn btn-default btn-cancel" value="Guardar">Cancelar</a>
+<a href="<?php echo url("/seguridad/panelcontrol")?>" class="btn btn-default btn-cancel" >Cancelar</a>
 
     </form>
 </div>

@@ -226,7 +226,7 @@
             <ul class="nav navbar-nav floatLeftX">
 
               <li class="contInicioX"><a href=""<?php echo url("index")?>"">Inicio <span class="sr-only">(current)</span></a></li>
-              <li class="sitiosX"><a href="<?php echo url("/sitios/sitio") ?>">Sitios</a></li>
+              <li class="sitiosX"><a href="<?php echo url("/sitios/sitios/index") ?>">Sitios</a></li>
               <li class="eventosX"><a href="<?php echo url("/eventos/eventos/evento") ?>">Eventos</a></li>
               <li class="eventosX"><a href="<?php echo url("/categorias/categoria") ?>">Categorias</a></li>
 

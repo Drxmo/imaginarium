@@ -359,7 +359,8 @@ figure{
   position: absolute;
   overflow: hidden;
   top: -20px;
-  left: 0
+  left: 0;
+  height: 100%;
 }
 .contenedor-img img {
   display: block;
@@ -377,12 +378,13 @@ figure{
   margin: 20px 0 0 0
 }
 .contenedor-img p {
-  font-size: 12px;
+  font-size: 15px;
   position: relative;
   color: #fff;
-  TOP: 200PX;
+  top: 70px;
   padding: 10px 20px 10px;
-  text-align: center
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
 }
 .contenedor-img a.link {
   display: inline-block;

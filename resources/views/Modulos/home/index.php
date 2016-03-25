@@ -1,6 +1,5 @@
 
-<?php include_once ('/Templates/Frontend/head.php') ?>
-<?php include_once ('/Templates/Frontend/header.php') ?>
+
 
 <script>
 //    Reemplazar '.contInicioX' 
@@ -396,6 +395,7 @@
 
 
 
-<?php include_once ('/Templates/Frontend/footer.php') ?>
-<?php include_once ('/Templates/Frontend/foot.php') ?>
+<?php include_once ('../../Templates/Frontend/footer.php') ?>
+<?php include_once ('../../Templates/Frontend/foot.php') ?>
+
 

@@ -10,28 +10,31 @@
   | and give it the controller to call when that URI is requested.
   |
  */
-
 Route::get('/', function () {
   return view('index');
 });
+//Route::get('/', function () {
+//  return view('Modulos.Home.index');
+//});
 
-
+//Route::get('/', 'Modulos\Home\indexController@getIndex'); 
 
 
 Route::controllers([
-    'home/index' => "Modulos\Home\IndexController",
+    //'home/index' => "Modulos\Home\IndexController",
+    'public/index' => "Modulos\Home\IndexController",
     'usuarios/usuarios' => "Modulos\Usuarios\UsuariosController",
     'usuarios/roles' => "Modulos\Usuarios\RolesController",
     'eventos/eventos' => "Modulos\Eventos\EventosController",
-    'sitios/sitios' => "Modulos\Sitios\SitiosController",
-    'sitios/crear' => "Modulos\Sitios\SitiosController",
+   // 'sitios/sitios' => "Modulos\Sitios\SitiosController",
+  //  'sitios/crear' => "Modulos\Sitios\SitiosController",
 //    'sitios/sitdetalles' => "Modulos\Sitios\SitioController",
 //    'sitios/creasitio' => "Modulos\Sitios\CrearsitioController",
     'categorias/categoria' => "Modulos\Categorias\CategoriasController",
     'categorias/categoriadetalle' => "Modulos\Categorias\CategoriaController",
     'seguridad/login' => "Modulos\Seguridad\usuariosController",
     'seguridad/panelcontrol' => "Modulos\Seguridad\panelcontrolController",
-    
+    'sitios/sitios' => "Modulos\Sitios\SitiosController",
 ]);
 /*
   |--------------------------------------------------------------------------

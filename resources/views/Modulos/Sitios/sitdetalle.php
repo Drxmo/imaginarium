@@ -1,3 +1,4 @@
+<?php include_once ('/../../Templates/Frontend/head.php') ?>
 <?php include_once ('/../../Templates/Frontend/header.php') ?>
 
 <section class="container container-fluid main">

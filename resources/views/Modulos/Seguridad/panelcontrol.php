@@ -1,5 +1,5 @@
-<?php include_once ('/../../Templates/Frontend/head.php') ?>
-<?php include_once ('/../../Templates/Frontend/header.php') ?>
+<?php include_once ('/../../Templates/Backend/head.php') ?>
+<?php include_once ('/../../Templates/Backend/header.php') ?>
     
     <div class="pan"><p class="text-center"> Configuración De La Cuenta</p>
         <ul>
@@ -18,8 +18,8 @@
             
                 
                 <h2 style="height: 30px; width:300px">Sitios</h2>
-                <a href="<?php echo url("/sitios/sitios/crear") ?>">Crear Sitio</a>
-                    <p><a href="#">Listar Sitio</a></p>
+                <a href="<?php echo url("/sitios/sitios/indexxx") ?>">Crear Sitio</a>
+                    <p><a href="<?php echo url("/sitios/sitios/index") ?>">Listar Sitio</a></p>
             
             
             

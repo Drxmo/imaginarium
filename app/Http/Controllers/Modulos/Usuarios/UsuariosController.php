@@ -96,7 +96,7 @@ DB::insert("INSERT INTO bdp_dato_usuario "
         $dato_usuario = DB::select("SELECT * FROM bdp_dato_usuario");
 
 
-        return view('Modulos.Usuarios.usuarios.index', compact("usuarios", "dato_usuario", "dato_eseusuario"));
+        return view('Modulos.Usuarios.usuarios.index', compact("usuarios", "dato_usuario"));
     }
 
     function getEditar($id) {

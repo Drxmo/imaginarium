@@ -1,4 +1,5 @@
-<?php include("/../../../Templates/Frontend/header.php") ?>
+<?php include("../../Templates/Backend/head.php") ?>
+<?php include("../../Templates/Backend/header.php") ?>
 
 <div class="container container-fluid ">
   <a href="<?php echo url("sitios/crear") ?>">Crear Sitio </a>
