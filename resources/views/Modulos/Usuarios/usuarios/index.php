@@ -71,7 +71,7 @@ print_r($res_arr);
           <td><?php apellido($id);  ?></td>
           <td><?php $act= $usuario->usu_activado;if ($act== '1'):echo 'Sí' ; else: echo 'No'; endif?></td>
           <td><?php $ro= $usuario->rol_id;if ($ro== '2'):echo 'Usuario' ; else: echo 'SuperUsuario'; endif?></td>
-          <td><a href="<?php echo url("usuarios/usuarios/editar/" . $usuario->usu_id) ?>" >Editar</a></td>
+          <td><a href="<?php echo url("/usuarios/usuarios/editar/" . $usuario->usu_id); ?>" >Editar</a></td>
           <td><a href="<?php echo url("usuarios/usuarios/eliminar/" . $usuario->usu_id) ?>" >Eliminar</a></td>
         </tr>
       <?php } ?>

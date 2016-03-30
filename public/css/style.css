@@ -251,7 +251,14 @@ header h3 span{
 }
 .sitio-head {
   text-align: center;
-  color: #19C933;
+  //color: #19C933;
+  color: blue;
+  margin-bottom: 25px;
+}
+.title-head {
+  text-align: center;
+  //color: #19C933;
+  color: lightcyan;
   margin-bottom: 25px;
 }
 .container-elements{

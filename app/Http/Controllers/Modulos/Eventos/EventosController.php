@@ -1,62 +1,132 @@
 <?php
-
 namespace App\Http\Controllers\Modulos\Eventos;
 
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+use Session;
 /**
- * Description of eventosController
+ * Description of SitiosController
  *
- * @author Usuario
+ * @author Alzate&DRX
  */
-class EventosController extends Controller {
-
-  function getCrear() {
-
-    return view('Modulos.Eventos.eventos.crear', compact("nombre"));
+class EventosController extends controller{
+   
+    function getIndexx(){
+        return view('Modulos.Sitios.sitdetalle_1');
+        
+    }
+    function getEvento() {
+$eventos = DB::select("SELECT * FROM bdp_evento, bdp_imagen WHERE bdp_imagen.eve_id = bdp_evento.eve_id");
+ 
+    return view('Modulos.Eventos.evento', compact('eventos'));
   }
-
-  function postCrear() {
-    $nombre = $_POST['nombre'];
     
-            $eveId->setId($evento->nextId());
-            $catId($eventos['catId']);
-            $estId->setEstadoId($eventos['estadoId']);
-            $usuId->setUsuarioId($eventos['usuId']);
-            $nombreEve->setNombre($eventos['nombre']);
-            $fechaHora->setFecha($eventos['fecha_hora']);
-            $descripcionEve->setDescripcion($eventos['descripcion']);
-            $direccionEve->setDireccion($eventos['direccion']);
-            $telefonoEve->setTelefono($eventos['telefono']);
-            $latitudEve->setLatitud($eventos['latitud']);
-            $LongitudEve->setLongitud($eventos['longitud']);
-            $faceEve->setFacebook($eventos['facebook']);
-            $twiEve->setLatitud($eventos['twitter']);
-            $gooEve->setLatitud($eventos['google_plus']);
-            $cre->setLatitud($eventos['created_at']);
-            $evento->setLatitud($eventos['updated_at']);
-            $evento->setLatitud($eventos['deleted_at']);
-            
-            $evento->save();
+    function getIndex(){
+        $sitios = DB::select("SELECT * FROM bdp_sitio, bdp_imagen WHERE bdp_imagen.sit_id = bdp_sitio.sit_id");
+        //$sitios = $sitios[0];
+        
+        return view('Modulos.Sitios.sitio', compact('sitios'));
+    }
+    function getIndexxx(){
+        
+         $nombre = "Administrador";
+        $categorias = DB::select("SELECT * FROM bdp_categoria");
+       
+        $sub_subcategorias = array();
+        return view('Modulos.eventos.crearevento', compact("categorias", "subcategorias", "sub_subcategorias"));
+    }
+function postIndexxx(){
+     $evento = filter_input_array(INPUT_POST)['evento'];
+        extract($evento);
 
-    DB::insert("INSERT INTO `bdp_evento`(`eve_id`, `usu_id`, `cat_id`, `eve_nombre`, `eve_fecha_hora`, `eve_direccion`, `eve_nombre_contacto`, `eve_correo_contacto`, `eve_telefono_contacto`, `eve_valor_boleta`, `eve_latitud`, `eve_longitud`, `fecha_inicio_publicacion`, `fecha_fin_publicacion`, `est_id`, `eve_created_at`, `eve_updated_at`, `eve_deleted_at`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", array($nombre, $apellido));
-  }
+//    $nombre = $_POST['nombre'];
+//    $apellido = $_POST['apellido'];
 
-  function getEvento() {
+        
+//      'SELECT IFNULL(MAX(usu_id),0)+1 AS id FROM bdp_usuario ORDER BY id DESC LIMIT 1';
+            $eventos = DB::select('SELECT IFNULL(MAX(eve_id),0)+1 AS id FROM bdp_evento ORDER BY id DESC LIMIT 1');
+//            . "SELECT dus_nombre FROM bdp_dato_usuario WHERE usu_id = ?", array($id));
+            $new_arr[] = null;
+            foreach ($eventos as $evento) {
+                $new_arr[] = $evento->id;
+            }
+            $eve_id=  implode($new_arr);
+//            print_r($res_arr);
+        
 
-    return view('Modulos.Eventos.evento');
-  }
+        
+//      
+              
+$target_dir =  realpath(dirname(getcwd()));
 
-  function getEventoIntegro() {
-
-    return view('Modulos.Eventos.eventoIntegro');
-  }
-
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
 }
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 1000000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+        
+        
+         
+                  
+            DB::insert("INSERT INTO bdp_evento "
+                    . "( eve_nombre , eve_descripcion, cat_id, subcat_id, sub_subcat_id,"
+                    . " eve_direccion, eve_latitud, eve_longitud, est_id, eve_facebook, eve_nombre_contacto,"
+                    . " eve_correo_contacto, eve_telefono_contacto, eve_valor_boleta, fecha_inicio_publicacion, fecha_fin_publicacion, usu_id ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", array( $nombre,
+                $descripcion, $cat_id, $subcat_id, $sub_subcat_id, $direccion, $latitud, $longitud, $activado, $facebook, $nombre_contacto, $correo_contacto, $telefono_contacto, $valor_boleta, $fecha_inicio_publicacion, $fecha_fin_publicacion, $usu_id));
+
+
+              DB::insert("INSERT INTO bdp_imagen "
+                    . "( eve_id , img_ruta ) VALUES (?,?)", array( $eve_id,
+                'hola'));
+
+            
+
+            Session::put('success', 'Usuario creado exitosamente');
+
+//    DB::insert("INSERT INTO usuario (nombre, apellido) VALUES(?,?)", array($nombre, $apellido));
+
+            return redirect(url("/eventos/eventos/evento") );
+        
+    }
+    
+}
+    
+

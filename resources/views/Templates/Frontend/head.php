@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?php echo asset('js/jquery-ui-1.11.4/jquery-ui.css') ?>">
     <link rel="stylesheet" href="<?php echo asset('css/bootstrap/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?php echo asset('css/style.css') ?>">
+    <link rel="stylesheet" href="<?php echo asset('css/datepicker.css') ?>">
+    <link rel="stylesheet" href="<?php echo asset('css/bootstrap-datetimepicker.css') ?>">
     <link rel="stylesheet" href="<?php echo asset('css/fonts/style.css') ?>">
     <link rel="stylesheet" href="<?php echo asset('css/estilox.css') ?>">
     <link rel="stylesheet" href="<?php echo asset('css/new.css') ?>">

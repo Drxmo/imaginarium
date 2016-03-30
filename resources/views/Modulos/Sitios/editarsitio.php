@@ -130,23 +130,19 @@ $(function() {
 
 
     });
-//    
-//if (typeof cats != 'undefined'){alert("Seleccione categoria"); }
+
     function myFunction(firstParameter, secondParameter, thirdParameter, fourthParameter) {
         var cats = firstParameter;
         var subcats = secondParameter;
         var sub_subcats = thirdParameter;
         var catsname = fourthParameter;
-        //alert(cats + "  " + subcats + "  " + sub_subcats);
-        alert(firstParameter + "  " + subcats + "  " + sub_subcats);
         $(" #catId").val(cats);
         $(" #subcatId").val(subcats);
         $(" #sub_subcatId").val(sub_subcats);
         $(" #catsname").val(catsname);
 
-        
+        //alert(cats + "  " + subcats + "  " + sub_subcats);
     };
-    
 //     $(".readonly").keydown(function(e){
 //        e.preventDefault();
 //    });
@@ -163,11 +159,10 @@ $(function() {
                 </header>
 
             </article>
-        </main>
-        <div style="clear:both;"></div>
+        </main><div style="clear:both;"></div>
         <div class="row">
             <div class="boxuserX">
-                <form id="myform" class="form-horizontal" action="<?php echo url("/sitios/sitios/indexxx") ?>" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo url("/sitios/sitios/indexxx") ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
 
 
@@ -341,12 +336,12 @@ $(function() {
                         </div>
                     </div>
                     
-<!--                    <div class="form-group">
+                    <div class="form-group">
                         <label class="control-label col-xs-3">usuario de Sitio</label>
                         <div class="col-xs-6">
                             <input type="text" name="date" class="date readonly" placeholder="DD/MM/YYYY" required /><br /><br />
                       </div>
-                    </div>-->
+                    </div>
                         <!--                    <div class="form-group">
                                             <label class="control-label col-xs-3">Estado de Sitio</label>
                                             <div class="col-xs-6">
@@ -430,7 +425,6 @@ $(function() {
                 </div>
             </form>
         </div>
-    </div>
     </div>
 </section>
 

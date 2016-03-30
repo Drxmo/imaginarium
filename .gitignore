@@ -5,3 +5,4 @@ Homestead.json
 .env
 !/vendor/
 /PLAPLI/nbproject/private/
+/facebooklogin/nbproject/private/

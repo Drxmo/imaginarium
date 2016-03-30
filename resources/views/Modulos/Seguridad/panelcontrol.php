@@ -25,7 +25,7 @@
             
             
                 <h2 style="height: 30px; width:300px">Eventos</h2>
-                <p><a href="<?php echo url("/evento/crearevento") ?>">Crear Evento</a></p> 
+                <p><a href="<?php echo url("/eventos/eventos/indexxx") ?>">Crear Evento</a></p> 
                 <p><a href="#">Listar Evento</a></p>
             
         </ul>

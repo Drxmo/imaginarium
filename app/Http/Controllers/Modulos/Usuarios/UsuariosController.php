@@ -100,24 +100,31 @@ DB::insert("INSERT INTO bdp_dato_usuario "
     }
 
     function getEditar($id) {
+        
+         $nombre = "Administrador";
+        $roles = DB::select("SELECT * FROM bdp_rol WHERE rol_id != 1");
 
-        $usuario = DB::select("SELECT * FROM usuario WHERE id = ?", array($id));
+        $usuario = DB::select("SELECT * FROM bdp_usuario WHERE usu_id = ?", array($id));
+        $dato_usuario = DB::select("SELECT * FROM bdp_dato_usuario WHERE usu_id = ?", array($id));
         $usuario = $usuario[0];
+        $dato_usuario = $dato_usuario[0];
 
-        return view('Modulos.Usuarios.usuarios.editar', compact("usuario"));
+        return view('Modulos.Usuarios.usuarios.editar', compact("usuario", "dato_usuario", "nombre", "roles"));
     }
 
     function postEditar() {
-        $id = $_POST['id'];
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
+        $registro = filter_input_array(INPUT_POST)['registro'];
+        extract($registro);
+        
+       
 
-        DB::update("UPDATE usuario SET nombre = ?, apellido = ? WHERE id = ?", array(
-            $nombre,
-            $apellido,
-            $id
-                )
-        );
+        DB::update("UPDATE bdp_usuario SET usu_usuario = ?, usu_password = ? , usu_activado = ? , rol_id = ? , usu_updated_at = ? "
+                . " WHERE usu_id = ?", array($nick, $pass, $activado, $rol, $usu_updated_at, $id1));
+        
+        DB::update("UPDATE bdp_dato_usuario SET  dus_nombre = ?, dus_apellidos = ?, dus_correo = ?, dus_genero = ?,"
+                . " dus_fecha_nacimiento = ?, dus_facebook = ?, dus_twitter = ?,"
+                    . " dus_google_plus = ?, dus_updated_at = ? WHERE usu_id = ?", array($nombre, $apellidos, $email, $genero, $fecha, $facebook,
+                $twitter, $google, $usu_updated_at, $id1));
 
         return redirect(url("usuarios/usuarios/index"));
     }

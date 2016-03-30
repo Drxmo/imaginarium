@@ -13,6 +13,7 @@ class IndexController extends Controller
     function getIndex(){
     	//return view('Modulos.Home.index');
     	return view('index');
-            
+//             header("Location: http://localhost/imaginarium/public/index.php");
+//            exit();
     }
 }

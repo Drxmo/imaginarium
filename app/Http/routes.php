@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::controllers([
     //'home/index' => "Modulos\Home\IndexController",
-    'public/index' => "Modulos\Home\IndexController",
+    'index' => "Modulos\Home\IndexController",
     'usuarios/usuarios' => "Modulos\Usuarios\UsuariosController",
     'usuarios/roles' => "Modulos\Usuarios\RolesController",
     'eventos/eventos' => "Modulos\Eventos\EventosController",
