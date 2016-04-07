@@ -60,14 +60,7 @@
   .stickyX{position: fixed;}
   .sticky{position: fixed;}
 
-  .stickyX2{position: fixed;
-            top: 40px;
-            width: 100%;
-            z-index: 999}
-  .stickyX3{position: fixed;
-            top: 0px;
-            width: 100%;
-            z-index: 999}
+  
   .noStickyX{position:relative !important;
              top:50px;
              -webkit-transition: all 1.7s ease;
@@ -225,7 +218,7 @@
 
             <ul class="nav navbar-nav floatLeftX">
 
-              <li class="contInicioX"><a href=""<?php echo url("index")?>"">Inicio <span class="sr-only">(current)</span></a></li>
+              <li class="contInicioX"><a href="<?php echo url("index") ?>">Inicio <span class="sr-only">(current)</span></a></li>
               <li class="sitiosX"><a href="<?php echo url("/sitios/sitios/index") ?>">Sitios</a></li>
               <li class="eventosX"><a href="<?php echo url("/eventos/eventos/evento") ?>">Eventos</a></li>
               <li class="eventosX"><a href="<?php echo url("/categorias/categoria") ?>">Categorias</a></li>
@@ -235,7 +228,7 @@
 
               <ul class="nav navbar-nav navbar-right navbar-rightX">
 
-                <?php if (isset($_SESSION['user']) !== true): ?>
+                 <?php if (Session::has('user') !== true): ?>
 
                   <li><a class="identificarse" style="display:none" href="#">Identificarse</a></li>
 
@@ -245,12 +238,12 @@
 
                       <li><a href="#">Identificarse</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Crear cuenta</a></li>
+                      <li><a href="<?php echo url("/usuarios/usuarios/crear") ?>">Crear cuenta</a></li>
                       <li role="separator" class="divider"></li>
 
                     </ul>
                   </li>
-
+ <?php else: ?>
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -265,7 +258,7 @@
                       <li role="separator" class="divider"></li>
                       <li><a href="#">Eliminar cuenta</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Cerrar Sesión</a></li>
+                      <li><a href="<?php echo url("/usuarios/usuarios/logout") ?>">Cerrar Sesión</a></li>
                       <li role="separator" class="divider"></li>
                     </ul>
                   </li>

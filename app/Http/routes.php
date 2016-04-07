@@ -11,6 +11,9 @@
   |
  */
 Route::get('/', function () {
+    
+    
+    
   return view('index');
 });
 //Route::get('/', function () {
@@ -26,12 +29,15 @@ Route::controllers([
     'usuarios/usuarios' => "Modulos\Usuarios\UsuariosController",
     'usuarios/roles' => "Modulos\Usuarios\RolesController",
     'eventos/eventos' => "Modulos\Eventos\EventosController",
+    
+    'categorias/categorias' => "Modulos\Categorias\CategoriasController",
+
    // 'sitios/sitios' => "Modulos\Sitios\SitiosController",
   //  'sitios/crear' => "Modulos\Sitios\SitiosController",
 //    'sitios/sitdetalles' => "Modulos\Sitios\SitioController",
 //    'sitios/creasitio' => "Modulos\Sitios\CrearsitioController",
-    'categorias/categoria' => "Modulos\Categorias\CategoriasController",
-    'categorias/categoriadetalle' => "Modulos\Categorias\CategoriaController",
+//    'categorias/categoria' => "Modulos\Categorias\CategoriasController",
+//    'categorias/categoriadetalle' => "Modulos\Categorias\CategoriaController",
     'seguridad/login' => "Modulos\Seguridad\usuariosController",
     'seguridad/panelcontrol' => "Modulos\Seguridad\panelcontrolController",
     'sitios/sitios' => "Modulos\Sitios\SitiosController",

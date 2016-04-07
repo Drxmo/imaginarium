@@ -1,6 +1,31 @@
 
+<?php if (isset($welcome) == true): ?>
 <?php include_once ('/Templates/Frontend/head.php') ?>
 <?php include_once ('/Templates/Frontend/header.php') ?>
+
+
+<style>
+    
+    .smallX{
+    display: inline-block;
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px; 
+    font-weight: bolder;
+    margin-bottom: auto;
+    /*        width: 100%;*/
+    background: transparent;
+    text-align: left;
+    padding-left: 20px;
+    -webkit-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+    transition-delay:all 0.9s ease ;
+
+    z-index: 9999;
+    right: 0px;
+    left: 0px;
+    }
+</style>
 
 <script>
 //    Reemplazar '.contInicioX' 
@@ -155,12 +180,15 @@
 
 
 
-
+//$(document).ready(function() {
+//  document.getElementsByTagName("html")[0].style.visibility = "visible";
+//});
 
 
 
 
 </script>
+
 <!--<div id="headerR">
   <h1 style="padding:0;margin:0;">&lt; aboutcher /&gt;;</h1>
   Parallax Demo
@@ -180,7 +208,7 @@
 
 
       <div class="txt  left ">
-        Auris feugiat diam sapien
+        1Auris feugiat diam sapien
       </div>
       <div style="clear:both;"></div>
       <div class="txt left sub">
@@ -248,18 +276,9 @@
   <div >
     <a  href="#"><img class="contentImg" src="<?php echo asset('img/logo.png') ?>" alt="Buga Logo"/></a>
   </div>
-  <h2>Bienvenidos a BugaTravels...</h2>
-  <p>Vestibulum id magna nibh. Morbi suscipit vestibulum malesuada. Etiam eu eros justo. Mauris semper rutrum felis, ac aliquam 
-    nibh dictum eu. Nam fermentum id tellus tempus tincidunt. 
-    Nulla dictum, ligula vitae feugiat rutrum, urna mauris lobortis
-    neque, vitae accumsan erat erat ut nibh. Donec faucibus porta 
-    lectus non imperdiet.<br>  sapien, consequat 
-    molestie odio placerat eu. Vestibulum id magna nibh. Morbi
-    suscipit vestibulum malesuada. Integer dictum tortor et quam
-    porttitor rhoncus. Integer at mi laoreet dolor rhoncus porttitor.
-    Etiam laoreet, tellus non maximus tempor, ipsum tellus condimentum 
-    est, sit amet auctor sapien lorem ut sapien. Cras nibh felis, 
-    congue at pellentesque quis, suscipit eget est.<br></p>
+  <h2><?php echo $welcome->wel_title ?></h2>
+  
+  <p><?php echo $welcome->wel_content ?><br></p>
   <div style="clear:both;"></div>
 </div>
 <div style="clear:both;"></div>
@@ -288,37 +307,47 @@
     est, sit amet auctor sapien lorem ut sapien.</p>
   <section class="col-md-12">
     <section class="container-fluid">
+        
+        
+        <?php
+                        $count = 0;
+                        foreach ($sitios as $sitio):
+                            if ($count++ == 3)
+                                break;
+                            ?>
       <div class="columnaX">
-        <article class="articuloX articulo">    
-          <a>
-            <img class="imgarticle" src="<?php echo asset('img/i800 b.jpg') ?>" alt="Imagen">
-          </a>
+        <article class="articuloX articulo ">    
+           <div class="contenedor-imgX fxX">
+<!--          <a>-->
+<!--            <img class="imgarticle" src="<?php //echo asset('img/i800 b.jpg') ?>" alt="Imagen">-->
+            <div class="imgback img-contenido" style=" lightcyan;  background-image: url('<?php echo asset("media/img/sitios/".$sitio->img_ruta) ?>');">
+<!--          </a>-->
+</div>
+</div>
           <h2 class="titulo-eventoX titulo-evento">
-            <a href="#">Entretenimiento Nocturno</a>
+            <?php echo ($sitio->sit_nombre) ?>
           </h2>
 
 <!--                    <p><span class="articulofecha"></span> por <span class="articulo-autor"><a href="#">Admin</a></span></p>-->
 
           <p class="parrafoX2 articulo-contenido parrafoX text-justify">
-            Cras nibh felis, 
-            congue at pellentesque quis, suscipit eget est. Etiam eu eros justo. Mauris semper rutrum felis, ac aliquam 
-            nibh dictum eu. Nam fermentum id tellus tempus tincidunt. 
-            Nulla dictum, ligula vitae feugiat rutrum, urna mauris lobortis
-            neque, vitae accumsan erat erat ut nibh. Donec faucibus porta 
-            lectus non imperdiet.<br> Mauris feugiat diam sapien, consequat 
-            molestie odio placerat eu. Vestibulum id magna nibh. Morbi
-            suscipit vestibulum malesuada. Integer dictum tortor et quam
-            porttitor rhoncus. Integer at mi laoreet dolor rhoncus porttitor.
-            Etiam laoreet, tellus non maximus tempor, ipsum tellus condimentum 
-            est, sit amet auctor sapien lorem ut sapien. 
+            <?php echo ((strlen($sitio->sit_descripcion) > 100) ? substr(($sitio->sit_descripcion), 0, 350) . " ..." : ($sitio->sit_descripcion)) ?>
           </p>
           <div class="contenedor-botones">
             <!--                        <a href="#" class="btn btn-primary">Ver Mas</a>-->
-            <a href="#" class="vermas">Ver Mas</a>
+            <a href="<?php echo url("sitios/sitios/versitio/" . $sitio->sit_id) ?>" class="vermas">Ver Mas</a>
           </div>
+          
+          
         </article>      
       </div> 
-      <div class="columnaX">
+        <?php endforeach; ?>
+        
+        
+        
+        
+        
+<!--      <div class="columnaX">
         <article class="articuloX articulo">  
           <a>
             <img class="imgarticle" src="<?php echo asset('img/i800 b.jpg') ?>" alt="Imagen">
@@ -327,7 +356,7 @@
             <a href="#">El Mirador</a>
           </h2>
 
-<!--<p><span class="articulofecha"></span> por <span class="articulo-autor"><a href="#">Admin</a></span></p>-->
+<p><span class="articulofecha"></span> por <span class="articulo-autor"><a href="#">Admin</a></span></p>
 
           <p class="parrafoX2 articulo-contenido parrafoX text-justify">
             nteger dictum tortor et quam
@@ -349,7 +378,7 @@
       </div>
 
       <div class="columnaX">
-        <!--                    <div class="">-->
+                            <div class="">
         <article class="articuloX articulo">    
           <a>
             <img class="imgarticle" src="<?php echo asset('img/i800 b.jpg') ?>" alt="Imagen">
@@ -358,7 +387,7 @@
             <a href="#">Ruta Religiosa</a>
           </h2>
 
-<!--<p><span class="articulofecha"></span> por <span class="articulo-autor"><a href="#">Admin</a></span></p>-->
+<p><span class="articulofecha"></span> por <span class="articulo-autor"><a href="#">Admin</a></span></p>
 
           <p class="parrafoX2 articulo-contenido parrafoX text-justify">
             Etiam eu eros justo. Mauris semper rutrum felis, ac aliquam 
@@ -376,8 +405,10 @@
           <div class="contenedor-botones">
             <a href="#" class="vermas">Ver Mas</a>
           </div></article>  
-        <!--                    </div>-->
-      </div> 
+                            </div>
+      </div> -->
+        
+        
     </section>
   </section>
   <div style="clear:both;"></div>
@@ -393,9 +424,17 @@
   </div>
 </div>
 
-
-
-
+<div id="cover">BugaTravels<br><span>...LOADING...</span></div>
 <?php include_once ('/Templates/Frontend/footer.php') ?>
 <?php include_once ('/Templates/Frontend/foot.php') ?>
 
+<?php else : 
+//    function ninfu(){
+    $index= url("index");
+    header("Location: $index");
+            exit();
+//    return url("index");
+//        }
+//    ninfu();
+    endif;
+    ?>

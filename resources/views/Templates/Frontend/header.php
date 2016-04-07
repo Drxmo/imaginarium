@@ -189,8 +189,8 @@
 
     <!-- importar jQuery -->
 
-    <script src="<?php echo asset('js/jquery/jquery.min.js') ?>"></script>
-    <script src="<?php echo asset('js/jquery/jstiloX.js') ?>"></script>
+<!--    <script src="<?php //echo asset('js/jquery/jquery.min.js') ?>"></script>
+    <script src="<?php //echo asset('js/jquery/jstiloX.js') ?>"></script>-->
 
 
     <div style="clear:both;"></div>
@@ -219,44 +219,52 @@
               <li class="contInicioX"> <a href="<?php echo url("index") ?>">Inicio <span class="sr-only">(current)</span></a></li>
               <li class="sitiosX"><a href="<?php echo url("/sitios/sitios/index") ?>">Sitios</a></li>
               <li class="eventosX"><a href="<?php echo url("/eventos/eventos/evento") ?>">Eventos</a></li>
-              <li class="eventosX"><a href="<?php echo url("/categorias/categoria") ?>">Categorias</a></li>
+              <li class="eventosX"><a href="<?php echo url("/categorias/categorias/categoria") ?>">Categorias</a></li>
 
             </ul>
+              
+               <?php if (Session::has('user') !== true): ?>
+<!--              <div class="navbar-nav navbar-text bienvenida"><h2><?php echo  'Bienvenidos' ?></h2> </div>-->
             <div class="floatRightX">
-
+                
               <ul class="nav navbar-nav navbar-right navbar-rightX">
 
-                <?php if (isset($_SESSION['user']) !== true): ?>
+               
 
-                  <li><a class="identificarse" style="display:none" href="#">Identificarse</a></li>
+<!--                  <li><a class="identificarse" style="display:none" href="#">Identificarse</a></li>-->
 
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
 
-                      <li><a href="#">Identificarse</a></li>
+                      <li><a href="<?php echo url("/usuarios/usuarios/login") ?>">Identificarse</a></li>
                       <li role="separator" class="divider"></li>
                       <li><a href="<?php echo url("/usuarios/usuarios/crear") ?>">Crear cuenta</a></li>
                       <li role="separator" class="divider"></li>
 
                     </ul>
                   </li>
-
+ <?php else: ?>
+                    <div class="navbar-nav navbar-text bienvenida"><h2><?php echo  'Bienvenid'.Session::get('userNombre') ?></h2> </div>
+            <div class="floatRightX">
+                
+              <ul class="nav navbar-nav navbar-right navbar-rightX">
+                  
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta<span class="caret"></span></a>
                     <ul class="dropdown-menu">
 
                       <li><a href="#">Todas</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Editar Datos</a></li>
+                      <li><a href="<?php echo url("/usuarios/usuarios/editar/" . Session::get('user') ); ?>">Editar Datos</a></li>
                       <li role="separator" class="divider"></li>
                       <li><a href="<?php echo url("/seguridad/panelcontrol")?>">Panel de Control</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Cambiar contraseña</a></li>
+                      <li><a href="<?php echo url("/usuarios/usuarios/editar/" . Session::get('user') ); ?>">Cambiar contraseña</a></li>
                       <li role="separator" class="divider"></li>
                       <li><a href="#">Eliminar cuenta</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Cerrar Sesión</a></li>
+                      <li><a href="<?php echo url("/usuarios/usuarios/logout") ?>">Cerrar Sesión</a></li>
                       <li role="separator" class="divider"></li>
                     </ul>
                   </li>

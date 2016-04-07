@@ -44,7 +44,8 @@ body { margin:0;padding:0;}
 }*/
 
 #trans2 {
-  background: url('../../web/img/d2.jpg') no-repeat center center fixed;
+/*  background: url('../../web/img/d2') no-repeat center center fixed;*/
+  background: url('../img/d2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -52,7 +53,7 @@ body { margin:0;padding:0;}
 }
 
 #trans3 {
-  background: url('../../web/img/d3.jpg') no-repeat top center fixed;
+  background: url('../img/d3.jpg') no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

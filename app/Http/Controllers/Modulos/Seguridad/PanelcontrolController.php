@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers\Modulos\Seguridad;
 
+
 use App\Http\Controllers\Controller;
+use \Illuminate\Support\Facades\Session;
 use DB;
 
 

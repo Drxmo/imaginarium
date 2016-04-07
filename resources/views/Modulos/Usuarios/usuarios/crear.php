@@ -1,72 +1,39 @@
 <?php include("/../../../Templates/Backend/head.php") ?>
 <?php include("/../../../Templates/Backend/header.php") ?>
+<style>
+   
 
+</style>
+ <div style="clear:both;"></div>
 
+        <div class="container container-fluid ">
+            <?php echo "Bienvenido <code>" . $nombre . "</code>" ?>
+            <main class="container" role="main">
+                <article class="">                        
+                    <header class="title-head">
+                        <h3><span>Crear Usuario</span></h3>
+                    </header>
 
+                </article>
+            </main>
 
+            <form class="form-horizontal" id="formvalidate" novalidate action="<?php echo url("usuarios/usuarios/crear") ?>" method="post">
 
-
-
-?>
-
-<script>
-
-
-    $(".readonly").keydown(function (e) {
-        e.preventDefault();
-    });
-
-// To user jQuery DatePicker 
-    $(function () {
-        $(".date").datepicker({
-            dateFormat: 'yy/mm/dd',
-            buttonImageOnly: true,
-            buttonText: "Select date"
-        });
-    });
-
-
-
-</script>
-
-
-
-
-
-
-
-<div class="container container-fluid ">
-    <?php echo "Bienvenido <code>" . $nombre . "</code>" ?>
-    <main class="container" role="main">
-        <article class="">                        
-            <header class="sitio-head">
-                <h3><span>Crear Usuario</span></h3>
-            </header>
-
-        </article>
-    </main>
-
-    <form class="form-horizontal" action="<?php echo url("usuarios/usuarios/crear") ?>" method="post">
-
-        <!--        <div class="row">
-                    <div class="form-group col-lg-6">
-                        <input type="text" class="form-control col-lg-6" placeholder="Digite nombre" name="nombre" />
+                
+                <div class="form-group">
+                    <label class="control-label col-xs-3 lightcyan">Nombre de Usuario:</label>
+                    <div class="regInput col-xs-9">
+                        <input type="text" class="form-control" id="registro" placeholder="Nombre" name="registro[nick]">
                     </div>
-                    <div class="form-group col-lg-6">
-                        <input class="form-control col-lg-6" type="text" placeholder="Digite apellido" name="apellido" />
-                    </div>
-                </div>-->
 
+                
 
-
-        <div class="form-group">
-            <label class="control-label col-xs-3">Nombre de Usuario:</label>
-            <div class="regInput col-xs-9">
-                <input required type="text" class="form-control" id="nombre" placeholder="Nombre" name="registro[nick]">
-            </div>
-
+                
+                
+                
+                
             <div class="col-xs-2">
-                <label class="radio-inline" style="top:-15px;">Rol: 
+                <label class="radio-inline" style="top:-15px;"><span class="lightcyan">Rol:</span> 
                     <select name="registro[rol]" required>
                         <option></option>
                         <?php
@@ -79,11 +46,12 @@
                     </select>
                 </label>
             </div>
+            </div>
 
 
 
 
-        </div>
+       
 
 
 
@@ -98,13 +66,13 @@
             <div class="col-xs-2">
 
                 <label class="radio-inline">
-                    <input type="radio" name="registro[activado]" value="1" checked> Activado<br>
+                    <input type="hidden" name="registro[activado]" value="1" checked><span  class="lightcyan"> Activado</span><br>
                 </label>
             </div>
             <div class="col-xs-2">
 
                 <label class="radio-inline">
-                    <input type="radio" name="registro[activado]" value="0"> Desactivado<br>
+<!--                    <input type="radio" name="registro[activado]" value="0"> Desactivado<br>-->
                 </label>
             </div>
         </div>
@@ -116,7 +84,7 @@
         <div class="form-group ">
             <label class="control-label col-xs-3">Password:</label>
             <div class="regInput col-xs-9">
-                <input required type="password" class="form-control" id="inputPassword" placeholder="Password" name="registro[pass]">
+                <input required type="password" id="password" class="form-control" placeholder="Password" name="registro[pass]">
             </div>
         </div>
         <div class="form-group">
@@ -140,7 +108,7 @@
         <div class="form-group">
             <label class="control-label col-xs-3">Fecha de Nacimiento:</label>
             <div class="col-xs-6">
-                <input type="text" name="registro[fecha]" class="date readonly form-control" placeholder="DD/MM/YYYY" required /><br /><br />
+                <input type="text" name="registro[fecha]" class="date readonly form-control" placeholder="YYYY/MM/DD" required /><br /><br />
             </div>
         </div>
         <div class="form-group">
@@ -152,7 +120,7 @@
         <div class="form-group">
             <label class="control-label col-xs-3">Facebook:</label>
             <div class="col-xs-9">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="registro[facebook]">
+                <input type="text" class="form-control" id="datetimepicker" placeholder="Email" name="registro[facebook]">
             </div>
         </div>  
         <div class="form-group">
@@ -178,15 +146,16 @@
 
 
         <div class="form-group">
-            <label class="control-label col-xs-3">Genero:</label>
+            <label class="control-label col-xs-3 "><span  class="invisible">Genero:</span></label>
             <div class="col-xs-2">
-                <label class="radio-inline">
-                    <input type="radio" name="registro[genero]" value="1" name="registro[genero]">Hombre
+                <label class="radio-inline genero">
+                    <li>
+                        <input type="radio" name="registro[genero]" value="1" name="registro[genero]"><span  class="lightcyan">Hombre</span></li>
                 </label>
             </div>
             <div class="col-xs-2">
                 <label class="radio-inline">
-                    <input type="radio" name="registro[genero]" value="0" name="registro[genero]">Mujer
+                    <input type="radio" name="registro[genero]" value="0" name="registro[genero]"><span  class="lightcyan">Mujer</span>
                 </label>
             </div>
         </div>
@@ -209,11 +178,202 @@
         <br>
 
 
-        <input class="btn btn-default btn-success" type="submit" value="Guardar" />
-        <!--        <a href="http://localhost/imaginarium/public/index.php" class="btn btn-default btn-cancel" value="Guardar">Cancelar</a>-->
-        <a href="<?php echo url("/seguridad/panelcontrol") ?>" class="btn btn-default btn-cancel" >Cancelar</a>
+       
+                
+                
+                
+                
+                
+                <input class="btn btn-default btn-success" type="submit" value="Guardar" />
+                <!--        <a href="http://localhost/imaginarium/public/index.php" class="btn btn-default btn-cancel" value="Guardar">Cancelar</a>-->
+                <a href="<?php echo url("/seguridad/panelcontrol") ?>" class="btn btn-default btn-cancel" >Cancelar</a>
 
-    </form>
-</div>
+            </form>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+    
+
+        <script>
+
+
+   
+ $(document).ready(function () {
+                // validate the comment form when it is submitted
+                //$("#feedback_form").validate();
+var r5 = 5;
+var r10 = 10;
+var r2 = 2;
+
+                // validate signup form on keyup and submit
+                $("#formvalidate").validate({
+                    rules: {
+                        "registro[nick]": {
+                        required: true,
+                        minlength: r5
+                        },
+                        "registro[rol]": {
+                        required: true
+
+                        },
+                        "registro[activado]": {
+                        required: true
+
+                        },
+                        "registro[pass]": {
+                        required: true,
+                        minlength: r5
+                        },
+                        "registro[pass2]": {
+                        required: true,
+                        minlength: r5,
+                        equalTo: "#password"
+                        },
+                        "registro[nombre]": {
+                        required: true,
+                        minlength: r2
+                        },
+                        "registro[apellidos]": {
+                        required: true,
+                        minlength: r2
+                        },
+                        "registro[fecha]": {
+                        required: true
+                        },
+                        "registro[email]": {
+                        required: true
+                        },
+    //                  "registro[email]": {
+    //                    required: true
+    //                  
+    //                  },
+//                        "registro[facebook]": {
+//                        required: true
+//
+//                        },
+//                        "registro[twitter]": {
+//                        required: true
+//
+//                        },
+//                        "registro[google]": {
+//                        required: true
+//
+//
+//                        },
+                        
+                        "registro[genero]": {
+                        required: true
+
+                        }
+
+                    //agree: "required"
+                    },
+                        messages: {                
+                        "registro[nick]": {
+                        required: "Ingrese UserName.",
+                        minlength: "Your Full Name must consist of at least " + r5 +  " characters long."
+                        },
+                        "registro[rol]": {
+                        required: "Seleccione Rol."
+
+                        },
+                        "registro[activado]": {
+                        required: "Seleccione estado."
+
+                        },
+                        "registro[pass]": {
+                        required: "Ingrese contraseña.",
+                        minlength: "Password debe ser mayor a " + r5 +  " characters long."
+                        },
+                        "registro[pass2]": {
+                        required: "Confirme Contraseña.",
+                        minlength: "Password debe ser mayor " + r5 +  " characters long.",
+                        equalTo: "Por favor ingrese misma password as above."
+                        },
+                        "registro[nombre]": {
+                        required: "Ingrese Nombre Completo.",
+                        minlength: "Nombre de minimo " + r2 +  " caracteres."
+                        },
+                        "registro[apellidos]": {
+                        required: "Ingrese Apellidos.",
+                        minlength: "Apellido de minimo " + r2 +  " characters long."
+                        },
+                        "registro[fecha]": {
+                        required: "ingrese Fecha de nacimiento."
+
+                        },
+                        "registro[email]": {
+                            required:"Ingrese dirección de email valida."
+                        },
+    //                "registro[facebook]": {
+    //                    required: "Ingrese facebook."
+    //                    
+    //                },
+                        "registro[twitter]": {
+                        required: "Ingrese twitter."
+                        },
+                        "registro[google]": {
+                        required: "Ingrese Google Plus."
+
+                        },
+                        "registro[genero]": {
+                        required: "Seleccione genero."
+
+                        }
+                
+                    //agree: "Please accept our terms & condition."
+                }
+            
+        });
+      
+     
+     
+      
+      
+        });
+        
+
+
+
+    $(".readonly").keydown(function (e) {
+        e.preventDefault();
+    });
+// To user jQuery DatePicker 
+    $(function () {
+        $(".date").datepicker({
+            dateFormat: 'yy/mm/dd',
+            buttonImageOnly: true,
+            buttonText: "Select date",
+            maxDate: "-1",
+            minDate: "-100y",
+            defaultDate: new Date(1988, 2 - 1, 9),
+            
+             changeMonth: true,
+      changeYear: true
+
+
+        });
+        
+//         $(".date").datepicker().on('changeYear', function(e){ 
+//   var currYear = String(e.date).split(" ")[3];
+// });
+        
+    });
+    
+
+
+//
+//$('.timepicker').wickedpicker();
+//$('#datetimepicker').datetimepicker();
+        </script>
+        
+      <?php include("/../../../Templates/Backend/footer.php") ?>
 <?php include("/../../../Templates/Backend/foot.php") ?>
-<?php include("/../../../Templates/Backend/footer.php") ?>
+ 
+

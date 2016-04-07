@@ -36,10 +36,9 @@ print_r($res_arr);
 
 <div class="container container-fluid ">
   <a href="<?php echo url("usuarios/usuarios/crear") ?>"> + Agregar usuario </a>
-  <?php Session::get('success')?>
   <?php if (Session::has('success')): ?>
                 <br>
-                <div class="alert alert-danger" role="alert"><?php Session::get('success') ?></div>
+                <div class="alert alert-success" role="alert"><?php echo Session::get('success') ?></div>
                 <br>
                 <?php endif ?>
  
@@ -55,7 +54,8 @@ print_r($res_arr);
         <th>&nbsp&nbsp Activo &nbsp&nbsp</th>
         <th>&nbsp&nbsp&nbsp&nbsp Rol &nbsp&nbsp&nbsp&nbsp</th>
         <th> &nbsp&nbsp Editar &nbsp&nbsp</th>
-        <th> &nbsp&nbsp Elimiar &nbsp&nbsp</th>
+        <th> &nbsp&nbsp Inhabilitar &nbsp&nbsp</th>
+        <th> &nbsp&nbsp Eliminar &nbsp&nbsp</th>
       </tr>
     </thead>
     <tbody>
@@ -67,11 +67,18 @@ print_r($res_arr);
           <td><?php echo $count++ ?></td>
           <td><?php echo $usuario->usu_id; $id = $usuario->usu_id; ?></td>
           <td><?php echo $usuario->usu_usuario ?></td>
-          <td><?php nombre ($id);  ?></td>
+          <td><a href="<?php echo url("usuarios/usuarios/index2") ?>"><?php nombre ($id);  ?></a></td>
           <td><?php apellido($id);  ?></td>
           <td><?php $act= $usuario->usu_activado;if ($act== '1'):echo 'Sí' ; else: echo 'No'; endif?></td>
           <td><?php $ro= $usuario->rol_id;if ($ro== '2'):echo 'Usuario' ; else: echo 'SuperUsuario'; endif?></td>
           <td><a href="<?php echo url("/usuarios/usuarios/editar/" . $usuario->usu_id); ?>" >Editar</a></td>
+          
+          <td><?php if(empty($usuario->usu_deleted_at) == true) : ?>
+   <a href="<?php echo url("usuarios/usuarios/suspender/" . $usuario->usu_id) ?>" >Suspender</a>
+<?php else : ?>
+    <label>Suspendido</label>
+<?php endif; ?></td>
+          
           <td><a href="<?php echo url("usuarios/usuarios/eliminar/" . $usuario->usu_id) ?>" >Eliminar</a></td>
         </tr>
       <?php } ?>

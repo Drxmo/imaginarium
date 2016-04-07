@@ -14,8 +14,6 @@ and open the template in the editor.
 /*CARRUSEL MEJORADOR*/
 
 
-
-
 @font-face {
   font-family: 'ws-ctrl-convex';
   src: url('ws-ctrl-convex.eot');
@@ -27,6 +25,7 @@ and open the template in the editor.
 @font-face {
   font-family: 'ws-ctrl-convex';
 }
+
 #wowslider-containerCDAP { 
   display: table;
   zoom: 1; 
@@ -531,9 +530,7 @@ div#ws_fullscreen:fullscreen {
   height: 100%;
 }
 
-.innerCDAP{
-  height: 225px;
-}
+
 
 
 /*CARRUSEL TERMINADO*/
@@ -658,13 +655,48 @@ div#allCDAP {
 
 /*IMÁGENES CON EFECTO TERMINADO*/
 
+.descriptionCDAP{
+  margin-top: 85px;
+  margin-bottom: 85px;
+  text-align: center;
+}
+
+.lineaCDAP{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid blue;
+
+}
+
+#tituCDAP{
+  text-align: center;
+  color:  #fff;
+
+}
 
 
-/*EVENTO INTEGRO*/
+.texCDAP{
+  color: #e6e6e6;
+}
 
 
 
-/*EVENTO INTEGRO TERMINADO*/
+.litransCDAP{
+  color:transparent;
+}
+
+#baje{
+  bottom:-800px;
+}
 
 
-/*Termina Eventos*/
+/*EVENTO DETALLE*/
+
+
+
+
+
+/*EVENTO DETALLE TERMINADO*/
+
+
+/*Termina Eventos*/      

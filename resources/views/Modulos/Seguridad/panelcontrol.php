@@ -1,33 +1,36 @@
 <?php include_once ('/../../Templates/Backend/head.php') ?>
 <?php include_once ('/../../Templates/Backend/header.php') ?>
     
-    <div class="pan"><p class="text-center"> Configuración De La Cuenta</p>
+    <div class="pan"><p class="text-center"> Panel de Control </p>
         <ul>
                      
                 
             <h2 style="height: 30px; width:300px">Cuenta</h2>
-                <p><a href="evento.html.php">Modificar</a>
-                <p><a href="#">Aqui va algo</a></p>
+                <p><a href="<?php echo url("/usuarios/usuarios/editar/" . Session::get('user') ); ?>">Modificar</a>
+                <p><a href="<?php echo url("/usuarios/usuarios/eliminar") ?>">Eliminar cuenta</a></p>
                 <p><a href="#">Aqui va otro algo</a></p>
                 <p><a href="#">Volver</a></p>
             
-                                
+                 <?php   if(Session::get('rol') == 3):       ?>    
             <h2 style="height: 30px; width:300px">Usuario</h2>
                 <a href="<?php echo url("/usuarios/usuarios/crear") ?>">Crear Usuario</a>
                     <p><a href="<?php echo url("/usuarios/usuarios/index") ?>">Listar Usuarios</a></p>
-            
+            <?php  endif;      ?> 
                 
                 <h2 style="height: 30px; width:300px">Sitios</h2>
                 <a href="<?php echo url("/sitios/sitios/indexxx") ?>">Crear Sitio</a>
-                    <p><a href="<?php echo url("/sitios/sitios/index") ?>">Listar Sitio</a></p>
+                    <p><a href="<?php echo url("/sitios/sitios/listar") ?>">Listar Sitio</a></p>
             
             
             
             
                 <h2 style="height: 30px; width:300px">Eventos</h2>
-                <p><a href="<?php echo url("/eventos/eventos/indexxx") ?>">Crear Evento</a></p> 
-                <p><a href="#">Listar Evento</a></p>
+                <a href="<?php echo url("/eventos/eventos/crear") ?>">Crear Evento</a> 
+                <p><a href="<?php echo url("/eventos/eventos/listar") ?>">Listar Evento</a></p>
             
+                <h2 style="height: 30px; width:300px">Categorias</h2>
+                <a href="<?php echo url("/categorias/categorias/crear") ?>">Crear Categoria</a> 
+                <p><a href="<?php echo url("/categorias/categorias/listar") ?>">Listar Categorias</a></p>
         </ul>
         
         

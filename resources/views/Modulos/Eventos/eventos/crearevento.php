@@ -1,8 +1,8 @@
 <?php include_once ('/../../Templates/Backend/head.php') ?>
 <?php include_once ('/../../Templates/Backend/header.php') ?>
-<style>
+<!--<style>
     .control-label{
-            color: rgba(247,247,247,0.9) !important;}
+        color: rgba(247,247,247,0.9) !important;}
     .dropdown-menu>li
     {	position:relative;
       -webkit-user-select: none; /* Chrome/Safari */        
@@ -27,419 +27,433 @@
         //background-color: #161616;
 
         background-color: #3d4744;
-           }
-/*            .btn-category:hover {
-                background-color: darkslategray !important;
-            }*/
-        .dropdown-menu  {
-            background-color: rgba(50,50,50,0.94) !important;
-        }
-        .dropdown-menu > li > a {
-            display: block;
-            padding: 3px 20px;
-            clear: both;
-            font-weight: normal;
-            line-height: 1.22857143;
-            color: whitesmoke;
-            white-space: nowrap;
-        }
-        .dropdown-menu > li > a:hover{
-            color: lightcyan;
-        }
-        .dropdown-menu .sub-menu {
-            left: 100%;
-            position: absolute;
-            top: 0;
-            display:none;
-            margin-top: -1px;
-            border-top-left-radius:0;
-            border-bottom-left-radius:5px;
-            border-left-color: black;
-            box-shadow:none;
-            border-color: black !important;
-border-width: 1.5px;
-        }
-        .right-caret:after,.left-caret:after
-            {	content:"";
-          border-bottom: 5px solid transparent;
-          border-top: 5px solid transparent;
-          display: inline-block;
-          height: 0;
-          vertical-align: middle;
-          width: 0;
-          margin-left:5px;
-        }
-        .right-caret:after
-            {	border-left: 5px solid #ffaf46;
-        }
-        .left-caret:after
-            {	border-right: 5px solid #ffaf46;
-        }
-        .form-horizontal .control-label{
-            color: rgba(247,247,247,0.9) !important;
-        }
-       
-        .form-control{
-            background-color: rgba(255,255,255,0.97) !important;
-        } 
+    }
+    /*            .btn-category:hover {
+                    background-color: darkslategray !important;
+                }*/
+    .dropdown-menu  {
+        background-color: rgba(50,50,50,0.94) !important;
+    }
+    .dropdown-menu > li > a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: 1.22857143;
+        color: whitesmoke;
+        white-space: nowrap;
+    }
+    .dropdown-menu > li > a:hover{
+        color: lightcyan;
+    }
+    .dropdown-menu .sub-menu {
+        left: 100%;
+        position: absolute;
+        top: 0;
+        display:none;
+        margin-top: -1px;
+        border-top-left-radius:0;
+        border-bottom-left-radius:5px;
+        border-left-color: black;
+        box-shadow:none;
+        border-color: black !important;
+        border-width: 1.5px;
+    }
+    .right-caret:after,.left-caret:after
+    {	content:"";
+      border-bottom: 5px solid transparent;
+      border-top: 5px solid transparent;
+      display: inline-block;
+      height: 0;
+      vertical-align: middle;
+      width: 0;
+      margin-left:5px;
+    }
+    .right-caret:after
+    {	border-left: 5px solid #ffaf46;
+    }
+    .left-caret:after
+    {	border-right: 5px solid #ffaf46;
+    }
+    .form-horizontal .control-label{
+        color: rgba(247,247,247,0.9) !important;
+    }
 
-    </style>
-    <script>
+    .form-control{
+        background-color: rgba(255,255,255,0.97) !important;
+    } 
 
-        $(function () {
-            $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
-                var current = $(this).next();
-                var grandparent = $(this).parent().parent();
-                if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
-                    $(this).toggleClass('right-caret left-caret');
-                grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
-                grandparent.find(".sub-menu:visible").not(current).hide();
-                current.toggle();
-                e.stopPropagation();
-            });
-            $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
-                var root = $(this).closest('.dropdown');
-
-                root.find('.left-caret').toggleClass('right-caret left-caret');
-                root.find('.sub-menu:visible').hide();
+</style>-->
 
 
-            });
+<section class="main container regcontainer">
+    <main class="container" role="main">
+        <article class="">                        
+            <header class="title-head">
+                <h3><span>Crear Evento</span></h3>
+            </header>
 
 
 
-        });
 
-        function myFunction(firstParameter, secondParameter, thirdParameter) {
-            var cats = firstParameter;
-            var subcats = secondParameter;
-            var sub_subcats = thirdParameter;
-            $(" #catId").val(cats);
-            $(" #subcatId").val(subcats);
-            $(" #sub_subcatId").val(sub_subcats);
-
-            //alert(cats + "  " + subcats + "  " + sub_subcats);
-        }
-        ;
+        </article>
+    </main>
+    <div style="clear:both;"></div>
+    <div class="row">
+        <div class="boxuserX">
+            <form class="form-horizontal" action="<?php echo url("/eventos/eventos/indexxx") ?>" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
 
 
-  $(document).ready(function() {
-        // adding todays date as the value to the datepickers.
-        var d = new Date();
-        var curr_day = d.getDate();
-        var curr_month = d.getMonth() + 1; //Months are zero based
-        var curr_year = d.getFullYear();
-        var eutoday = curr_day + "-" + curr_month + "-" + curr_year;
-        var ustoday = curr_month + "-" + curr_day + "-" + curr_year;
-        $("div.datepicker input").attr('value', eutoday);
-        $("div.usdatepicker input").attr('value', ustoday);
-
-        //calling the datepicker for bootstrap plugin
-        // https://github.com/eternicode/bootstrap-datepicker
-        // http://eternicode.github.io/bootstrap-datepicker/
-        $('.datepicker').datepicker({
-            autoclose: true,
-            startDate: new Date()
-        });
-    });
-    </script>
+                  <div style="clear:both;"></div>
 
 
+                <div class="form-group">
+                    <div class="dropdown" style="position:relative">
+                        <a href="#" class="btn  btn-category dropdown-toggle" data-toggle="dropdown">Seleccione Categoria <span class="caret"></span></a>
 
-    <section class="main container regcontainer">
-        <main class="container" role="main">
-            <article class="">                        
-                <header class="title-head">
-                    <h3><span>Crear Evento</span></h3>
-                </header>
+                        <ul class="dropdown-menu">
+                            <?php
+                            $cat = 1;
+                            $subcat0 = 0;
+                            $subcat = 1;
+                            $sub_subcat = 1;
+                            foreach ($categorias as $categoria) {
+                                ?>
+                                <li>
+                                    <a href="#<?php
+                                    $sitcatId = $cat;
+                                    $sitsubcatId = 0;
+                                    $sitsubsubcatId = 0;
+                                    ?>"  onclick="myFunction(<?php echo $cat ?>,<?php echo 0 ?>, <?php echo 0 ?>)" class="trigger right-caret">&nbsp<?php echo $categoria->cat_nombre ?><?php //echo 'cat: ' . $cat . ' , subcat: ' . $subcat0  ?>&nbsp</a>
 
-            </article>
-        </main>
-        <div style="clear:both;"></div>
-        <div class="row">
-            <div class="boxuserX">
-                <form class="form-horizontal" action="<?php echo url("/eventos/eventos/indexxx") ?>" method="post">
-                    <div class="form-group">
-
-
-                        <div style="clear:both;"></div>
-
-
-                        <div class="form-group">
-                            <div class="dropdown" style="position:relative">
-                                    <a href="#" class="btn  btn-category dropdown-toggle" data-toggle="dropdown">Seleccione Categoria <span class="caret"></span></a>
-
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu sub-menu">
                                         <?php
-                                        $cat = 1;
-                                        $subcat0 = 0;
-                                        $subcat = 1;
-                                        $sub_subcat = 1;
-                                        foreach ($categorias as $categoria) {
+                                        $subcategorias0 = DB::select("SELECT * FROM bdp_subcategoria WHERE cat_id IS NULL");
+
+
+                                        foreach ($subcategorias0 as $subcategoria) {
                                             ?>
                                             <li>
-                                                <a href="#<?php
-                                                $sitcatId = $cat;
-                                                $sitsubcatId = 0;
-                                                $sitsubsubcatId = 0;
-                                                ?>"  onclick="myFunction(<?php echo $cat ?>,<?php echo 0 ?>, <?php echo 0 ?>)" class="trigger right-caret">&nbsp<?php echo $categoria->cat_nombre ?><?php //echo 'cat: ' . $cat . ' , subcat: ' . $subcat0  ?>&nbsp</a>
+                                                <a  class="trigger right-caret" >&nbsp<?php echo $subcategoria->subcat_nombre ?>&nbsp</a>
+                                            </li>
 
+                                            <?php
+                                        }
+                                        $subcategorias = DB::select("SELECT * FROM bdp_subcategoria WHERE cat_id=? ORDER BY subcat_id ASC", array($cat));
+
+
+
+                                        foreach ($subcategorias as $subcategoria) {
+                                            ?>
+                                            <li>
+                                                <a class="trigger right-caret" onclick="myFunction(<?php echo $cat ?>,<?php echo $subcat ?>, <?php echo 0 ?>)">&nbsp<?php echo $subcategoria->subcat_nombre ?><?php // . ' , cat: ' . $cat . ' , subcat: ' . $subcat   ?>&nbsp</a>
+
+                                                <?php //$subcat = $subcat + 1;  ?>
                                                 <ul class="dropdown-menu sub-menu">
                                                     <?php
-                                                    $subcategorias0 = DB::select("SELECT * FROM bdp_subcategoria WHERE cat_id IS NULL");
+                                                    $sub_subcategorias0 = DB::select("SELECT * FROM bdp_sub_subcategoria WHERE cat_id IS NULL");
 
 
-                                                    foreach ($subcategorias0 as $subcategoria) {
+                                                    foreach ($sub_subcategorias0 as $sub_subcategoria0) {
                                                         ?>
                                                         <li>
-                                                            <a  class="trigger right-caret" >&nbsp<?php echo $subcategoria->subcat_nombre ?>&nbsp</a>
+                                                            <a class="trigger right-caret" >&nbsp<?php echo $sub_subcategoria0->sub_subcat_nombre ?>&nbsp</a>
                                                         </li>
 
                                                         <?php
                                                     }
-                                                    $subcategorias = DB::select("SELECT * FROM bdp_subcategoria WHERE cat_id=? ORDER BY subcat_id ASC", array($cat));
 
+                                                    //$subcat= $subcat + 1;
+                                                    $sub_subcategorias = DB::select("SELECT * FROM bdp_sub_subcategoria WHERE cat_id = ? AND subcat_id=?", array($cat, $subcat));
 
-
-                                                    foreach ($subcategorias as $subcategoria) {
+                                                    foreach ($sub_subcategorias as $sub_subcategoria) {
+                                                        //if (is_null($sub_subcategoria->subcat_id)): $high = 1  ;else: 
                                                         ?>
+
                                                         <li>
-                                                            <a class="trigger right-caret" onclick="myFunction(<?php echo $cat ?>,<?php echo $subcat ?>, <?php echo 0 ?>)">&nbsp<?php echo $subcategoria->subcat_nombre ?><?php // . ' , cat: ' . $cat . ' , subcat: ' . $subcat ?>&nbsp</a>
+                                                            <a class="trigger right-caret" onclick="myFunction(<?php echo $cat ?>,<?php echo $subcat ?>, <?php echo $sub_subcategoria->sub_subcat_id ?>)">&nbsp<?php echo $sub_subcategoria->sub_subcat_nombre ?><?php // . ' , cat: ' . $cat . ' , subcat: ' . $subcat . ' , sub_subcat: ' . $sub_subcategoria->sub_subcat_id    ?>&nbsp </a>
 
-                                                                <?php //$subcat = $subcat + 1;  ?>
-                                                            <ul class="dropdown-menu sub-menu">
-                                                                <?php
-                                                                $sub_subcategorias0 = DB::select("SELECT * FROM bdp_sub_subcategoria WHERE cat_id IS NULL");
-
-
-                                                                foreach ($sub_subcategorias0 as $sub_subcategoria0) {
-                                                                    ?>
-                                                                    <li>
-                                                                        <a class="trigger right-caret" >&nbsp<?php echo $sub_subcategoria0->sub_subcat_nombre ?>&nbsp</a>
-                                                                    </li>
-
-                                                                    <?php
-                                                                }
-
-                                                                //$subcat= $subcat + 1;
-                                                                $sub_subcategorias = DB::select("SELECT * FROM bdp_sub_subcategoria WHERE cat_id = ? AND subcat_id=?", array($cat, $subcat));
-
-                                                                foreach ($sub_subcategorias as $sub_subcategoria) {
-                                                                    //if (is_null($sub_subcategoria->subcat_id)): $high = 1  ;else: 
-                                                                    ?>
-
-                                                                    <li>
-                                                                        <a class="trigger right-caret" onclick="myFunction(<?php echo $cat ?>,<?php echo $subcat ?>, <?php echo $sub_subcategoria->sub_subcat_id ?>)">&nbsp<?php echo $sub_subcategoria->sub_subcat_nombre ?><?php // . ' , cat: ' . $cat . ' , subcat: ' . $subcat . ' , sub_subcat: ' . $sub_subcategoria->sub_subcat_id  ?>&nbsp </a>
-
-                                                                    </li>
-                                                                    <?php
-                                                                    //endif;
-                                                                    //$subcat = $subcat + 1;
-                                                                }
-                                                                $subcat = $subcat + 1;
-                                                                //$subcat = $subcat++;
-                                                                //$subcat = $subcat++;
-                                                                //$cat= $cat++;
-                                                                ?>
-                                                            </ul>
                                                         </li>
                                                         <?php
+                                                        //endif;
+                                                        //$subcat = $subcat + 1;
                                                     }
-                                                    $cat = $cat + 1;
-                                                    //$cat = $cat++;
+                                                    $subcat = $subcat + 1;
+                                                    //$subcat = $subcat++;
+                                                    //$subcat = $subcat++;
+                                                    //$cat= $cat++;
                                                     ?>
                                                 </ul>
                                             </li>
-<?php }
-?>
+                                            <?php
+                                        }
+                                        $cat = $cat + 1;
+                                        //$cat = $cat++;
+                                        ?>
                                     </ul>
-                                    </select>
-                                </div>
-                            </div>
-                            <div style="clear:both;"></div>
-
-                        <input type="hidden"  id="catId" value="" name="evento[cat_id]">
-                        <input type="hidden"  id="subcatId" value="" name="evento[subcat_id]">
-                        <input type="hidden"  id="sub_subcatId" value="" name="evento[sub_subcat_id]">
-
-                        <!--                    <div class="form-group">
-                                                <label class="control-label col-xs-3">Categoria:</label>
-                                                <div class="col-xs-2">
-                        
-                                                    <label class="radio-inline">
-                                                        <select name="evento[rol]">
-                        <?php
-//foreach ($categorias as $categoria) {
-                        ?>
-                                                                <option value="<?php //echo $categoria->cat_id ?>">&nbsp<?php //echo $categoria->cat_nombre ?>&nbsp</option>
-                        
-<?php //}  ?>
-                        
-                                                        </select>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <br>-->
-
-
-                        <div class="form-group">
-                            <label Id="" class="control-label labelx col-xs-3">Nombre Evento:</label>
-                            <div class="col-xs-9">
-                                <input type="text" class="form-control" id="nombre" name="evento[nombre]">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Descripcion Evento:</label>
-                            <div class="col-xs-9">
-                                <textarea class="form-control" id="descripcionevento" name="evento[descripcion]"></textarea>
-                            </div>
-                        </div>
-                        <!--                    <div class="form-group">
-                                                <label class="control-label col-xs-3">Categoria de evento</label>
-                                                <div class="col-xs-6">
-                                                    <input type="text" required class="form-control" id="direccionevento" name="evento[catId]">
-                                                </div>
-                                            </div> -->
-
-                        <div class="form-group ">
-                            <label class="control-label col-xs-3">Estado:</label>
-                            <div class="col-xs-2">
-
-                                <label class="radio-inline">
-                                    <input type="radio" name="evento[activado]" value="1" checked> Activado<br>
-                                </label>
-                            </div>
-                            <div class="col-xs-2">
-
-                                <label class="radio-inline">
-                                    <input type="radio" name="evento[activado]" value="0"> Desactivado<br>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-            <label class="control-label col-xs-3">Fecha de Evento:</label>
-            <div class="col-xs-6">
-
-                <input type="text" id="datepicker" class="form-control" id="inputFecha" placeholder="YYYY-MM-DD" name="registro[fecha]">    
-                <input type="hidden" id="format" value="mm/dd/yy">
-            </div>
-
-        </div>
-                        
-                        
-                        
-                        <a data-target="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-
-<div class="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-remote="/mmfansler/aQ3Ge/show/">
-  <div class="modal-header">
-      Header
-  </div>
-<div class="input-append date datepicker no-padding" data-date-format="dd-mm-yyyy">
-    <input class="input-medium" size="16" type="text"><span class="add-on"><i class="icon-th"></i></span>
-</div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-
-
-<br><br><br>
-
-<div class="input-append date datepicker no-padding" data-date-format="dd-mm-yyyy">
-    <input class="input-medium" size="16" type="text"><span class="add-on"><i class="icon-th"></i></span>
-</div>
-
-
-
-                        <!--                    <div class="form-group">
-                                                <label class="control-label col-xs-3">Estado de evento</label>
-                                                <div class="col-xs-6">
-                                                    <input type="text" required lass="form-control" id="direccionevento" name="evento[estadoId]">
-                                                </div>
-                                            </div>-->
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">usuario de Evento:</label>
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="usuEvento" name="evento[usu_id]">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Lugar de Evento</label>
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="direccionevento" name="evento[direccion]">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Telefono Evento:</label>
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="telefonoevento" name="evento[telefono]">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Latitud Evento</label>
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="latitudEvento" name="evento[latitud]">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Longitud Evento:</label>
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="longitudevento" name="evento[longitud]">
-                            </div>
-                        </div>                             
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Facebook Evento:</label>
-                            <div class="col-xs-6">
-
-                                <input type="text" class="form-control" id="facebookevento" name="evento[facebook]">    
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Twitter Evento</label>
-                            <div class="col-xs-6">
-
-                                <input type="text" class="form-control" id="twitterevento" name="evento[twitter]">    
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Google Evento:</label>
-                            <div class="col-xs-6">
-
-                                <input type="text" class="form-control" id="googleevento" name="evento[google]">    
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-xs-3">Cargar Imagen</label>
-                            <div class="col-xs-6">
-
-
-                                <input type="file" id="imgevento" name="evento[img]">    
-                            </div>
-
-                        </div>
-
-                        <br>
-                        <div class="form-group">
-                            <div class="col-xs-offset-3 col-xs-9">
-                                <input type="submit" class="btn btn-default" value="Registrar">
-                                <a href="<?php echo url("/seguridad/panelcontrol") ?>" class="btn btn-default btn-cancel" value="Guardar">Cancelar</a>
-                            </div>
-                        </div>
-
+                                </li>
+                            <?php }
+                            ?>
+                        </ul>
+                        </select>
                     </div>
-                </form>
-            </div>
+                </div>
+                <div style="clear:both;"></div>
+
+                <input type="hidden"  id="catId" value="" name="evento[cat_id]">
+                <input type="hidden"  id="subcatId" value="" name="evento[subcat_id]">
+                <input type="hidden"  id="sub_subcatId" value="" name="evento[sub_subcat_id]">
+
+                <!--                    <div class="form-group">
+                                        <label class="control-label col-xs-3">Categoria:</label>
+                                        <div class="col-xs-2">
+                
+                                            <label class="radio-inline">
+                                                <select name="evento[rol]">
+                <?php
+//foreach ($categorias as $categoria) {
+                ?>
+                                                        <option value="<?php //echo $categoria->cat_id   ?>">&nbsp<?php //echo $categoria->cat_nombre   ?>&nbsp</option>
+                
+                <?php //}  ?>
+                
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>-->
+
+
+                <div class="form-group">
+                    <label Id="" class="control-label labelx col-xs-3">Nombre Evento:</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="nombre" name="evento[nombre]">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Descripcion Evento:</label>
+                    <div class="col-xs-9">
+                        <textarea class="form-control" id="descripcionevento" name="evento[descripcion]"></textarea>
+                    </div>
+                </div>
+                <!--                    <div class="form-group">
+                                        <label class="control-label col-xs-3">Categoria de evento</label>
+                                        <div class="col-xs-6">
+                                            <input type="text" required class="form-control" id="direccionevento" name="evento[catId]">
+                                        </div>
+                                    </div> -->
+
+                <div class="form-group ">
+                    <label class="control-label col-xs-3">Estado:</label>
+                    <div class="col-xs-2">
+
+                        <label class="radio-inline">
+                            <input type="radio" name="evento[activado]" value="1" checked> Activado<br>
+                        </label>
+                    </div>
+                    <div class="col-xs-2">
+
+                        <label class="radio-inline">
+                            <input type="radio" name="evento[activado]" value="0"> Desactivado<br>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">usuario de Evento:</label>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="usuEvento" name="evento[usu_id]">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Fecha/hora de Evento</label>
+                    <div class="col-xs-6">
+                        <input type="text" name="evento[fecha_hora]" class="date readonly form-control" placeholder="DD/MM/YYYY" required /><br /><br />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Lugar de Evento</label>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="direccionevento" name="evento[direccion]">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Nombre de Contacto:</label>
+                    <div class="col-xs-6">
+
+                        <input type="text" class="form-control" id="facebookevento" name="evento[nombre_contacto]">    
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Correo de Contacto:</label>
+                    <div class="col-xs-6">
+
+                        <input type="text" class="form-control" id="facebookevento" name="evento[correo_contacto]">    
+                    </div>
+                </div>
+
+                <!--                    <div class="form-group">
+                                        <label class="control-label col-xs-3">Estado de evento</label>
+                                        <div class="col-xs-6">
+                                            <input type="text" required lass="form-control" id="direccionevento" name="evento[estadoId]">
+                                        </div>
+                                    </div>-->
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Telefono Evento:</label>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="telefonoevento" name="evento[telefono_contacto]">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Valor de Entrada:</label>
+                    <div class="col-xs-6">
+
+                        <input type="text" class="form-control" id="facebookevento" name="evento[valor_boleta]">    
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Latitud Evento</label>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="latitudEvento" name="evento[latitud]">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Longitud Evento:</label>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="longitudevento" name="evento[longitud]">
+                    </div>
+                </div>   
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Facebook Evento:</label>
+                    <div class="col-xs-6">
+
+                        <input type="text" class="form-control" id="facebookevento" name="evento[facebook]">    
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Fecha Inicio de publicación</label>
+                    <div class="col-xs-6">
+                        <input type="text" name="evento[fecha_inicio_publicacion]" class="date readonly form-control" placeholder="DD/MM/YYYY" required /><br /><br />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Fecha final de publicación</label>
+                    <div class="col-xs-6">
+                        <input type="text" name="evento[fecha_fin_publicacion]" class="date readonly form-control" placeholder="DD/MM/YYYY" required /><br /><br />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Google Evento:</label>
+                    <div class="col-xs-6">
+
+                        <input type="text" class="form-control" id="googleevento" name="evento[google]">    
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Cargar Imagen</label>
+                    <div class="col-xs-6">
+
+
+                        <input type="file" name="fileToUpload" id="fileToUpload">    
+                    </div>
+
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-9">
+                        <input type="submit" class="btn btn-default" value="Registrar">
+                        <a href="<?php echo url("/seguridad/panelcontrol") ?>" class="btn btn-default btn-cancel" value="Guardar">Cancelar</a>
+                    </div>
+                </div>
+
+        
         </div>
-    </section>
+        </form>
+    
+</div>
+</div>
+</section>
 
 
+
+<script>
+
+
+    $(".readonly").keydown(function (e) {
+        e.preventDefault();
+    });
+
+// To user jQuery DatePicker 
+    $(function () {
+        $(".date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+    });
+
+    $(function () {
+        $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
+            var current = $(this).next();
+            var grandparent = $(this).parent().parent();
+            if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
+                $(this).toggleClass('right-caret left-caret');
+            grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
+            grandparent.find(".sub-menu:visible").not(current).hide();
+            current.toggle();
+            e.stopPropagation();
+        });
+        $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
+            var root = $(this).closest('.dropdown');
+
+            root.find('.left-caret').toggleClass('right-caret left-caret');
+            root.find('.sub-menu:visible').hide();
+
+
+        });
+
+
+
+    });
+
+    function myFunction(firstParameter, secondParameter, thirdParameter) {
+        var cats = firstParameter;
+        var subcats = secondParameter;
+        var sub_subcats = thirdParameter;
+        $(" #catId").val(cats);
+        $(" #subcatId").val(subcats);
+        $(" #sub_subcatId").val(sub_subcats);
+
+        //alert(cats + "  " + subcats + "  " + sub_subcats);
+    }
+    ;
+
+</script>
+
+
+<?php include_once ('/../../Templates/Backend/footer.php') ?>
 <?php include_once ('/../../Templates/Backend/foot.php') ?>
