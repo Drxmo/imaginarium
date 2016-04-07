@@ -35,8 +35,18 @@
 <!--        <input type="text" autocomplete="off" autofocus placeholder="Usuario" class="form-control" name="seguridad[user]">
         <input type="password" placeholder="Contraseña" class="form-control"  name="seguridad[pass]">
         <button type="submit" class="btn btn-lg btn-primary btn-block">Identificarse</button>-->
-        <p><a href="<?php echo url("usuarios/usuarios/suspender/" . session::get('user')) ?>">Eliminar cuenta</a></p>
-        <a href="<?php echo (url("index")); ?>" class="icon-aircraft-landing">Retroceder</a>
+        
+        <?php if (Session::has('super') === true) : ?>
+        
+        <p><a href="<?php echo url("/usuarios/usuarios/borrar/" . $id) ?>">Eliminar cuenta as SuperUser</a></p>
+        
+        <a href="<?php echo (url("/usuarios/usuarios/index")); ?>" class="icon-aircraft-landing">Retroceder</a>
+        
+        <?php else : ?>
+        <p><a href="<?php echo url("/usuarios/usuarios/suspender/" . session::get('user')) ?>">Eliminar cuenta</a></p>
+        
+        <a href="<?php echo url("/seguridad/panelcontrol")?>" class="icon-aircraft-landing">Retroceder</a>
+        <?php endif; ?>
        <?php /* if (Session::has('usuarioInvalido') === true): ?>
             <br>
             <div class="alert alert-danger" role="alert"><?php echo Session::get('usuarioInvalido'); ?></div>

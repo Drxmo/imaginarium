@@ -7,7 +7,7 @@
 
         <link rel="stylesheet" href="<?php echo asset('js/jquery-ui-1.11.4/jquery-ui.css') ?>">
 <!--        <link rel="stylesheet" href="<?php echo asset('css/foundation.css') ?>">-->
-        <link rel="stylesheet" href="<?php echo asset('css/masterslider.css') ?>">
+<!--        <link rel="stylesheet" href="<?php echo asset('css/masterslider.css') ?>">-->
         <link rel="stylesheet" href="<?php echo asset('css/bootstrap/bootstrap.min.css') ?>">
         
         <link rel="stylesheet" href="<?php echo asset('css/style.css') ?>">

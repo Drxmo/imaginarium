@@ -21,11 +21,23 @@ class SitiosController extends controller {
         $categorias = DB::select("SELECT * FROM bdp_categoria");
         $sub_subcategorias = array();
         $sitio = DB::select("SELECT * FROM bdp_sitio WHERE sit_id = ?", array($id));
-        $img = DB::select("SELECT * FROM bdp_imagen WHERE sit_id = ?", array($id));
+        $img = DB::select("SELECT img_ruta FROM bdp_imagen WHERE sit_id = ?", array($id));
 
         $sitio = $sitio[0];
         $img = $img[0];
-        return view('Modulos.Sitios.versitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "img"));
+        
+//            . "SELECT dus_nombre FROM bdp_dato_usuario WHERE usu_id = ?", array($id));
+        $new_arr[] = null;
+        foreach ($img as $imagen) {
+            $new_arr[] = $imagen;
+        }
+        $img_ruta = implode($new_arr);
+        print_r($img_ruta);
+        
+        
+        
+        
+        return view('Modulos.Sitios.versitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "img_ruta"));
     }
 
     function getIndex() {

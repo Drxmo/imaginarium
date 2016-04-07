@@ -214,7 +214,7 @@ if (Session::has('super') === true){
         
         
         return redirect(url("usuarios/usuarios/index"));
-        
+          
      
         }else{
             echo 'Permiso denegado';
@@ -250,7 +250,30 @@ if (Session::has('super') === true){
 
  if (Session::has('user') === true) {
      
+//  if (Session::has('super') === true) {
+
+//        DB::delete("DELETE FROM bdp_dato_usuario WHERE usu_id = ?", array($id));
+//        DB::delete("DELETE FROM bdp_usuario WHERE usu_id = ?", array($id));
+    
+
+        // DB::update("UPDATE bdp_dato_usuario SET dus_deleted_at = ? WHERE usu_id = ?", array( $usu_deleted_at, $id));
+
+        
+//        return redirect(url("usuarios/usuarios/eliminar"));
+        return view('Modulos.Usuarios.usuarios.eliminar', compact("id", "dato_usuario"));
+//  }
  
+        }else{
+            echo 'Permiso denegado';
+            return redirect(url("index"));
+        }
+    }
+    
+    function getBorrar($id) {
+        
+ if (Session::has('user') === true) {
+     
+  if (Session::has('super') === true) {
 
         DB::delete("DELETE FROM bdp_dato_usuario WHERE usu_id = ?", array($id));
         DB::delete("DELETE FROM bdp_usuario WHERE usu_id = ?", array($id));
@@ -260,16 +283,21 @@ if (Session::has('super') === true){
 
         
         return redirect(url("usuarios/usuarios/index"));
+  }
  
         }else{
             echo 'Permiso denegado';
             return redirect(url("index"));
         }
+        
+        
     }
 
     function getLogin() {
         
-            
+            if (Session::has('user') !== true){
+     
+        
         if (Session::has('user') === true) {
             $titulo= 'Bienvenid@ ' . Session::get('nombre');
         } else {
@@ -286,6 +314,12 @@ if (Session::has('super') === true){
 //    
 //        return redirect(url("usuarios/usuarios/login"));
         return view('Modulos.Usuarios.usuarios.login', compact("usuarios", "dato_usuario", "titulo"));
+     
+     
+        }else{
+            
+            return redirect(url("index"));
+        }
     }
 
     function postLogin() {
