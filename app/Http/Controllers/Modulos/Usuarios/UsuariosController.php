@@ -227,6 +227,8 @@ if (Session::has('super') === true){
 
         if (Session::has('super') === true){
       
+            
+//            UPDATE `bdp_sitio` SET `sit_deleted_at` = NULL WHERE `bdp_sitio`.`sit_id` = 23
         
         $usu_deleted_at = date("Y-m-d\TH:i:s");
 
@@ -271,7 +273,7 @@ if (Session::has('super') === true){
     
     function getBorrar($id) {
         
- if (Session::has('user') === true) {
+ 
      
   if (Session::has('super') === true) {
 
@@ -283,7 +285,7 @@ if (Session::has('super') === true){
 
         
         return redirect(url("usuarios/usuarios/index"));
-  }
+  
  
         }else{
             echo 'Permiso denegado';

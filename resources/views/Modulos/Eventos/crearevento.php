@@ -1,59 +1,7 @@
 <?php include_once ('/../../Templates/Backend/head.php') ?>
 <?php include_once ('/../../Templates/Backend/header.php') ?>
 
-<script>
 
-
-    $(".readonly").keydown(function (e) {
-        e.preventDefault();
-    });
-
-// To user jQuery DatePicker 
-    $(function () {
-        $(".date").datepicker({
-            dateFormat: 'yy/mm/dd',
-            buttonImageOnly: true,
-            buttonText: "Select date"
-        });
-    });
-
-    $(function () {
-        $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
-            var current = $(this).next();
-            var grandparent = $(this).parent().parent();
-            if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
-                $(this).toggleClass('right-caret left-caret');
-            grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
-            grandparent.find(".sub-menu:visible").not(current).hide();
-            current.toggle();
-            e.stopPropagation();
-        });
-        $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
-            var root = $(this).closest('.dropdown');
-
-            root.find('.left-caret').toggleClass('right-caret left-caret');
-            root.find('.sub-menu:visible').hide();
-
-
-        });
-
-
-
-    });
-
-    function myFunction(firstParameter, secondParameter, thirdParameter) {
-        var cats = firstParameter;
-        var subcats = secondParameter;
-        var sub_subcats = thirdParameter;
-        $(" #catId").val(cats);
-        $(" #subcatId").val(subcats);
-        $(" #sub_subcatId").val(sub_subcats);
-
-        //alert(cats + "  " + subcats + "  " + sub_subcats);
-    }
-    ;
-
-</script>
 
 
 
@@ -171,11 +119,12 @@
                                 </div>
                               </div>-->
 
-                    <input type="hidden"  id="subcatId" value="" name="sitio[subcat_id]">
-                    <input type="hidden"  id="sub_subcatId" value="" name="sitio[sub_subcat_id]">
+                    <input type="hidden"  id="catId" value="" name="evento[cat_id]">
+                    <input type="hidden"  id="subcatId" value="" name="evento[subcat_id]">
+                    <input type="hidden"  id="sub_subcatId" value="" name="evento[sub_subcat_id]">
 
                     <div class="catselector" >
-                        <input type="text" style="visibility:hidden; top:-20px; width: 1px; height: 1px; position:absolute; z-index: 99" name="sitio[cat_id]"  id="catId" class="readon readonly" />
+                        <input type="text" style="visibility:hidden; top:-20px; width: 1px; height: 1px; position:absolute; z-index: 99" name="evento[cat_id]"  id="catId" class="readon readonly" />
                     </div>
 
 
@@ -371,6 +320,8 @@
     </div>
 </section>
 
+
+<?php /*
 <script>
 
     $(document).ready(function () {
@@ -477,8 +428,220 @@
         });
     });
 
+
+
+
+    $(".readonly").keydown(function (e) {
+        e.preventDefault();
+    });
+
+// To user jQuery DatePicker 
+    $(function () {
+        $(".date").datepicker({
+            dateFormat: 'yy/mm/dd',
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+    });
+
+    $(function () {
+        $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
+            var current = $(this).next();
+            var grandparent = $(this).parent().parent();
+            if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
+                $(this).toggleClass('right-caret left-caret');
+            grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
+            grandparent.find(".sub-menu:visible").not(current).hide();
+            current.toggle();
+            e.stopPropagation();
+        });
+        $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
+            var root = $(this).closest('.dropdown');
+
+            root.find('.left-caret').toggleClass('right-caret left-caret');
+            root.find('.sub-menu:visible').hide();
+
+
+        });
+
+
+
+    });
+
+    function myFunction(firstParameter, secondParameter, thirdParameter) {
+        var cats = firstParameter;
+        var subcats = secondParameter;
+        var sub_subcats = thirdParameter;
+        $(" #catId").val(cats);
+        $(" #subcatId").val(subcats);
+        $(" #sub_subcatId").val(sub_subcats);
+
+        //alert(cats + "  " + subcats + "  " + sub_subcats);
+    }
+    ;
+
 </script>
+ */ ?>
+
+<script>
+
+    $(document).ready(function () {
+        // validate the comment form when it is submitted
+        //$("#feedback_form").validate();
+        var a1 = 2;
+        var a2 = 20;
+        var a3 = 30;
+        var a4 = 6;
+
+        // validate signup form on keyup and submit
+        $("#formvalidate").validate({
+            rules: {
+                "evento[cat_id]": {
+                    required: true
+                },
+                "evento[nombre]": {
+                    required: true,
+                    minlength: a1,
+                    maxlength: a2
+                },
+                "evento[descripcion]": {
+                    required: true
+                },
+                "evento[fecha_hora]": {
+                    required: true
+                },
+                "evento[direccion]": {
+                    required: true
+                },
+                "evento[nombre_contacto]": {
+                    required: true,
+                    minlength: a1,
+                    maxlength: a3
+                },
+                "evento[correo_contacto]": {
+                    required: true,
+                    email: true
+                },
+                "evento[telefono_contacto]": {
+                    required: true,
+                    number: true,
+                    minlength: a4,
+                    maxlength: a2
+                },
+                "evento[valor_boleta]": {
+                    required: true
+                },
+                "evento[fecha_inicio_publicacion]": {
+                    required: true
+                },
+                "evento[fecha_fin_publicacion]": {
+                    required: true
+                }
+
+                //agree: "required"
+            }, messages: {
+                "evento[cat_id]": {
+                    required: "Seleccione Categoria para publicar."
+                },
+                "evento[nombre]": {
+                    required: " Introduce el nombre del evento ",
+                    minlength: " mínimo " + a1 + " de caracteres ",
+                    maxlength: " máximo " + a2 + " de caracteres "
+                },
+                "evento[descripcion]": {
+                    required: " Introduce una descripción sobre el evento que deseas crear "
+                },
+                "evento[fecha_hora]": {
+                    required: " Introduce aa/mm/dd del evento "
+                },
+                "evento[direccion]": {
+                    required: "Introduce la direccion del evento"
+                },
+                "evento[nombre_contacto]": {
+                    required: " Introduce el nombre de la persona a quien contactar ",
+                    minlength: " mínimo " + a1 + " de caracteres ",
+                    maxlength: " máximo " + a3 + " de caracteres "
+                },
+                "evento[correo_contacto]": {
+                    required: " Introduce un email para contactarte ",
+                    email: " Introduce caracteres '@', '.es', '.com' "
+                },
+                "evento[telefono_contacto]": {
+                    required: " Introduce un número de teléfono ",
+                    number: " Introduce un número de teléfono válido ",
+                    minlength: " mínimo " + a4 + " de carácteres ",
+                    maxlength: " máximo " + a2 + " de carácteres "
+                },
+                "evento[valor_boleta]": {
+                    required: " Introduce el precio de la entrada "
+
+                },
+                "evento[fecha_inicio_publicacion]": {
+                    required: " Introduce aa/mm/dd de comienzo del evento "
+                },
+                "evento[fecha_fin_publicacion]": {
+                    required: " Introduce aa/mm/dd de final del evento "
+
+                }
+
+                //agree: "Please accept our terms & condition."
+            }
+        });
+    });
 
 
+
+
+    $(".readonly").keydown(function (e) {
+        e.preventDefault();
+    });
+
+// To user jQuery DatePicker 
+    $(function () {
+        $(".date").datepicker({
+            dateFormat: 'yy/mm/dd',
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+    });
+
+    $(function () {
+        $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
+            var current = $(this).next();
+            var grandparent = $(this).parent().parent();
+            if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
+                $(this).toggleClass('right-caret left-caret');
+            grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
+            grandparent.find(".sub-menu:visible").not(current).hide();
+            current.toggle();
+            e.stopPropagation();
+        });
+        $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
+            var root = $(this).closest('.dropdown');
+
+            root.find('.left-caret').toggleClass('right-caret left-caret');
+            root.find('.sub-menu:visible').hide();
+
+
+        });
+
+
+
+    });
+
+    function myFunction(firstParameter, secondParameter, thirdParameter) {
+        var cats = firstParameter;
+        var subcats = secondParameter;
+        var sub_subcats = thirdParameter;
+        $(" #catId").val(cats);
+        $(" #subcatId").val(subcats);
+        $(" #sub_subcatId").val(sub_subcats);
+
+        //alert(cats + "  " + subcats + "  " + sub_subcats);
+    }
+    ;
+
+</script>
+ <?php  $Loading = 'Loading...' ?>
 <?php include_once ('/../../Templates/Backend/foot.php') ?>
 <?php include_once ('/../../Templates/Backend/footer.php') ?>

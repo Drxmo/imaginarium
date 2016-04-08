@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Modulos\Eventos;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use \Illuminate\Support\Facades\Session;
 use DB;
+use Session;
 
 
 /**
@@ -17,16 +17,33 @@ use DB;
 class EventosController extends controller {
 
   function getEvento() {
+    $welcome = DB::select("SELECT * FROM bdp_welcome WHERE wel_view = 'eventos'");
+    
+    
+     $welcome = $welcome[0];
     $eventos = DB::select("SELECT * FROM bdp_evento, bdp_imagen WHERE bdp_imagen.eve_id = bdp_evento.eve_id");
+    
+//        $new_arr[] = null;
+//        foreach ($welcome as $evento) {
+//            $new_arr[] = $evento->wel_title;
+//        }
+//        $eve_id = implode($new_arr);
+       
+        
 
-    return view('Modulos.Eventos.evento', compact("eventos"));
+    return view('Modulos.Eventos.evento', compact("eventos", "welcome"));
   }
 
-  function getEventodetalle() {
-    $evento = DB::select("SELECT * FROM bdp_evento, bdp_imagen WHERE bdp_imagen.eve_id = bdp_evento.eve_id");
-    //$sitios = $sitios[0];
-
-    return view('Modulos.Eventos.eventodetalle', compact("eventos"));
+  function getEventodetalle($id) {
+    $nombre = "Administrador";
+        $categorias = DB::select("SELECT * FROM bdp_categoria");
+        $sub_subcategorias = array();
+        $evento = DB::select("SELECT * FROM bdp_evento WHERE eve_id = ?", array($id));
+        $img = DB::select("SELECT * FROM bdp_imagen WHERE eve_id = ?", array($id));
+        
+        $evento = $evento[0];
+        $img = $img[0];
+        return view('Modulos.Eventos.eventodetalle', compact("categorias", "subcategorias", "sub_subcategorias", "evento","img"));
   }
 
   function getCrear() {

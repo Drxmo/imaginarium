@@ -25,9 +25,14 @@
   $(".mCustomScrollbar").mCustomScrollbar({axis: "x"})
           ;
 </script>
-
+<!--
 <div>
   <img class="imgarticleX" id="imgpeque" src="<?php echo asset('img/buguita2.jpg') ?>" alt="Imagen"/>
+</div>-->
+
+<div class="contenedor-imgX fxX"> 
+    <div class="imgback img-contenido" style=" lightcyan;  background-image: url('<?php echo asset('img/buguita4.jpg') ?>');">
+    </div>
 </div>
 
 <section class="container container-fluid main">
@@ -133,5 +138,6 @@
   </div>
 </section>
 
+ <?php  $Loading = 'Cargando Evento...' ?>
 <?php include_once ('/../../Templates/Frontend/footer.php') ?>
 <?php include_once ('/../../Templates/Frontend/foot.php') ?>

@@ -26,7 +26,7 @@
 <br>
 <br>
 <br>
-
+ <?php  $Loading = 'Loading...' ?>
 <?php include_once ('/../../Templates/Frontend/footer.php') ?>
 <?php include_once ('/../../Templates/Frontend/foot.php') ?>
 

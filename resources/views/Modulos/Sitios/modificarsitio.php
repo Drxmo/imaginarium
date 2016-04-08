@@ -438,5 +438,5 @@ $(function() {
     </div>
 </section>
 
-
+ <?php  $Loading = 'Loading...' ?>
 <?php include_once ('/../../Templates/Backend/foot.php') ?>

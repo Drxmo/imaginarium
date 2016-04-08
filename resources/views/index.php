@@ -4,6 +4,9 @@
 <?php include_once ('/Templates/Frontend/header.php') ?>
 
 
+
+
+
 <style>
     
     .smallX{
@@ -223,6 +226,9 @@
 
 
     <li><img  src="<?php echo asset('img/i4.JPG') ?>" alt="Imagen"></li>
+    
+    <li><img  src="<?php echo asset("media/img/sitios/puentelibertad.jpg") ?>" alt="Imagen"></li>
+    <li><img  src="<?php echo asset("media/img/sitios/EstacionTren.jpg") ?>" alt="Imagen"></li>
     <li><img  src="<?php echo asset('img/i5.JPG') ?>" alt="Imagen"></li>
 
     <li><img  src="<?php echo asset('img/d1.JPG') ?>" alt="Imagen"></li>
@@ -274,7 +280,7 @@
 <div class="contentX2 contentX2x">
   <div class="divBar"><img  class="bar1" src="<?php echo asset('img/bar1s.png') ?>"/></div>
   <div >
-    <a  href="#"><img class="contentImg" src="<?php echo asset('img/logo.png') ?>" alt="Buga Logo"/></a>
+    <a  href="#"><img class="contentImg" src="<?php echo $logo ?>" alt="Buga Logo"/></a>
   </div>
   <h2><?php echo $welcome->wel_title ?></h2>
   
@@ -298,7 +304,7 @@
 <div style="clear:both;"></div>
 
 <div class="contentX2 right">
-  <a href=""><img class="contentImg2" src="<?php echo asset('img/logo.png') ?>" alt="Buga Logo"/></a>
+  <a href=""><img class="contentImg2" src="<?php echo $logo ?>" alt="Buga Logo"/></a>
   <h2>Maximus Tempor</h2>
   <p>Integer dictum tortor et quam
     porttitor rhoncus. Mauris feugiat diam sapien, consequat 
@@ -423,8 +429,9 @@
     &middot; Lorem ut sapien.
   </div>
 </div>
+ <?php  $loading = 'BugaTravels';
+        $loading2 = '...LOADING...'; ?>
 
-<div id="cover">BugaTravels<br><span>...LOADING...</span></div>
 <?php include_once ('/Templates/Frontend/footer.php') ?>
 <?php include_once ('/Templates/Frontend/foot.php') ?>
 

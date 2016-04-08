@@ -60,6 +60,16 @@ li label.error{
 /*fin de crear usuario*/
 /*fin de crear usuario*/
 /*fin de crear usuario*/
+
+
+/*tablas listar*/
+th{
+    color:lightcyan;
+    text-align: center;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
 .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(even)>th {
    background-color: #CDE4B3;
@@ -70,6 +80,8 @@ li label.error{
     padding-right: 10px;*/
     padding: 4px 10px 0px 10px;
 }
+/*fin tablas listar*/
+
  .control-label{
 /*     height: fit-content;*/
             color: rgba(247,247,247,0.9)}

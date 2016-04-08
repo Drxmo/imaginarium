@@ -48,16 +48,16 @@ print_r($res_arr);
     <thead>
       <tr>
         <th>&nbsp#&nbsp</th>
-        <th>&nbsp ID &nbsp</th>
+        <th> ID </th>
         <th>&nbsp Sitio &nbsp</th>
         <th>&nbsp Descripcion &nbsp</th>
-        <th>&nbsp Activo &nbsp</th>    
-        <th> &nbsp Editar &nbsp</th>
+        <th> Activo  </th>    
+        <th>  Editar </th>
         <?php   if (Session::has('super') === true):       ?> 
-        <th> &nbsp Inhabilitar &nbsp</th>         
-        <th> &nbsp Eliminar &nbsp</th>
+        <th>  Inhabilitar </th>         
+        <th>  Eliminar </th>
         <?php  else:       ?> 
-        <th> &nbsp Eliminar &nbsp</th>
+        <th>  Eliminar </th>
         <?php   endif;       ?> 
       </tr>
     </thead>
@@ -75,7 +75,7 @@ print_r($res_arr);
           <td><?php $act= $sitio->est_id;if ($act== '1'):echo 'Sí' ; else: echo 'No'; endif?></td>         
           <td><a href="<?php echo url("/sitios/sitios/update/" . $sitio->sit_id); ?>" >Editar</a></td>          
           <td><?php if(empty($sitio->sit_deleted_at) == true) : ?>
-   <a href="<?php echo url("sitios/sitios/suspender/" . $sitio->sit_id) ?>" ><?php   if (Session::has('super') === true):       ?> <span>Inhabilitar</span><?php   else:       ?> <span>Eliminar</span><?php   endif;      ?></a>
+   <a href="<?php echo url("sitios/sitios/eliminar/" . $sitio->sit_id) ?>" ><?php   if (Session::has('super') === true):       ?> <span>Inhabilitar</span><?php   else:       ?> <span>Eliminar</span><?php   endif;      ?></a>
 <?php else : ?>
     <label>Suspendido</label>
 <?php endif; ?>
@@ -90,12 +90,71 @@ print_r($res_arr);
                 <br>
                 <br>
                 <br>
+                
+                <a id="callConfirm">Confirm!</a>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                 <a id="callConfirm">Confirm!</a>
+                <div id="dialog" title="Confirmation Required">
+  Are you sure about this?
+  <div class="container container-fluid loginX" style="padding-left: 315px !important;
+     padding-right: 315px;">
+ 
+        <h2 class="form-signin-heading lightcyan">¿Está Seguro que desea eliminar el sitio?</h2>
+         
+        <?php if (Session::has('super') === true) : ?>
+        
+         
+        <?php else : ?>
+        <?php endif; ?>
+      
+    
+    <a id="callConfirm">Confirm!</a>
+
+<div id="dialog" title="Confirmation Required">
+  Are you sure about this?
 </div>
+    
+    
+</div>
+</div>
+    
+                <br>
+                <br>
+                <br>
+                <br>
+                <script>
+
+
+
+
+$(function() {
+
+  $("#dialog").dialog({
+     autoOpen: false,
+     modal: true,
+     buttons : {
+          "Confirm" : function() {
+              alert("You have confirmed!");            
+          },
+          "Cancel" : function() {
+            $(this).dialog("close");
+          }
+        }
+      });
+
+  $("#callConfirm").on("click", function(e) {
+      e.preventDefault();
+      $("#dialog").dialog("open");
+  });
+
+});
+
+
+
+
+
+</script>
+</div> <?php  $Loading = 'Loading...' ?>
 <?php include("/../../Templates/Frontend/footer.php") ?>
 <?php include("/../../Templates/Frontend/foot.php") ?>
     

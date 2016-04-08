@@ -90,5 +90,7 @@ foreach ($eventos as $evento) {
   <br>
   <br>
 </div>
+
+ <?php  $Loading = 'Loading...' ?>
 <?php include("/../../Templates/Backend/footer.php") ?>
 <?php include("/../../Templates/Backend/foot.php") ?>

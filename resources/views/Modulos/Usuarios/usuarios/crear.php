@@ -372,6 +372,9 @@ var r2 = 2;
 //$('.timepicker').wickedpicker();
 //$('#datetimepicker').datetimepicker();
         </script>
+        <?php  $Loading = 'Loading...' ?>
+        
+        
         
       <?php include("/../../../Templates/Backend/footer.php") ?>
 <?php include("/../../../Templates/Backend/foot.php") ?>

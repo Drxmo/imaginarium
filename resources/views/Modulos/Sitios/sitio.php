@@ -101,6 +101,8 @@
 
 </script>
 
+ <?php  $Loading = 'Cargando Sitios...' ?>
+
+
 <?php include_once ('/../../Templates/Frontend/footer.php') ?>
 <?php include_once ('/../../Templates/Frontend/foot.php') ?>
-<div id="cover">Cargando Sitios...</div>

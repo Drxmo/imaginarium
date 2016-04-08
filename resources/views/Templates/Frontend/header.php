@@ -91,7 +91,7 @@
   .logohead {
     height: 100px; 
     float:right;
-    margin-top:10px;
+/*    margin-top:10px;*/
     margin-right:100px;     
   }
 
@@ -177,9 +177,9 @@
     
     
   </style>
-
+<?php $logo = asset('img/logo11.png');?>
   <div class="theHeader" >
-    <header class="headerX" ><h1 class="h1X"><a style="color:blue" class="TitleX" href=""<?php echo url("")?>"" title="Destino Travel" rel="home"><span class="TitleX"><span >B</span>uga<span >T</span>ravel<span >s</span><img class="logohead"  src="<?php echo asset('img/logo.png') ?>" alt="Buga Logo"/></span></a></h1>
+    <header class="headerX" ><h1 class="h1X"><a style="color:blue" class="TitleX" href=""<?php echo url("")?>"" title="Destino Travel" rel="home"><span class="TitleX"><span >B</span>uga<span >T</span>ravel<span >s</span><img class="logohead"  src="<?php echo $logo ?>" alt="Buga Logo"/></span></a></h1>
       <div class="backHead"></div></header>
     <div class="BackgroundHead"></div>
 

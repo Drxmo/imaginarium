@@ -423,6 +423,6 @@
 //    document.getElementById('readonly').readOnly=true
 
 </script>
-
+ <?php  $Loading = 'Loading...' ?>
 <?php include_once ('/../../Templates/Backend/footer.php') ?>
 <?php include_once ('/../../Templates/Backend/foot.php') ?>

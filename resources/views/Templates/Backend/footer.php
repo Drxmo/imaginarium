@@ -1,4 +1,4 @@
-
+<div id="cover"><?php if (isset($loading) === true) : echo $Loading; else: echo 'Loading...'; endif;?></div>
 <div style="clear:both;"></div>
 <div id="footer">
   <p>La gran ciudad</p>
