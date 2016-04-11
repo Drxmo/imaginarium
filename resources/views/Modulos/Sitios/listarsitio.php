@@ -1,10 +1,6 @@
     <?php include("/../../Templates/Backend/head.php") ?>
 <?php include("/../../Templates/Backend/header.php") ?>
 <style>
-    #tableX td{
-    text-align:center !important;
-  
-}
     
     
 </style>
@@ -36,10 +32,10 @@ print_r($res_arr);
 
 <div class="container container-fluid ">
   <a href="<?php echo url("sitios/sitios/indexxx") ?>"> + Agregar sitio </a>
-  <?php Session::get('success')?>
+  
   <?php if (Session::has('success')): ?>
                 <br>
-                <div class="alert alert-danger" role="alert"><?php Session::get('success') ?></div>
+                <div  class="alerta  alert-success" role="alert"><?php echo Session::get('success') ?></div>
                 <br>
                 <?php endif ?>
  
@@ -81,7 +77,7 @@ print_r($res_arr);
 <?php endif; ?>
           </td>
           <?php   if (Session::has('super') === true):       ?>
-          <td><a href="<?php echo url("sitios/sitios/eliminar/" . $sitio->sit_id) ?>" >Eliminar</a></td>
+          <td><button  data-id="<?php echo $sitio->sit_id?>" class='btn btnDelete btn-primary btn-sm btn-round collapsed' href="<?php echo url("sitios/sitios/eliminar/" . $sitio->sit_id) ?>" >Eliminar</button></td>
           <?php   endif;       ?>
         </tr>
       <?php } ?>
@@ -91,70 +87,74 @@ print_r($res_arr);
                 <br>
                 <br>
                 
-                <a id="callConfirm">Confirm!</a>
-                <br>
-                 <a id="callConfirm">Confirm!</a>
-                <div id="dialog" title="Confirmation Required">
-  Are you sure about this?
-  <div class="container container-fluid loginX" style="padding-left: 315px !important;
-     padding-right: 315px;">
- 
-        <h2 class="form-signin-heading lightcyan">¿Está Seguro que desea eliminar el sitio?</h2>
-         
-        <?php if (Session::has('super') === true) : ?>
-        
-         
-        <?php else : ?>
-        <?php endif; ?>
-      
+                
     
-    <a id="callConfirm">Confirm!</a>
+  
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h3 class="modal-title" id="myModalLabel">Advertencia!</h3>
 
-<div id="dialog" title="Confirmation Required">
-  Are you sure about this?
+            </div>
+            <div class="modal-body">
+                 <h4> Está seguro que desea eliminar?</h4>
+
+            </div>
+            <!--/modal-body-collapse -->
+            <div class="modal-footer">
+                <div class="modalmarquee" "><marquee >Irreversible!</marquee></div>
+                <a type="button" class="btn btn-danger" id="btnDelteYes" href="<?php echo url("/sitios/sitios/borrar/" . $id) ?>">Yes</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+            <!--/modal-footer-collapse -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+                <input id='gotour' type="hidden" value='<?php echo url('')?>'>
+    
+</div>
 </div>
     
+                <br>
+                <br>
+                <br>
+                <br>
+          
+<script>
+function passUrl(url){
+<?php $urlflag = 1; ?> 
+$('button.btnDelete').on('click', function (e) {
+e.preventDefault();
+
     
-</div>
-</div>
+    var id = $(this).closest(':button').data('id');
+   
+    document.getElementById("btnDelteYes").href = (url+"sitios/sitios/borrar/"+id);
     
-                <br>
-                <br>
-                <br>
-                <br>
-                <script>
-
-
-
-
-$(function() {
-
-  $("#dialog").dialog({
-     autoOpen: false,
-     modal: true,
-     buttons : {
-          "Confirm" : function() {
-              alert("You have confirmed!");            
-          },
-          "Cancel" : function() {
-            $(this).dialog("close");
-          }
-        }
-      });
-
-  $("#callConfirm").on("click", function(e) {
-      e.preventDefault();
-      $("#dialog").dialog("open");
-  });
-
+     //alert('hola' + " " + document.getElementById("btnDelteYes").href);
+    $('#myModal').data('id', id).modal('show');
+    
+    
+    
+    $('#btnDelteYes').click(function () {
+    var id = $('#myModal').data('id');
+    $('[data-id=' + id + ']').remove();
+    //alert(id);
+    $('#myModal').modal('hide');
+});
+   
 });
 
-
-
-
+//alert(url);
+};
 
 </script>
-</div> <?php  $Loading = 'Loading...' ?>
-<?php include("/../../Templates/Frontend/footer.php") ?>
-<?php include("/../../Templates/Frontend/foot.php") ?>
+
+</div> 
+<?php include("/../../Templates/backend/footer.php") ?>
+<?php include("/../../Templates/backend/foot.php") ?>
     

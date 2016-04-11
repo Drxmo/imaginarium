@@ -37,7 +37,7 @@ function descripcion($id) {
 <?php Session::get('success') ?>
   <?php if (Session::has('success')): ?>
     <br>
-    <div class="alert alert-danger" role="alert"><?php Session::get('success') ?></div>
+    <div class="alert alert-danger" role="alert"><?php echo Session::get('success') ?></div>
     <br>
 <?php endif ?>
 

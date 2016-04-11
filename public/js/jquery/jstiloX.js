@@ -212,7 +212,7 @@ $(document).ready(function () {
       'left': (position)
     });
     $horizontal2.css({
-      'left': (position2 - 6000)
+      'left': (position2 - 6300)
     });
   });
 });

@@ -11,6 +11,10 @@
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;}
+  .theHeader{
+/*      position: absolute;
+      width:100%;*/
+  }
 
   #darkbackground{
     /*    background-color: #000 !important;*/

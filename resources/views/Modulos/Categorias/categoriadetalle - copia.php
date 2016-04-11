@@ -1,4 +1,3 @@
-<?php include_once ('/../../Templates/Frontend/head.php') ?>
 <?php include_once ('/../../Templates/Frontend/header.php') ?>
 
 <section class="container main">
@@ -69,6 +68,5 @@
 
 </section>
 
-<?php include_once ('/../../Templates/Frontend/foot.php') ?>
 <?php include_once ('/../../Templates/Frontend/footer.php') ?>
 

@@ -22,4 +22,4 @@
    
 
     </head>
-    <body>
+     <body onload="passUrl( '<?php echo url('')."/"?>'   )">

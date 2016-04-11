@@ -11,7 +11,10 @@
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;}
-
+.theHeader{
+      position: absolute;
+      width:100%;
+  }
   #darkbackground{
     /*    background-color: #000 !important;*/
     background-color: rgba(0, 0, 0,1.9);
@@ -219,7 +222,7 @@
               <li class="contInicioX"> <a href="<?php echo url("index") ?>">Inicio <span class="sr-only">(current)</span></a></li>
               <li class="sitiosX"><a href="<?php echo url("/sitios/sitios/index") ?>">Sitios</a></li>
               <li class="eventosX"><a href="<?php echo url("/eventos/eventos/evento") ?>">Eventos</a></li>
-              <li class="eventosX"><a href="<?php echo url("/categorias/categorias/categoria") ?>">Categorias</a></li>
+              <li class="categoriasX"><a href="<?php echo url("/categorias/categorias/categoria") ?>">Categorias</a></li>
 
             </ul>
               

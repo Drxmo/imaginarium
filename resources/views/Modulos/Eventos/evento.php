@@ -1,29 +1,7 @@
 <?php include_once ('/../../Templates/Frontend/head.php') ?>
 <?php include_once ('/../../Templates/Frontend/header.php') ?>
 
-<!--Activar Boton navbar-->
-<script>
-//    Reemplazar '.contInicioX' 
-//    por '.sitiosX' si es para Sitios
-//    por '.eventosX' si es para Eventos
-    $(document).ready(function () {
-        console.log("document loaded");
-        $('.sitiosX').addClass('active');
-        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $('parrafoX').addClass('limit');
 
-    });
-
-    $(window).load(function () {
-        console.log("window loaded");
-        $('.sitiosX').addClass('active');
-        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $('.parrafoX').addClass('limit');
-    });
-
-    $(document).ready(function () {
-    $(".mCustomScrollbar").mCustomScrollbar({axis: "x"})
-            ;</script>
 
 <!--CONTADOR DE VISITAS-->
 
@@ -39,7 +17,11 @@
 </div>-->
 
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="contenedor-imgX fxX"> 
     <div class="imgback img-contenido" style=" lightcyan;  background-image: url('<?php echo asset('img/buguita4.jpg') ?>');">
     </div>
@@ -134,6 +116,30 @@
 </div>
 </section>
 
+
+<!--Activar Boton navbar-->
+<script>
+//    Reemplazar '.contInicioX' 
+//    por '.sitiosX' si es para Sitios
+//    por '.eventosX' si es para Eventos
+    $(document).ready(function () {
+        console.log("document loaded");
+        $('.eventosX').addClass('active');
+        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
+        $('parrafoX').addClass('limit');
+    });
+
+    $(window).load(function () {
+        console.log("window loaded");
+        $('.eventosX').addClass('active');
+        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
+        $('.parrafoX').addClass('limit');
+    });
+
+//    $(document).ready(function () {
+//    $(".mCustomScrollbar").mCustomScrollbar({axis: "x"});
+//    });
+    </script>
  <?php  $Loading = 'Cargando Eventos...' ?>
 
 <?php include_once ('/../../Templates/Frontend/foot.php') ?>

@@ -67,8 +67,9 @@
 }
 .btn-danger {
   color:#ffffff;
-  background-color:#B20068;
-  border-color:#B20068;
+ background-color: rgba(255, 107, 51, 0.96);
+    border-width: 4px;
+    border-color: rgba(0, 0, 0, 0.55);
 }
 /*---Nav Active---*/
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a{

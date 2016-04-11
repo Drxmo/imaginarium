@@ -73,8 +73,9 @@ class EventosController extends controller {
 //      
 
     $target_dir = realpath(dirname(getcwd()));
+    $target_file = $target_dir."\public\media\img\eventos\\" . basename($_FILES["fileToUpload"]["name"]);
 
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
@@ -153,9 +154,13 @@ class EventosController extends controller {
   }
 
   function postEditar() {
+      
+      $evento = filter_input_array(INPUT_POST)['evento'];
+    extract($evento);
     $target_dir = dirname(getcwd());
 
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    
+    $target_file = $target_dir."\public\media\img\eventos\\" . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
@@ -198,8 +203,7 @@ class EventosController extends controller {
 
 
 
-    $evento = filter_input_array(INPUT_POST)['evento'];
-    extract($evento);
+    
 
     DB::update("UPDATE bdp_evento SET eve_nombre = ?, eve_descripcion = ?, cat_id = ?, subcat_id = ?, sub_subcat_id = ?, eve_direccion = ?, eve_latitud = ?, eve_longitud = ?, est_id = ?, eve_facebook = ?, eve_nombre_contacto = ?, eve_correo_contacto = ?, eve_telefono_contacto = ?, eve_valor_boleta = ?, fecha_inicio_publicacion = ?, fecha_fin_publicacion = ?, usu_id = ? WHERE eve_id = ?", array($nombre, $descripcion, $cat_id, $subcat_id, $sub_subcat_id, $direccion, $latitud, $longitud, $activado, $facebook, $nombre_contacto, $correo_contacto, $telefono_contacto, $valor_boleta, $fecha_inicio_publicacion, $fecha_fin_publicacion, $usu_id, $eve_id));
 

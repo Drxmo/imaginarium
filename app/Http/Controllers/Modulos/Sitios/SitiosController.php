@@ -20,24 +20,24 @@ class SitiosController extends controller {
         $nombre = "Administrador";
         $categorias = DB::select("SELECT * FROM bdp_categoria");
         $sub_subcategorias = array();
-        $sitio = DB::select("SELECT * FROM bdp_sitio WHERE sit_deleted_at = NULL AND est_id = '1' AND sit_id = ?", array($id));
-        $img = DB::select("SELECT img_ruta FROM bdp_imagen WHERE sit_id = ?", array($id));
+        $sitio = DB::select("SELECT * FROM bdp_sitio WHERE sit_deleted_at IS NULL AND est_id = '1' AND sit_id = ?", array($id));
+        $imagenes = DB::select("SELECT img_id, sit_id, img_ruta FROM bdp_imagen WHERE sit_id = ?", array($id));
 
-        $sitio = $sitio[0];
-        $img = $img[0];
+       // $sitio = $sitio[0];
+        //$img = $img[0];
         
 //            . "SELECT dus_nombre FROM bdp_dato_usuario WHERE usu_id = ?", array($id));
-        $new_arr[] = null;
-        foreach ($img as $imagen) {
-            $new_arr[] = $imagen;
-        }
-        $img_ruta = implode($new_arr);
-        print_r($img_ruta);
+//        $new_arr[] = null;
+//        foreach ($img as $imagen) {
+//            $new_arr[] = $imagen;
+//        }
+//        $img_ruta = implode($new_arr);
+//        print_r($img_ruta);
         
         
         
         
-        return view('Modulos.Sitios.versitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "img_ruta"));
+        return view('Modulos.Sitios.versitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "img_ruta", "img", "imagenes"));
     }
 
     function getIndex() {
@@ -185,7 +185,9 @@ class SitiosController extends controller {
     }
 
     function getUpdate($id) {
+        
          if (Session::has('user') === true){
+             
       
 //        $sitio = filter_input_array(INPUT_POST)['sitio'];
 //        extract($sitio);
@@ -205,11 +207,12 @@ class SitiosController extends controller {
 
     function postUpdate() {
          if (Session::has('user') === true){
-       
+               $sitio = filter_input_array(INPUT_POST)['sitio'];
+        extract($sitio);
     
         $target_dir = dirname(getcwd());
-
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $target_file = $target_dir."\public\media\img\sitios\\" . basename($_FILES["fileToUpload"]["name"]);
+        
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
@@ -253,10 +256,10 @@ class SitiosController extends controller {
 
 
 
+$perra = "#$";
+        DB::update("UPDATE bdp_sitio SET sit_nombre = ?, sit_descripcion = ?, cat_id = ?, subcat_id = ?, sub_subcat_id = ?, sit_direccion = ?, sit_telefono = ?, sit_latitud = ?, sit_longitud = ?, est_id = ?, sit_facebook = ?, sit_twitter = ?, sit_google_plus = ?, usu_id = ? WHERE sit_id = ?", array($nombre, $descripcion, $cat_id, $subcat_id, $sub_subcat_id, $direccion, $telefono, $latitud, $longitud, $activado, $facebook, $twitter, $google, $usu_id, $sit_id));
 
-        DB::update("UPDATE bdp_sitio SET sit_nombre = ?, sit_descripcion = ?, cat_id = ?, subcat_id = ?, sub_subcat_id = ?, sit_direccion = ?, sit_latitud = ?, sit_longitud = ?, est_id = ?, sit_facebook = ?, sit_twitter = ?, sit_google_plus = ?, usu_id = ? WHERE sit_id = ?", array($nombre, $descripcion, $cat_id, $subcat_id, $sub_subcat_id, $direccion, $latitud, $longitud, $activado, $facebook, $twitter, $google, $usu_id, $id));
-
-        Session::put('success', 'Sitios modificado exitosamente');
+        Session::flash('success', 'Sitio modificado exitosamente');
         return redirect(url("/sitios/sitios/listar"));
          
         }else{

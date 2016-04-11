@@ -10,6 +10,31 @@
 /*.container-fluidX{padding: 0px 0px 0px 0px;
 margin: 0px 0px 0px 0px;
 }*/
+/*--------  mODULOS ------*/
+/*--------  mODULOS ------*/
+/*--------  SITIOS------*/
+ #map {
+        width: 500px;
+        height: 400px;
+        margin-top: 10px;
+      }
+/*-------- FIN SITIOS------*/
+/*-------- FIN mODULOS ------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*--------  BACKEND ------*/
 /*--------  BACKEND ------*/
 /*--------  BACKEND ------*/
@@ -178,6 +203,13 @@ html, body, fieldset, pre, .h1X {
   width: 160px !important;
   padding: 0px 15px;
   /*   margin-top: -20px;*/
+}
+/*MENSAJE MOVIL Y BOTONES RADIO----------------------------------------------*/
+/*MENSAJE MOVIL Y BOTONES RADIO----------------------------------------------*/
+
+button.btn.btn-primary.btn-sm.btn-round.collapsed {
+    height: 20px;
+    padding: 0px 10px 10px 10px;
 }
 
 /*Slider----------------------------------------------*/

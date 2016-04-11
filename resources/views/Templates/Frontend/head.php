@@ -23,8 +23,9 @@
 <!--        <script src="<?php echo asset('js/masterslider.min.js') ?>"></script>-->
 
     </head>
-    <body>
-
+    
+    <body onload="passUrl('<?php echo url('')."/"?>')">
+        
 
 
 

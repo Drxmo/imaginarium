@@ -1,6 +1,6 @@
 <?php include_once ('/../../Templates/Backend/head.php') ?>
 <?php include_once ('/../../Templates/Backend/header.php') ?>
-
+<script src="<?php echo asset('js/jquery/places.js') ?>"></script>
 
 
 
@@ -27,102 +27,9 @@
                     <div style="clear:both;"></div>
 
 
-                    <!--          <div class="form-group">
-                                <div class="dropdown" style="position:relative">
-                                  <a href="#" class="btn  btn-category dropdown-toggle" data-toggle="dropdown">Seleccione Categoria <span class="caret"></span></a>
-                    
-                                  <ul class="dropdown-menu">
-                    <?php
-                    $cat = 1;
-                    $subcat0 = 0;
-                    $subcat = 1;
-                    $sub_subcat = 1;
-                    foreach ($categorias as $categoria) {
-                        ?>
-                                          <li>
-                                            <a href="#<?php
-                        $sitcatId = $cat;
-                        $sitsubcatId = 0;
-                        $sitsubsubcatId = 0;
-                        ?>"  onclick="myFunction(<?php echo $cat ?>,<?php echo 0 ?>, <?php echo 0 ?>)" class="trigger right-caret">&nbsp<?php echo $categoria->cat_nombre ?><?php //echo 'cat: ' . $cat . ' , subcat: ' . $subcat0  ?>&nbsp</a>
-                        
-                                            <ul class="dropdown-menu sub-menu">
-                        <?php
-                        $subcategorias0 = DB::select("SELECT * FROM bdp_subcategoria WHERE cat_id IS NULL");
 
-
-                        foreach ($subcategorias0 as $subcategoria) {
-                            ?>
-                                                    <li>
-                                                      <a  class="trigger right-caret" >&nbsp<?php echo $subcategoria->subcat_nombre ?>&nbsp</a>
-                                                    </li>
-                            
-                            <?php
-                        }
-                        $subcategorias = DB::select("SELECT * FROM bdp_subcategoria WHERE cat_id=? ORDER BY subcat_id ASC", array($cat));
-
-
-
-                        foreach ($subcategorias as $subcategoria) {
-                            ?>
-                                                    <li>
-                                                      <a class="trigger right-caret" onclick="myFunction(<?php echo $cat ?>,<?php echo $subcat ?>, <?php echo 0 ?>)">&nbsp<?php echo $subcategoria->subcat_nombre ?><?php // . ' , cat: ' . $cat . ' , subcat: ' . $subcat        ?>&nbsp</a>
-                            
-                            <?php //$subcat = $subcat + 1;  ?>
-                                                      <ul class="dropdown-menu sub-menu">
-                            <?php
-                            $sub_subcategorias0 = DB::select("SELECT * FROM bdp_sub_subcategoria WHERE cat_id IS NULL");
-
-
-                            foreach ($sub_subcategorias0 as $sub_subcategoria0) {
-                                ?>
-                                                              <li>
-                                                                <a class="trigger right-caret" >&nbsp<?php echo $sub_subcategoria0->sub_subcat_nombre ?>&nbsp</a>
-                                                              </li>
-                                
-                                <?php
-                            }
-
-                            //$subcat= $subcat + 1;
-                            $sub_subcategorias = DB::select("SELECT * FROM bdp_sub_subcategoria WHERE cat_id = ? AND subcat_id=?", array($cat, $subcat));
-
-                            foreach ($sub_subcategorias as $sub_subcategoria) {
-                                //if (is_null($sub_subcategoria->subcat_id)): $high = 1  ;else: 
-                                ?>
-                                
-                                                              <li>
-                                                                <a class="trigger right-caret" onclick="myFunction(<?php echo $cat ?>,<?php echo $subcat ?>, <?php echo $sub_subcategoria->sub_subcat_id ?>)">&nbsp<?php echo $sub_subcategoria->sub_subcat_nombre ?><?php // . ' , cat: ' . $cat . ' , subcat: ' . $subcat . ' , sub_subcat: ' . $sub_subcategoria->sub_subcat_id         ?>&nbsp </a>
-                                
-                                                              </li>
-                                <?php
-                                //endif;
-                                //$subcat = $subcat + 1;
-                            }
-                            $subcat = $subcat + 1;
-                            //$subcat = $subcat++;
-                            //$subcat = $subcat++;
-                            //$cat= $cat++;
-                            ?>
-                                                      </ul>
-                                                    </li>
-                            <?php
-                        }
-                        $cat = $cat + 1;
-                        //$cat = $cat++;
-                        ?>
-                                            </ul>
-                                          </li>
-                    <?php }
-                    ?>
-                                  </ul>
-                                  </select>
-                                </div>
-                              </div>-->
-
-                    <input type="hidden"  id="catId" value="" name="evento[cat_id]">
                     <input type="hidden"  id="subcatId" value="" name="evento[subcat_id]">
-                    <input type="hidden"  id="sub_subcatId" value="" name="evento[sub_subcat_id]">
-
+                    <input type="hidden"  disabled="" id="sub_subcatId" value="" name="evento[sub_subcat_id]">
                     <div class="catselector" >
                         <input type="text" style="visibility:hidden; top:-20px; width: 1px; height: 1px; position:absolute; z-index: 99" name="evento[cat_id]"  id="catId" class="readon readonly" />
                     </div>
@@ -132,30 +39,10 @@
 
                     <div style="clear:both;"></div>
 
-<!--          <input type="hidden"  id="catId" value="" name="evento[cat_id]">
-          <input type="hidden"  id="subcatId" value="" name="evento[subcat_id]">
-          <input type="hidden"  id="sub_subcatId" value="" name="evento[sub_subcat_id]">-->
 
 
-                    <!--                    <div class="form-group">
-                                            <label class="control-label col-xs-3">Categoria:</label>
-                                            <div class="col-xs-2">
-                    
-                                                <label class="radio-inline">
-                                                    <select name="evento[rol]">
-                    <?php
-//foreach ($categorias as $categoria) {
-                    ?>
-                                                            <option value="<?php //echo $categoria->cat_id        ?>">&nbsp<?php //echo $categoria->cat_nombre        ?>&nbsp</option>
-                    
-                    <?php //}  ?>
-                    
-                                                    </select>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <br>-->
+
+
 
 
                     <div class="form-group">
@@ -179,29 +66,87 @@
                                         </div> -->
 
                     <div class="form-group ">
-                        <label class="control-label col-xs-3">Estado:</label>
-                        <div class="col-xs-2">
+                            
+                            <label class="control-label col-xs-3">Estado:</label>
+                            <div class="col-xs-2">
 
-                            <label class="radio-inline">
-                                <input type="radio" name="evento[activado]" value="1" checked> Activado<br>
-                            </label>
-                        </div>
-                        <div class="col-xs-2">
+                                <label class="radio-inline">
+                                    <input type="hidden" name="evento[activado]" value="1" checked> Activado<br>
+                                </label>
+                            </div>
+                            <div class="col-xs-2">
 
-                            <label class="radio-inline">
-                                <input type="radio" name="evento[activado]" value="0"> Desactivado<br>
-                            </label>
-                        </div>
+                                <label class="radio-inline">
+    <!--                                <input type="radio" name="sitio[activado]" value="0"> Desactivado<br>-->
+                                </label>
+                            </div>
+                            
+<!--                        </div>-->
+
+                        <!--                    <div class="form-group">
+                                                <label class="control-label col-xs-3">usuario de Sitio</label>
+                                                <div class="col-xs-6">
+                                                    <input type="text" name="date" class="date readonly" placeholder="DD/MM/YYYY" required /><br /><br />
+                                              </div>
+                                            </div>-->
+                        <!--                    <div class="form-group">
+                                            <label class="control-label col-xs-3">Estado de Sitio</label>
+                                            <div class="col-xs-6">
+                                                <input type="text" required lass="form-control" id="direccionSitio" name="sitio[estadoId]">
+                                            </div>
+                                        </div>-->
+                        <?php   if(Session::has('super') === true):       ?>
+                         
+                         
+<!--                        <div class="form-group" >
+                            <label class="control-label col-xs-3">usuario de Sitio</label>
+                            <div class="col-xs-6">
+                                <input type="number" style="width:50px" class="form-control" id="usuSitio" value="<?php echo Session::get('user') ?>" name="sitio[usu_id]">
+                            </div>
+                        </div>-->
+<!--                        <div class="form-group" >
+                        <div class="col-xs-2 ">-->
+
+<div class="col-xs-2">
+                <label  style="top:-15px;"><span class="lightcyan">Usuario de evento:</span> 
+                    <select name="evento[usu_id]" >
+                        <option></option>
+                        <?php
+                        foreach ($usuarios as $usuario) {
+                            ?>
+                            <option style="font-family: BankGothicMdBT" value="<?php echo $usuario->usu_id ?>">&nbsp<?php echo $usuario->usu_id .' - '.$usuario->usu_usuario ?>&nbsp</option>
+
+                        <?php } ?>
+
+                    </select>
+                </label>
+            </div>
+            </div>
+
+
+
+
+<!--                <label class="radio-inline" style="top:-15px;"><span class="lightcyan">Usuario de Sitio:</span> 
+                    <select name="sitio[usu_id]" >
+                        <option></option>
+                        <?php
+                        foreach ($usuarios as $usuario) {
+                            ?>
+                            <option class="control-label col-xs-3" style="font-family: BankGothicMdBT" value="<?php echo $usuario->usu_id ?>">&nbsp<?php echo $usuario->usu_id .' - '.$usuario->usu_usuario ?>&nbsp</option>
+
+                        <?php } ?>
+
+                    </select>
+                </label>-->
+<!--            </div>
+            </div>-->
+                        
+                        
+                        <?php   else:       ?>
+                    
                     </div>
-
-                    <div class="form-group" style="display:none">
-                        <label class="control-label col-xs-3 lightcyan">Usuario del evento:</label>
-                        <div class="col-xs-6">
-                            <input type="hidden" class="form-control" value="<?php echo Session::get('user') ?>" name="evento[usu_id]">
-                        </div>
-                    </div>
-
-
+                        <input type="hidden" class="form-control" id="usuevento" value="<?php echo Session::get('user') ?>" name="evento[usu_id]">
+                        <?php   endif;      ?>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3 lightcyan">Fecha y hora:</label>
@@ -213,7 +158,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3 lightcyan">Direccion:</label>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control" name="evento[direccion]">
+                            <input type="text" class="form-control" id="autocomplete" name="evento[direccion]">
                         </div>
                     </div>
 
@@ -260,13 +205,13 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">Latitud:</label>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control" name="evento[latitud]">
+                            <input type="text" class="form-control" id="latitude" name="evento[latitud]">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Longitud:</label>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control" name="evento[longitud]">
+                            <input type="text" class="form-control" id="longitude" name="evento[longitud]">
                         </div>
                     </div>   
 
@@ -322,168 +267,250 @@
 
 
 <?php /*
-<script>
+  <script>
 
-    $(document).ready(function () {
-        // validate the comment form when it is submitted
-        //$("#feedback_form").validate();
-        var a1 = 2;
-        var a2 = 20;
-        var a3 = 30;
-        var a4 = 6;
+  $(document).ready(function () {
+  // validate the comment form when it is submitted
+  //$("#feedback_form").validate();
+  var a1 = 2;
+  var a2 = 20;
+  var a3 = 30;
+  var a4 = 6;
 
-        // validate signup form on keyup and submit
-        $("#formvalidate").validate({
-            rules: {
-                "sitio[cat_id]": {
-                    required: true
-                },
-                "evento[nombre]": {
-                    required: true,
-                    minlength: a1,
-                    maxlength: a2
-                },
-                "evento[descripcion]": {
-                    required: true
-                },
-                "evento[fecha_hora]": {
-                    required: true
-                },
-                "evento[direccion]": {
-                    required: true
-                },
-                "evento[nombre_contacto]": {
-                    required: true,
-                    minlength: a1,
-                    maxlength: a3
-                },
-                "evento[correo_contacto]": {
-                    required: true,
-                    email: true
-                },
-                "evento[telefono_contacto]": {
-                    required: true,
-                    number: true,
-                    minlength: a4,
-                    maxlength: a2
-                },
-                "evento[valor_boleta]": {
-                    required: true
-                },
-                "evento[fecha_inicio_publicacion]": {
-                    required: true
-                },
-                "evento[fecha_fin_publicacion]": {
-                    required: true
-                }
+  // validate signup form on keyup and submit
+  $("#formvalidate").validate({
+  rules: {
+  "sitio[cat_id]": {
+  required: true
+  },
+  "evento[nombre]": {
+  required: true,
+  minlength: a1,
+  maxlength: a2
+  },
+  "evento[descripcion]": {
+  required: true
+  },
+  "evento[fecha_hora]": {
+  required: true
+  },
+  "evento[direccion]": {
+  required: true
+  },
+  "evento[nombre_contacto]": {
+  required: true,
+  minlength: a1,
+  maxlength: a3
+  },
+  "evento[correo_contacto]": {
+  required: true,
+  email: true
+  },
+  "evento[telefono_contacto]": {
+  required: true,
+  number: true,
+  minlength: a4,
+  maxlength: a2
+  },
+  "evento[valor_boleta]": {
+  required: true
+  },
+  "evento[fecha_inicio_publicacion]": {
+  required: true
+  },
+  "evento[fecha_fin_publicacion]": {
+  required: true
+  }
 
-                //agree: "required"
-            }, messages: {
-                "sitio[cat_id]": {
-                    required: "Seleccione Categoria para publicar Sitio."
-                },
-                "evento[nombre]": {
-                    required: " Introduce el nombre del evento ",
-                    minlength: " mínimo " + a1 + " de caracteres ",
-                    maxlength: " máximo " + a2 + " de caracteres "
-                },
-                "evento[descripcion]": {
-                    required: " Introduce una descripción sobre el evento que deseas crear "
-                },
-                "evento[fecha_hora]": {
-                    required: " Introduce aa/mm/dd del evento "
-                },
-                "evento[direccion]": {
-                    required: "Introduce la direccion del evento"
-                },
-                "evento[nombre_contacto]": {
-                    required: " Introduce el nombre de la persona a quien contactar ",
-                    minlength: " mínimo " + a1 + " de caracteres ",
-                    maxlength: " máximo " + a3 + " de caracteres "
-                },
-                "evento[correo_contacto]": {
-                    required: " Introduce un email para contactarte ",
-                    email: " Introduce caracteres '@', '.es', '.com' "
-                },
-                "evento[telefono_contacto]": {
-                    required: " Introduce un número de teléfono ",
-                    number: " Introduce un número de teléfono válido ",
-                    minlength: " mínimo " + a4 + " de carácteres ",
-                    maxlength: " máximo " + a2 + " de carácteres "
-                },
-                "evento[valor_boleta]": {
-                    required: " Introduce el precio de la entrada "
+  //agree: "required"
+  }, messages: {
+  "sitio[cat_id]": {
+  required: "Seleccione Categoria para publicar Sitio."
+  },
+  "evento[nombre]": {
+  required: " Introduce el nombre del evento ",
+  minlength: " mínimo " + a1 + " de caracteres ",
+  maxlength: " máximo " + a2 + " de caracteres "
+  },
+  "evento[descripcion]": {
+  required: " Introduce una descripción sobre el evento que deseas crear "
+  },
+  "evento[fecha_hora]": {
+  required: " Introduce aa/mm/dd del evento "
+  },
+  "evento[direccion]": {
+  required: "Introduce la direccion del evento"
+  },
+  "evento[nombre_contacto]": {
+  required: " Introduce el nombre de la persona a quien contactar ",
+  minlength: " mínimo " + a1 + " de caracteres ",
+  maxlength: " máximo " + a3 + " de caracteres "
+  },
+  "evento[correo_contacto]": {
+  required: " Introduce un email para contactarte ",
+  email: " Introduce caracteres '@', '.es', '.com' "
+  },
+  "evento[telefono_contacto]": {
+  required: " Introduce un número de teléfono ",
+  number: " Introduce un número de teléfono válido ",
+  minlength: " mínimo " + a4 + " de carácteres ",
+  maxlength: " máximo " + a2 + " de carácteres "
+  },
+  "evento[valor_boleta]": {
+  required: " Introduce el precio de la entrada "
 
-                },
-                "evento[fecha_inicio_publicacion]": {
-                    required: " Introduce aa/mm/dd de comienzo del evento "
-                },
-                "evento[fecha_fin_publicacion]": {
-                    required: " Introduce aa/mm/dd de final del evento "
+  },
+  "evento[fecha_inicio_publicacion]": {
+  required: " Introduce aa/mm/dd de comienzo del evento "
+  },
+  "evento[fecha_fin_publicacion]": {
+  required: " Introduce aa/mm/dd de final del evento "
 
-                }
+  }
 
-                //agree: "Please accept our terms & condition."
-            }
-        });
-    });
-
-
-
-
-    $(".readonly").keydown(function (e) {
-        e.preventDefault();
-    });
-
-// To user jQuery DatePicker 
-    $(function () {
-        $(".date").datepicker({
-            dateFormat: 'yy/mm/dd',
-            buttonImageOnly: true,
-            buttonText: "Select date"
-        });
-    });
-
-    $(function () {
-        $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
-            var current = $(this).next();
-            var grandparent = $(this).parent().parent();
-            if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
-                $(this).toggleClass('right-caret left-caret');
-            grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
-            grandparent.find(".sub-menu:visible").not(current).hide();
-            current.toggle();
-            e.stopPropagation();
-        });
-        $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
-            var root = $(this).closest('.dropdown');
-
-            root.find('.left-caret').toggleClass('right-caret left-caret');
-            root.find('.sub-menu:visible').hide();
-
-
-        });
+  //agree: "Please accept our terms & condition."
+  }
+  });
+  });
 
 
 
-    });
 
-    function myFunction(firstParameter, secondParameter, thirdParameter) {
-        var cats = firstParameter;
-        var subcats = secondParameter;
-        var sub_subcats = thirdParameter;
-        $(" #catId").val(cats);
-        $(" #subcatId").val(subcats);
-        $(" #sub_subcatId").val(sub_subcats);
+  $(".readonly").keydown(function (e) {
+  e.preventDefault();
+  });
 
-        //alert(cats + "  " + subcats + "  " + sub_subcats);
-    }
-    ;
+  // To user jQuery DatePicker
+  $(function () {
+  $(".date").datepicker({
+  dateFormat: 'yy/mm/dd',
+  buttonImageOnly: true,
+  buttonText: "Select date"
+  });
+  });
 
-</script>
+  $(function () {
+  $(".dropdown-menu > li > a.trigger").on("mouseover", function (e) {
+  var current = $(this).next();
+  var grandparent = $(this).parent().parent();
+  if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
+  $(this).toggleClass('right-caret left-caret');
+  grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
+  grandparent.find(".sub-menu:visible").not(current).hide();
+  current.toggle();
+  e.stopPropagation();
+  });
+  $(".dropdown-menu > li > a:not(.trigger)").on("mouseover", function () {
+  var root = $(this).closest('.dropdown');
+
+  root.find('.left-caret').toggleClass('right-caret left-caret');
+  root.find('.sub-menu:visible').hide();
+
+
+  });
+
+
+
+  });
+
+  function myFunction(firstParameter, secondParameter, thirdParameter) {
+  var cats = firstParameter;
+  var subcats = secondParameter;
+  var sub_subcats = thirdParameter;
+  $(" #catId").val(cats);
+  $(" #subcatId").val(subcats);
+  $(" #sub_subcatId").val(sub_subcats);
+
+  //alert(cats + "  " + subcats + "  " + sub_subcats);
+  }
+  ;
+
+  </script>
  */ ?>
 
 <script>
+
+
+// This example displays an address form, using the autocomplete feature
+// of the Google Places API to help users fill in the information.
+
+$("#autocomplete").on('focus', function () {
+    geolocate();
+});
+
+var placeSearch, autocomplete;
+var componentForm = {
+    street_number: 'short_name',
+    route: 'long_name',
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    country: 'long_name',
+    postal_code: 'short_name'
+};
+
+function initialize() {
+    // Create the autocomplete object, restricting the search
+    // to geographical location types.
+    autocomplete = new google.maps.places.Autocomplete(
+    /** @type {HTMLInputElement} */ (document.getElementById('autocomplete')), {
+        types: ['geocode']
+    });
+    // When the user selects an address from the dropdown,
+    // populate the address fields in the form.
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        fillInAddress();
+    });
+}
+
+// [START region_fillform]
+function fillInAddress() {
+    // Get the place details from the autocomplete object.
+    var place = autocomplete.getPlace();
+
+    document.getElementById("latitude").value = place.geometry.location.lat();
+    document.getElementById("longitude").value = place.geometry.location.lng();
+
+    for (var component in componentForm) {
+        document.getElementById(component).value = '';
+        document.getElementById(component).disabled = false;
+    }
+
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+        }
+    }
+}
+// [END region_fillform]
+
+// [START region_geolocation]
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var geolocation = new google.maps.LatLng(
+            position.coords.latitude, position.coords.longitude);
+
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById("latitude").value = latitude;
+            document.getElementById("longitude").value = longitude;
+
+            autocomplete.setBounds(new google.maps.LatLngBounds(geolocation, geolocation));
+        });
+    }
+
+}
+
+initialize();
+// [END region_geolocation]
+
+    
 
     $(document).ready(function () {
         // validate the comment form when it is submitted
@@ -642,6 +669,6 @@
     ;
 
 </script>
- <?php  $Loading = 'Loading...' ?>
+<?php $Loading = 'Loading...' ?>
 <?php include_once ('/../../Templates/Backend/foot.php') ?>
 <?php include_once ('/../../Templates/Backend/footer.php') ?>

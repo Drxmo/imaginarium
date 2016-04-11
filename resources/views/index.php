@@ -101,7 +101,8 @@
 //$('.parallax1').css('height', window.innerHeight);
 //
 //});
-
+</script>
+<script>
 //  ----------------Efecto scroll speed
 
   if (window.addEventListener)
@@ -186,6 +187,9 @@
 //$(document).ready(function() {
 //  document.getElementsByTagName("html")[0].style.visibility = "visible";
 //});
+//RADIO DE BUGA
+//RADIO DE BUGA
+
 
 
 
@@ -196,7 +200,69 @@
   <h1 style="padding:0;margin:0;">&lt; aboutcher /&gt;;</h1>
   Parallax Demo
 </div>-->
+<div style="clear:both;"></div>
+<div class="txt1 " >
+<div class="posrelative" style="left:100px;" >
+<div class="tleft1" " >
 
+      <div class="txt  left ">
+          
+        1Auris feugiat diam sapien
+      </div>
+      <div style="clear:both;"></div>
+      <div class="txt left sub">
+        &middot; Integer at mi laoreet dolor rhoncus porttitor.<br/>
+         <!--<audio src="http://live.rcnmundo.com/fiestabuga.mp3" controls="controls" > </audio>-->
+<!--        &middot; Lorem ut sapien.-->
+<!--<div>
+		<audio id="audio" src="http://live.rcnmundo.com/fiestabuga.mp3" preload="auto"  ></audio>
+		<button id="play">Play</button>
+		<button id="stop">Stop</button>
+	</div>-->
+<div style="margin-left:10px"><audio id="audio" width="300" height="32" src="http://live.rcnmundo.com/fiestabuga.mp3"></audio>
+<button class="btn btn-primary btn-sm btn-round collapsed" id="play">Play</button>
+<button class="btn btn-primary btn-sm btn-round collapsed" id="pause">Pause
+</button>
+
+
+<audio id="stream" preload="none" style="width: 200px;">
+<source src="http://192.99.150.52:9676/;" type="audio/mpeg">
+</audio>
+    <button class="btn btn-primary btn-sm btn-round collapsed" id="play2">Play</button>
+<button class="btn btn-primary btn-sm btn-round collapsed" id="pause2">Pause
+</button></div>
+<script>
+    
+var audio = document.getElementById('stream');
+audio.volume = 0.5;
+
+//play when play is clicked
+$('#play2').click(function(){
+audio.play()
+})
+
+//pause when pause clicked
+$('#pause2').click(function(){
+audio.pause()
+})
+</script>
+<script>
+//Define the player 
+var player = document.getElementById('audio');
+//play when play is clicked
+$('#play').click(function(){
+player.play()
+})
+
+//pause when pause clicked
+$('#pause').click(function(){
+player.pause()
+})
+</script>
+      </div>
+    </div>
+    </div>
+    </div>
 <div class="parallax1 " >
 
   <!--      <div class="txt right">
@@ -206,21 +272,13 @@
         </div>-->
   <!--     <div class="back backX">-->
   <div style="clear:both;"></div>
+  
   <div class="parallax  " >
-    <div class="txt1 " >
-
-
-      <div class="txt  left ">
-        1Auris feugiat diam sapien
-      </div>
-      <div style="clear:both;"></div>
-      <div class="txt left sub">
-        &middot; Integer at mi laoreet dolor rhoncus porttitor.<br/>
-        &middot; Lorem ut sapien.
-      </div>
-    </div>
+    
 
   </div>
+  
+  <div style="clear:both;"></div>
   <ul onclick="return false" onclick class="slides slideX2 stickySlide" id="trans1">
 
 
@@ -229,7 +287,7 @@
     
     <li><img  src="<?php echo asset("media/img/sitios/puentelibertad.jpg") ?>" alt="Imagen"></li>
     <li><img  src="<?php echo asset("media/img/sitios/EstacionTren.jpg") ?>" alt="Imagen"></li>
-    <li><img  src="<?php echo asset('img/i5.JPG') ?>" alt="Imagen"></li>
+    <li><img style=""  src="<?php echo asset('img/i5.JPG') ?>" alt="Imagen"></li>
 
     <li><img  src="<?php echo asset('img/d1.JPG') ?>" alt="Imagen"></li>
 
@@ -290,6 +348,7 @@
 <div style="clear:both;"></div>
 <div class="parallax" id="trans2">
   <div class="txt2" >
+  <div class="posrelative" style="left:1000px;" >
 
     <div class="txt leftB">
       EcoRutas.
@@ -300,17 +359,31 @@
       <br/>Deportes extremos&hellip;
     </div>
   </div>
+  </div>
+    <div class="txt2 txt3" >
+        <div class="tleft">
+    <div class="txt leftB">
+      Los mejores lugares.
+    </div>
+    <div style="clear:both;"></div>
+    <div class="txt leftB sub">
+      Vive al maximo la experiencia Buga!
+      <br/>Deportes extremos&hellip;
+    </div>
+  </div>
+  </div>
 </div>
 <div style="clear:both;"></div>
 
-<div class="contentX2 right">
+<div class="contentX2 ">
+     <div class=" right">
   <a href=""><img class="contentImg2" src="<?php echo $logo ?>" alt="Buga Logo"/></a>
-  <h2>Maximus Tempor</h2>
-  <p>Integer dictum tortor et quam
-    porttitor rhoncus. Mauris feugiat diam sapien, consequat 
-    molestie odio placerat eu. Integer at mi laoreet dolor rhoncus porttitor.
-    Etiam laoreet, tellus non maximus tempor, ipsum tellus condimentum 
-    est, sit amet auctor sapien lorem ut sapien.</p>
+ 
+  <h2><?php echo $welcome->wel_title2 ?></h2>
+</div>
+
+  <p><?php echo $welcome->wel_content2 ?></p>
+  <div style="clear:both;"></div>
   <section class="col-md-12">
     <section class="container-fluid">
         
@@ -333,7 +406,7 @@
           <h2 class="titulo-eventoX titulo-evento">
             <?php echo ($sitio->sit_nombre) ?>
           </h2>
-
+<div style="height: 10px; width: 100%;"></div>
 <!--                    <p><span class="articulofecha"></span> por <span class="articulo-autor"><a href="#">Admin</a></span></p>-->
 
           <p class="parrafoX2 articulo-contenido parrafoX text-justify">

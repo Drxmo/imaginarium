@@ -63,13 +63,45 @@ li label.error{
 
 
 /*tablas listar*/
+#tableX td{
+    text-align:center !important;
+    padding: 4px 4px 4px 4px;
+}
+    .alerta {
+        
+        padding: 4px 8px 4px 8px;
+        width: fit-content;
+        height: 30px;
+            border: 1px solid transparent;
+    border-radius: 4px;
+    }
+
 th{
     color:lightcyan;
     text-align: center;
     padding-right: 4px;
     padding-left: 4px;
 }
+button.btn.btn-primary.btn-sm.btn-round.collapsed {
+    height: 20px;
+    padding: 0px 10px 10px 10px;
+}
 
+.modalmarquee {    position: relative;
+    float: right;
+    width: 110px;
+    left: 0;
+    height: 0px;
+    clear: both;
+    top: -20px;
+}
+.modal-content {
+    background-color: rgba(255,255,255,.93);
+}
+.modalmarquee marquee{color:red;
+                      
+
+} 
 .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(even)>th {
    background-color: #CDE4B3;

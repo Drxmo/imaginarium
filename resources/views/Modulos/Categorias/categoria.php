@@ -2,39 +2,22 @@
 <?php include_once ('/../../Templates/Frontend/header.php') ?>
 
 <!--Activar Boton navbar-->
-<script>
-//    Reemplazar '.contInicioX' 
-//    por '.sitiosX' si es para Sitios
-//    por '.eventosX' si es para Eventos
-    $(document).ready(function () {
-        console.log("document loaded");
-        $('.categoriasX').addClass('active');
-        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $('parrafoX').addClass('limit');
 
-    });
-
-    $(window).load(function () {
-        console.log("window loaded");
-        $('.categoriasX').addClass('active');
-        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
-        $('.parrafoX').addClass('limit');
-    });
-
-</script>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div>
-     <img class="imgarticleX" src="<?php echo asset('img/c9.jpg') ?>" alt="Imagen">
+     <img class="imgarticleX" src="<?php echo asset('img/c19.jpg') ?>" alt="Imagen">
 </div>
- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <section class="sitio-contenido">
-                <main class="container" role="main">
-                    <article class="">                        
+
+                                   
                         <header class="sitio-head">
                             <h3><span>Categorias!!</span></h3>
                         </header>
-	
+                      
 	
 <div id="wowslider-container1">
 <div class="ws_images"><ul>
@@ -59,45 +42,108 @@
 <script type="text/javascript" src="<?php echo asset('js/script.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('js/jquery.js') ?>js/jquery.js"></script>
 
- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <section class="sitio-contenido">
-                <main class="container" role="main">
-                    <article class="">                        
-                        <header class="sitio-head">
-                            <h3><span>Categorias Mas destacadas</span></h3>
-                        </header>
 
 
-           
-                        <figure id="img">
-                            <div id="img">  
-                                
+            <section class="wrapper style">
+             
+                                          
+                    
+                            <h3><span>Todas Las Categorias</span></h3>
+                      
+
+
+                    
+                    
+                            <figure id="img">
+                                <div id="img">  
                                 <div id="info">
-                                    <a href="<?php echo url("#") ?>"><p id="headline">Restaurantes</p></a>
-                                    <p id="info2">Comidas tipicas y de tooda nuestra region</p>
+                                    <a href="<?php echo url("#") ?>"><p id="headline">Cultura y Tradiccion</p></a>
+                                    <p id="info2">Comidas tipicas y toda nuestra cultura aqui!!</p>
                                 </div>
-                            </div>
-                        </figure>   
-                        <figure id="img1">
-                            <div id="img1">  
-                                
+                                </div>
+                            </figure>
+             
+                    
+                       
+                    <figure id="img1">
+                        <div id="img1">
                                 <div id="info3">
-                                    <a href="todasCategorias.php"><p id="headline1">Park Gym</p></a>
-                                    <p id="info4">Ven y moldea tu cuerpo en muchos parques de nuestra ciudad</p>
-                                </div>
+                                  <p id="headline1">Deportes</p>
+                                    <p id="info4">Encuentra muchos sitios en los cuales podras practicar tu deporte favorito</p>
                             </div>
-                        </figure>
-                        <figure id="img2">
-                            <div id="img2">  
-                                
+                        </div>
+                    </figure>
+               
+                    
+                    
+                    <figure id="img2">
+                        <div id="img2">
                                 <div id="info5">
                                     <p id="headline2">Iglesias</p>
                                     <p id="info6">De las mejores basilicas del mundo</p>
                                 </div>
+                        </div>
+                    </figure>
+                        
+                            <figure  id="img3">
+                            <div id="img3">   
+                                <div id="info7">
+                                    <p id="headline3">ecoTuristico</p>
+                                    <p id="info8">Parques y Reservas Naturales de Nuestra Region</p>
+                                </div>
                             </div>
                         </figure>
-                        <a href="<?php echo url("/categorias/categoriadetalle") ?>">  <button  type="button" class="btn btn-info">Todas las categorias</button></a>
+                    
+                    <figure  id="img4">
+                            <div id="img4">   
+                                <div id="info9">
+                                    <p id="headline4">Historico</p>
+                                    <p id="info10">Una Gran historias te encontraras si te pones a investigar sobre nuestra ciudad</p>
+                                </div>
+                            </div>
+                        </figure>
+                    
+                    <figure  id="img5">
+                            <div id="img5">   
+                                <div id="info11">
+                                    <p id="headline5">Entretenimiento</p>
+                                    <p id="info12">Deliciosas piscinas y agradables sitios para pasar una buena tarde en familia</p>
+                                </div>
+                            </div>
+                        </figure>
+                
+               
+           
 
+
+            </section>
+
+                        
+                        
+<script>
+//    Reemplazar '.contInicioX' 
+//    por '.sitiosX' si es para Sitios
+//    por '.eventosX' si es para Eventos
+    $(document).ready(function () {
+        console.log("document loaded");
+        $('.categoriasX').addClass('active');
+        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
+        $('parrafoX').addClass('limit');
+
+    });
+
+    $(window).load(function () {
+        console.log("window loaded");
+        $('.categoriasX').addClass('active');
+        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
+        $('.parrafoX').addClass('limit');
+    });
+    
+//     $(document).ready(function () {
+//  $(".mCustomScrollbar").mCustomScrollbar({axis: "x"})
+
+;</script>
+                        
                         
 <?php include_once ('/../../Templates/Frontend/footer.php') ?>
 <?php include_once ('/../../Templates/Frontend/foot.php') ?>

@@ -30,20 +30,18 @@
 
 <div class="container container-fluid loginX" style="padding-left: 315px !important;
      padding-right: 315px;">
-    <!--<form class="form-signin" id="formvalidate" novalidate method="post" action="<?php echo url("/usuarios/usuarios/login") ?>">-->
+    
         <h2 class="form-signin-heading lightcyan">¿Está Seguro que desea eliminar el sitio?</h2>
-<!--        <input type="text" autocomplete="off" autofocus placeholder="Usuario" class="form-control" name="seguridad[user]">
-        <input type="password" placeholder="Contraseña" class="form-control"  name="seguridad[pass]">
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Identificarse</button>-->
+       
         
         <?php if (Session::has('super') === true) : ?>
         
-        <p><a href="<?php echo url("/sitios/sitios/borrar/" . $id) ?>">Eliminar sitio as SuperUser</a></p>
+        <p><a class="btn btn-primary btn-sm btn-round collapsed getUserDelID"  href="<?php echo url("/sitios/sitios/borrar/" . $id) ?>">Eliminar sitio as SuperUser</a></p>
         
         <a href="<?php echo (url("/sitios/sitios/listar")); ?>" class="icon-aircraft-landing">Retroceder</a>
         
         <?php else : ?>
-        <p><a href="<?php echo url("/sitios/sitios/suspender/" . $id) ?>">Eliminar sitio</a></p>
+        <p><a href="<?php echo url("/sitios/sitios/suspender/" . $id) ?>" class="btn btn-primary btn-sm btn-round collapsed getUserDelID">Eliminar sitio</a></p>
         
         <a href="<?php echo url("/seguridad/panelcontrol")?>" class="icon-aircraft-landing">Retroceder</a>
         <?php endif; ?>
@@ -59,17 +57,17 @@
         <?php endif */ ?>
     <!--</form>-->  
     
-    <a id="callConfirm">Confirm!</a>
+<!--    <a id="callConfirm">Confirm!</a>
 
 <div id="dialog" title="Confirmation Required">
   Are you sure about this?
-</div>
+</div>-->
     
-    <button data-user="1" class="btn btn-primary btn-sm btn-round collapsed getUserDelID"><i class="fa fa-trash-o"></i> Delete</button>
-<button data-user="2" class="btn btn-primary btn-sm btn-round collapsed getUserDelID"><i class="fa fa-trash-o"></i> Delete</button>
+<!--    <button data-user="1" class="btn btn-primary btn-sm btn-round collapsed getUserDelID"><i class="fa fa-trash-o"></i> Delete</button>
+<button data-user="2" class="btn btn-primary btn-sm btn-round collapsed getUserDelID"><i class="fa fa-trash-o"></i> Delete no</button>
 <button data-user="3" class="btn btn-primary btn-sm btn-round collapsed getUserDelID"><i class="fa fa-trash-o"></i> Delete</button>
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Delete User" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Delete User" aria-hidden="true">-->
+<!--    <div class="modal-dialog">
         <div class="modal-content">
             <div class="panel-primary">
                 <div class="panel-heading">
@@ -90,10 +88,39 @@
                     <button class="btn btn-success" href="#" id="close" class="btn" data-dismiss="modal">Close</a>
                 </div>
             </div>
-            <!-- /.modal-content -->
+             /.modal-content 
         </div>
-        <!-- /.modal-dialog -->
+         /.modal-dialog 
+    </div>-->
+<button class="btn btnDelete btn-primary btn-sm btn-round collapsed getUserDelID"  href="<?php echo url("/sitios/sitios/borrar/" . $id) ?>">Eliminar sitio as SuperUser</button>
+ <button class="btnDelete" href="">delete</button>
+  
+                <button class="btnDelete" href="">delete</button>
+  
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h3 class="modal-title" id="myModalLabel">Warning!</h3>
+
+            </div>
+            <div class="modal-body">
+                 <h4> Are you sure you want to DELETE?</h4>
+
+            </div>
+            <!--/modal-body-collapse -->
+            <div class="modal-footer">
+                <a type="button" class="btn btn-danger" id="btnDelteYes" href="<?php echo url("/sitios/sitios/borrar/" . $id) ?>">Yes</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+            <!--/modal-footer-collapse -->
+        </div>
+        <!-- /.modal-content -->
     </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 </div>
 </div>
 <br>
@@ -112,29 +139,50 @@
 
 <script>
 
+$('button.btnDelete').on('click', function (e) {
+e.preventDefault();
 
-$('.getUserDelID').on('click', function (event) {
-    $('.userId').text($(this).data('user'));
-    $('#deleteModal').modal();
+    
+    var id = $(this).closest(':button').data('id');
+    document.getElementById("btnDelteYes").href = "http://www.cnn.com/"+id;
+     alert('hola' + " " + document.getElementById("btnDelteYes").href);
+    $('#myModal').data('id', id).modal('show');
+    
+    
+    
+    $('#btnDelteYes').click(function () {
+    var id = $('#myModal').data('id');
+    $('[data-id=' + id + ']').remove();
+    alert(id);
+    $('#myModal').modal('hide');
+});
+   
 });
 
-$('#deleteUser').on('click', function (event) {
-    var otherProp = $('.userId').text();
-    alert(otherProp);
-    $.ajax({
-        type: "POST",
-        url: "deleteuser.php",
-        data: $('form.deleteuser').serialize(),
-        success: function (msg) {
-            $("#deleteholder").html(msg)
-        },
-        error: function () {
-            $("#deleteholder").html("error")
-        }
-    });
-});
 
 
+
+
+
+//$('button.btnDelete').on('click', function (e) {
+//    e.preventDefault();
+//    var id = $(this).closest('tr');
+//    $('#myModal').data('id', id).modal('show');
+//});
+//
+//$('#btnDelteYes').click(function () {
+//    var id = $('#myModal').data('id');
+//    $('[data-id=' + id + ']').remove();
+//    $('#myModal').modal('hide');
+//});
+//
+//$(document).ready(function(){
+//    $('.tmb').click(function(){
+//        var target=$(this).parent().find("a");
+//
+//        $("#debug").text("clicked "+target.text());
+//        //target.triggerHandler('click');
+//        window.open(target.attr('href'));
 
 
 </script>
