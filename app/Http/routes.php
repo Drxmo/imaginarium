@@ -41,6 +41,8 @@ Route::controllers([
     'seguridad/login' => "Modulos\Seguridad\usuariosController",
     'seguridad/panelcontrol' => "Modulos\Seguridad\panelcontrolController",
     'sitios/sitios' => "Modulos\Sitios\SitiosController",
+    'busqueda/busqueda' => "Modulos\busqueda\BusquedaController",
+//    'busqueda/busqueda/search' => "Modulos\busqueda\BusquedaController"
 ]);
 /*
   |--------------------------------------------------------------------------

@@ -225,7 +225,13 @@
               <li class="categoriasX"><a href="<?php echo url("/categorias/categorias/categoria") ?>">Categorias</a></li>
 
             </ul>
-              
+              <div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'id', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+}
+</script>
+<script async="async" type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                <?php if (Session::has('user') !== true): ?>
 <!--              <div class="navbar-nav navbar-text bienvenida"><h2><?php echo  'Bienvenidos' ?></h2> </div>-->
             <div class="floatRightX">
@@ -272,9 +278,9 @@
                     </ul>
                   </li>
                 <?php endif ?>
-                <form action="#" class="navbar-form navbar-right" role="search">
+                <form action="<?php echo url("/busqueda/busqueda/search") ?>" method="post" class="navbar-form navbar-right" role="search">
                   <div class="form-group">
-                    <input type="text" class="form-control searchX" placeholder="Search">
+                    <input type="text" class="form-control searchX" placeholder="Search" name="string">
                   </div>
                   <button type="submit" class="btn btn-default">
                     <span class="icon-magnifying-glass"></span>

@@ -2,7 +2,9 @@
 <?php include_once ('/../../Templates/Backend/header.php') ?>
 
 
-<script src="<?php echo asset('js/jquery/places.js') ?>"></script>
+<!--<script src="<?php echo asset('js/jquery/places.js') ?>"></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=es"></script>
 <style>
     .ui-datepicker-header a{
         background-color: black
@@ -60,7 +62,7 @@
                     <div class="form-group">
 
                         <input type="hidden"  id="subcatId" value="" name="sitio[subcat_id]">
-                        <input type="text"  disabled="" id="sub_subcatId" value="" name="sitio[sub_subcat_id]">
+                        <input type="hidden"   id="sub_subcatId" value="" name="sitio[sub_subcat_id]">
                         <div class="catselector" >
                             <input type="text" style="visibility:hidden; top:-20px; width: 1px; height: 1px; position:absolute; z-index: 99" name="sitio[cat_id]"  id="catId" class="readon readonly" />
                         </div>

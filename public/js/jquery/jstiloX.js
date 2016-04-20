@@ -223,6 +223,8 @@ $(document).ready(function() {
   document.getElementsByTagName("html")[0].style.visibility = "visible";
 });
 $(window).on('load', function() {
+    
+    
     $("#cover").addClass("smallX");
     $("#cover").fadeOut(200);
 });

@@ -40,19 +40,29 @@ class EventosController extends controller {
         $sub_subcategorias = array();
         $evento = DB::select("SELECT * FROM bdp_evento WHERE eve_id = ?", array($id));
         $img = DB::select("SELECT * FROM bdp_imagen WHERE eve_id = ?", array($id));
+        $img1 = DB::select("SELECT img_ruta FROM bdp_imagen WHERE eve_id = ?", array($id));
         
         $evento = $evento[0];
         $img = $img[0];
-        return view('Modulos.Eventos.eventodetalle', compact("categorias", "subcategorias", "sub_subcategorias", "evento","img"));
+        $img1 = $img1[0];
+        
+         $new_arr[] = null;
+        foreach ($img1 as $even) {
+            $new_arr[] = $even;
+        }
+        $img_ruta = implode($new_arr);
+        
+        
+        return view('Modulos.Eventos.eventodetalle', compact("categorias", "subcategorias", "sub_subcategorias", "evento","img", "img_ruta"));
   }
 
   function getCrear() {
 
     $nombre = "Administrador";
     $categorias = DB::select("SELECT * FROM bdp_categoria");
-
+$usuarios = DB::select("SELECT usu_id, usu_usuario FROM bdp_usuario WHERE usu_deleted_at IS NULL AND usu_activado = '1' ");
     $sub_subcategorias = array();
-    return view('Modulos.eventos.crearevento', compact("categorias", "subcategorias", "sub_subcategorias", "eventos"));
+    return view('Modulos.eventos.crearevento', compact("categorias", "subcategorias", "sub_subcategorias", "eventos", "usuarios"));
   }
 
   function postIndexxx() {
@@ -147,10 +157,11 @@ class EventosController extends controller {
   function getEditar($id) {
     $nombre = "Administrador";
     $categorias = DB::select("SELECT * FROM bdp_categoria");
+    $usuarios = DB::select("SELECT usu_id, usu_usuario FROM bdp_usuario WHERE usu_deleted_at IS NULL AND usu_activado = '1' ");
     $sub_subcategorias = array();
     $evento = DB::select("SELECT * FROM bdp_evento WHERE eve_id = ?", array($id));
     $evento = $evento[0];
-    return view('Modulos.Eventos.editarevento', compact("categorias", "subcategorias", "sub_subcategorias", "evento"));
+    return view('Modulos.Eventos.editarevento', compact("categorias", "subcategorias", "sub_subcategorias", "evento", "usuarios"));
   }
 
   function postEditar() {

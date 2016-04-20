@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="<?php echo asset('css/new.css') ?>">
         <link rel="stylesheet" href="<?php echo asset('css/styleC.css') ?>">
         <link rel="stylesheet" href="<?php echo asset('css/styleD.css') ?>">
-        <link rel="stylesheet" href="<?php echo asset('css/estiloCDAP.css') ?>">
+        <!--<link rel="stylesheet" href="<?php echo asset('css/estiloCDAP.css') ?>">-->
         <link rel="stylesheet" href="<?php echo asset('css/jquery-ui.css') ?>">
 <!--        <link rel="stylesheet" href="<?php echo asset('css/backend.css') ?>">-->
         

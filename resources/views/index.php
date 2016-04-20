@@ -207,11 +207,11 @@
 
       <div class="txt  left ">
           
-        1Auris feugiat diam sapien
+        Vive tu Ciudad...
       </div>
       <div style="clear:both;"></div>
       <div class="txt left sub">
-        &middot; Integer at mi laoreet dolor rhoncus porttitor.<br/>
+        &middot; Conoce su música desde las emisoras locales.<br/>
          <!--<audio src="http://live.rcnmundo.com/fiestabuga.mp3" controls="controls" > </audio>-->
 <!--        &middot; Lorem ut sapien.-->
 <!--<div>
@@ -234,7 +234,7 @@
 <script>
     
 var audio = document.getElementById('stream');
-audio.volume = 0.5;
+audio.volume = 1;
 
 //play when play is clicked
 $('#play2').click(function(){

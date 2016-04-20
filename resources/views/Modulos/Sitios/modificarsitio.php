@@ -2,7 +2,8 @@
 <?php include_once ('/../../Templates/Backend/header.php') ?>
 
 
-<script src="<?php echo asset('js/jquery/places.js') ?>"></script>
+<!--<script src="<?php echo asset('js/jquery/places.js') ?>"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=es"></script>
 <style>
     .ui-datepicker-header a{
         background-color: black
@@ -156,7 +157,7 @@
 
                                 <div class="col-xs-2">
                                     <label  style="top:-15px;"><span class="lightcyan">Usuario de Sitio:</span> 
-                                        <select name="sitio[usu_id]" >
+                                        <select id="usuId" name="sitio[usu_id]" >
                                             <option></option>
                                             <?php
                                             foreach ($usuarios as $usuario) {
@@ -192,7 +193,7 @@
                         <?php else: ?>
 
                         </div>
-                        <input type="hidden" class="form-control" id="usuSitio" value="<?php echo Session::get('user') ?>" name="sitio[usu_id]">
+                        <input type="hidden" class="form-control" id="usuId" value="<?php echo Session::get('user') ?>" name="sitio[usu_id]">
                     <?php endif; ?>
                     <div class="form-group">
                         <label class="control-label col-xs-3">Direccion de Sitio</label>
@@ -498,6 +499,7 @@
           $(" #catId").val(<?php echo $sitio->cat_id ?>);
         $(" #subcatId").val(<?php echo $sitio->subcat_id ?>);
         $(" #sub_subcatId").val(<?php echo $sitio->sub_subcat_id ?>);
+        $(" #usuId").val(<?php echo $sitio->usu_id ?>);
         $(" #catsname").val(catsname);
     });
      

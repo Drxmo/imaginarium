@@ -1,143 +1,1306 @@
 <?php include_once ('/../../Templates/Frontend/header.php') ?>
 <?php include_once ('/../../Templates/Frontend/head.php') ?>
+<!--<link rel="stylesheet" href="<?php echo asset('/../../../../../public/css/estiloCDAP2.css') ?>">-->
+<!--<link rel="stylesheet" href="../../../../public/css/estiloCDAP2.css">-->
+<style>
+    
+    /*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09-feb-2016, 8:44:25
+    Author     : CDAP
+*/
 
+/*Comienza Eventos*/
+
+
+/*CARRUSEL MEJORADOR*/
+
+@font-face {
+  font-family: 'ws-ctrl-convex';
+  src: url('ws-ctrl-convex.eot');
+  src: url('ws-ctrl-convex.eot#iefix') format('embedded-opentype'),
+    url('ws-ctrl-convex.svg#ws-ctrl-convex') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ws-ctrl-convex';
+}
+
+#wowslider-containerCDAP { 
+  display: table;
+  zoom: 1; 
+  position: relative;
+  width: 100%;
+  max-width: 1024px;
+  max-height:768px;
+  margin:0px auto 0px;
+  z-index:90;
+  text-align:left; /* reset align=center */
+  font-size: 10px;
+  text-shadow: none; /* fix some user styles */
+  margin-left: auto;
+  margin-right: auto;
+  /* reset box-sizing (to boostrap friendly) */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; 
+}
+* html #wowslider-containerCDAP{ width:1024px }
+#wowslider-containerCDAP .ws_images ul{
+  position:relative;
+  width: 10000%; 
+  height:100%;
+  left:0;
+  list-style:none;
+  margin:0;
+  padding:0;
+  border-spacing:0;
+  overflow: visible;
+  /*table-layout:fixed;*/
+}
+#wowslider-containerCDAP .ws_imagesCDAP ul li{
+  position: relative;
+  width:1%;
+  height:100%;
+  line-height:0; /*opera*/
+  overflow: hidden;
+  float:left;
+  /*font-size:0;*/
+  padding:0 0 0 0 !important;
+  margin:0 0 0 0 !important;
+}
+
+#wowslider-containerCDAP .ws_imagesCDAP{
+  position: relative;
+  left:0;
+  top:0;
+  height:100%;
+  max-height:768px;
+  max-width: 1024px;
+  vertical-align: top;
+  border:none;
+  overflow: hidden;
+}
+#wowslider-containerCDAP .ws_imagesCDAP ul a{
+  width:100%;
+  height:100%;
+  max-height:768px;
+  display:block;
+  color:transparent;
+}
+#wowslider-containerCDAP img{
+  max-width: none !important;
+}
+#wowslider-containerCDAP .ws_imagesCDAP .ws_list img,
+#wowslider-containerCDAP .ws_imagesCDAP > div > img{
+  width:100%;
+  border:none 0;
+  max-width: none;
+  padding:0;
+  margin:0;
+}
+#wowslider-containerCDAP .ws_imagesCDAP > div > img {
+  max-height:768px;
+}
+
+#wowslider-containerCDAP .ws_imagesCDAP iframe {
+  position: absolute;
+  z-index: -1;
+}
+
+#wowslider-containerCDAP .ws-title > div {
+  display: inline-block !important;
+}
+
+#wowslider-containerCDAP a{ 
+  text-decoration: none; 
+  outline: none; 
+  border: none; 
+}
+
+#wowslider-containerCDAP  .ws_bulletsCDAP { 
+  float: left;
+  position:absolute;
+  z-index:70;
+}
+#wowslider-containerCDAP  .ws_bulletsCDAP div{
+  position:relative;
+  float:left;
+  font-size: 0px;
+}
+/* compatibility with Joomla styles */
+#wowslider-containerCDAP  .ws_bulletsCDAP a {
+  line-height: 0;
+}
+
+#wowslider-containerCDAP  .ws_scriptCDAP{
+  display:none;
+}
+#wowslider-containerCDAP sound, 
+#wowslider-containerCDAP object{
+  position:absolute;
+}
+
+/* prevent some of users reset styles */
+#wowslider-containerCDAP .ws_effect {
+  position: static;
+  width: 100%;
+  height: 100%;
+}
+
+#wowslider-containerCDAP .ws_photoItem {
+  border: 2em solid #fff;
+  margin-left: -2em;
+  margin-top: -2em;
+}
+#wowslider-containerCDAP .ws_cube_side {
+  background: #A6A5A9;
+}
+
+/* bullets */
+#wowslider-containerCDAP  .ws_bulletsCDAP { 
+  padding: 0px; 
+}
+#wowslider-containerCDAP .ws_bulletsCDAP a { 
+  position:relative;
+  display: inline-block;
+  width: 0;
+  margin: 3px 5px;
+  padding: 8px;	
+
+  -webkit-perspective: 80px;
+  perspective: 80px;
+} 
+#wowslider-containerCDAP .ws_bulletsCDAP a > span {
+  position:absolute;
+  display: block;
+  top:0;
+  right: 0;
+  height:100%;
+  width:100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease, transform 0.5s ease;
+}
+
+#wowslider-containerCDAP .ws_bulletsCDAP a > span:before,
+#wowslider-containerCDAP .ws_bulletsCDAP a > span:after {
+  content: '';
+  display: block;
+  height:100%;
+  background: #ff5500;
+
+  -webkit-transform: rotateX(-90deg) translateZ(-8px) translateY(8px);
+  transform: rotateX(-90deg) translateZ(-8px) translateY(8px);
+}
+#wowslider-containerCDAP .ws_bulletsCDAP a > span:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1A2223;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+#wowslider-containerCDAP .ws_bulletsCDAP a.ws_overbull > span,
+#wowslider-containerCDAP .ws_bulletsCDAP a.ws_selbull > span {
+  -webkit-transform: rotateX(-90deg) translateZ(8px) translateY(8px);
+  transform: rotateX(-90deg) translateZ(8px) translateY(8px);
+}
+
+
+
+
+/* play/pause, arrows */
+
+
+/* bottom center */
+#wowslider-containerCDAP  .ws_bulletsCDAP {
+  bottom:1.5em;
+  left:50%;
+}
+#wowslider-containerCDAP  .ws_bulletsCDAP div{
+  left:-50%;
+}#wowslider-containerCDAP .ws-title{
+  font: 1.9em 'Fjalla One', Arial, sans-serif;
+  position: absolute;
+  left: 2em;
+  margin-right:10em;
+  z-index: 50;
+
+  color:#fff;
+  padding: 1em;
+  bottom: 30px;
+  top: auto;
+  opacity: 1;
+}
+#wowslider-containerCDAP .ws-title div,#wowslider-containerCDAP .ws-title span{
+  display:inline-block;
+  padding: 0.1em 0.6em;
+  background: linear-gradient(to bottom, #120F43 0%, #2B3DC0 55%, #2720B9 57%);
+  color: #fff;
+  border-radius: 15px
+}
+#wowslider-containerCDAP .ws-title div{
+  display:block;
+  margin-top:0.5em;
+  font-size: 1.3em;
+}
+#wowslider-containerCDAP .ws-title span{
+  text-transform: uppercase;	
+  font-size: 2em;
+}#wowslider-containerCDAP .ws_imagesCDAP > ul{
+  animation: wsBasic 16s infinite;
+  -moz-animation: wsBasic 16s infinite;
+  -webkit-animation: wsBasic 16s infinite;
+}
+@keyframes wsBasic{0%{left:-0%} 12.5%{left:-0%} 25%{left:-100%} 37.5%{left:-100%} 50%{left:-200%} 62.5%{left:-200%} 75%{left:-300%} 87.5%{left:-300%} }
+@-moz-keyframes wsBasic{0%{left:-0%} 12.5%{left:-0%} 25%{left:-100%} 37.5%{left:-100%} 50%{left:-200%} 62.5%{left:-200%} 75%{left:-300%} 87.5%{left:-300%} }
+@-webkit-keyframes wsBasic{0%{left:-0%} 12.5%{left:-0%} 25%{left:-100%} 37.5%{left:-100%} 50%{left:-200%} 62.5%{left:-200%} 75%{left:-300%} 87.5%{left:-300%} }
+
+#wowslider-containerCDAP .ws_bulletsCDAP  a img{
+  position:absolute;
+  display:block;
+  text-indent:0;
+  bottom:15px;
+  left:-32px;
+  visibility:hidden;
+  max-width:none;
+}
+#wowslider-containerCDAP .ws_bulletsCDAP a:hover img{
+  visibility:visible;
+}
+
+#wowslider-containerCDAP .ws_bulframe div div{
+  height:48px;
+  overflow:visible;
+  position:relative;
+}
+#wowslider-containerCDAP .ws_bulframe div {
+  left:0;
+  overflow:hidden;
+  position:relative;
+  width:64px;
+}
+#wowslider-containerCDAP  .ws_bulletsCDAP .ws_bulframe{
+  position:absolute;
+  display:none;
+  bottom:25px;
+  margin-left:8px;
+  cursor:pointer;
+
+  /* fixed bulframe hidding in Chrome */
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}#wowslider-containerCDAP .ws_bulframe div div{
+  height: auto;
+}
+
+@media all and (max-width:760px) {
+  #wowslider-containerCDAP .ws_fullscreen {
+    display: block;
+  }
+}
+@media all and (max-width:400px){
+  #wowslider-containerCDAP .ws_controls,
+  #wowslider-containerCDAP .ws_bulletsCDAP,
+  #wowslider-containerCDAP .ws_thumbs{
+    display: none
+  }
+}
+
+#wowslider-containerCDAP .ws_hovershow {
+  /*display: none !important; */
+  opacity: 0;
+  -webkit-transition:opacity 0.2s ease-in;
+  -moz-transition:opacity 0.2s ease-in;
+  -o-transition:opacity 0.2s ease-in;
+  transition:opacity 0.2s ease-in;
+}
+
+#wowslider-containerCDAP:hover .ws_hovershow {
+  /*display: block !important;*/
+  opacity: 1;
+  -webkit-transition:opacity 0.2s ease-in;
+  -moz-transition:opacity 0.2s ease-in;
+  -o-transition:opacity 0.2s ease-in;
+  transition:opacity 0.2s ease-in;
+}
+
+
+
+#wowslider-containerCDAP .ws_fullscreen {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  margin-left: -9px;
+  margin-top: -14px;
+  z-index: 59;
+  background-image: url(./fullscreen.png);
+}
+
+div#ws_fullscreen:-moz-full-screen #wowslider-containerCDAP {
+  width: 95% !important;
+  max-width: 100% !important;
+  max-height: inherit;
+}
+
+div#ws_fullscreen:-webkit-full-screen #wowslider-containerCDAP {
+  width: 95% !important;
+  max-width: 100% !important;
+  max-height: inherit;
+}
+
+div#ws_fullscreen:fullscreen #wowslider-containerCDAP {
+  width: 95% !important;
+  max-width: 100% !important;
+  max-height: inherit;
+}
+
+div#ws_fullscreen:-moz-full-screen {
+  background-color: #000;
+  height: 100%;
+}
+
+div#ws_fullscreen:-webkit-full-screen {
+  background-color: #000;
+  height: 100%;
+}
+
+div#ws_fullscreen:fullscreen {
+  background-color: #000;
+  height: 100%;
+}
+
+
+
+
+/*CARRUSEL TERMINADO*/
+
+/*IMÃ�GENES CON EFECTO*/
+
+
+div#allCDAP {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* generic css */
+.viewCDAP {
+  margin: 10px;
+  float: left;
+  border: 10px solid #fff;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: default;
+  background: #fff url(../images/bgimg.jpg) no-repeat center center
+}
+.viewCDAP .maskCDAP, .viewCDAP .content {
+  width: 340px;
+  height: 200px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0
+}
+.viewCDAP img {
+  display: block;
+  position: relative
+}
+.viewCDAP h2 {
+  text-transform: uppercase;
+  color: rgba(141, 211, 232, 0.9);
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  padding: 5px;
+  margin: 1px 0 0 0;
+}
+.viewCDAP p {
+  font-style: italic;
+  font-size: 14px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(221, 233, 241);
+  padding: 0px 13px 0px;
+  word-spacing: 2px;
+  direction: ltr;
+  text-align: justify;
+  word-break: break-word;
+}
+.viewCDAP a.infoCDAP {
+  display: inline-block;
+  padding: 10px 10px;
+  background: linear-gradient(to bottom, rgba(43, 209, 234, 0.7) 0%, rgba(189,227,245,0.5) 55%, rgba(135, 169, 179, 0.7) 57%);
+  color: rgb(219, 224, 228);
+  text-transform: uppercase;
+  box-shadow: 0 0 2px rgb(18, 222, 213);
+  border-radius: 15px;
+}
+.viewCDAP a.infoCDAP:hover {
+  box-shadow: 0 0 5px #000
+}
+
+/*1*/
+
+.view-first img { /*1*/
+  transition: all 0.2s linear;
+  width: 340px;
+  height: 200px;
+}
+.view-first .maskCDAP {
+  opacity: 0;
+  background-color: rgba(63, 177, 220, 0.3);
+  transition: all 0.4s ease-in-out;
+
+}
+.view-first h2 {
+  transform: translateY(-100px);
+  opacity: 0;
+  font-family: Raleway, serif;
+  transition: all 0.2s ease-in-out;
+}
+.view-first p { 
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+.view-first a.infoCDAP{
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* */
+
+.view-first:hover img { 
+  transform: scale(1.1);
+} 
+.view-first:hover .maskCDAP { 
+  opacity: 1;
+}
+.view-first:hover h2,
+.view-first:hover p,
+.view-first:hover a.infoCDAP {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.view-first:hover p {
+  transition-delay: 0.1s;
+}
+.view-first:hover a.infoCDAP {
+  transition-delay: 0.2s;
+}
+
+/*IMÃ�GENES CON EFECTO TERMINADO*/
+
+.descriptionCDAP{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.lineaCDAP{
+  margin-bottom: 10px;
+  border-bottom: 1px solid blue;
+
+}
+
+#tituCDAP{
+  text-align: center;
+  text-shadow: rgba(48,147,214,0.2) 0 0 50px;
+  font-size: 50px;
+  color: rgba(253,253,253,0.8);
+  background: linear-gradient(to bottom, rgba(43,165,234,0.7) 0%, rgba(189,227,245,0.5) 55%, rgba(135, 159, 179, 0.7) 57%);
+  border-radius: 15px;
+}
+
+
+.texCDAP{
+  color: rgb(236, 240, 241);
+  text-align: justify;
+  padding-right: 20px;
+  padding-left: 20px;
+  line-height: 1.25;
+  word-break: break-word;
+  font-size: 23px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  word-spacing: 2.10px;
+  background-color: rgba(208,218,220,0.06);
+  border-radius: 30px;
+  white-space: pre-wrap;
+  direction: ltr;
+}
+
+
+
+.litransCDAP{
+  color:transparent;
+}
+
+img#tamaÃ±oCDAP {
+  width: 100%;
+  margin: -55px auto -130px;
+}
+
+/*EVENTO DETALLE*/
+
+/* Post */
+
+.post {
+  border: solid 2px rgba(255, 255, 255, 0.5);
+}
+
+.post > header {
+  border-bottom: solid 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Post */
+
+.post:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.post > header:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.post > header .title {
+  display: table-cell;
+  vertical-align: top;
+  width: 65%;
+}
+
+.post > header .meta {
+  display: table-cell;
+  vertical-align: top;
+  width: 30%;
+}
+
+.post > header .meta {
+  padding: 3.75em 3em 1.75em 3em ;
+  border-left: solid 2px rgba(255, 255, 255, 0.5);
+  min-width: 17em;
+  text-align: right;
+  width: 17em;
+}
+.post > header .title {
+  -ms-flex: 0 1 auto;
+  margin: 0 0 2em 0;
+  padding: 0;
+  text-align: center;
+}
+
+.post > header .title {
+  -moz-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex: 1;
+  padding: 3.75em 3em 3.3em 3em;
+}
+
+.post > header .title h2 {
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+.post > header .title > :last-child {
+  margin-bottom: 0;
+}
+
+.post > footer:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.post > footer .actions {
+  display: inline-block;
+}
+
+.post > footer .stats {
+  display: inline-block;
+}
+
+.author img {
+  border-radius: 100%;
+  display: block;
+  width: 3em;
+  margin: 0 auto;
+  height: 2.5em;
+}
+
+/* Post */
+
+.post {
+  padding: 3em 3em 1em 3em ;
+  background: transparent;
+  border: solid 2px rgba(255, 255, 255, 0.5);
+  margin: 0 0 3em 0;
+  position: relative;
+}
+
+.post > header {
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.5);
+  left: -3em;
+  margin: -3em 0 3em 0;
+  position: relative;
+  width: calc(100% + 6em);
+}
+
+.post > header .title {
+  -moz-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex: 1;
+  padding: 3.75em 3em 3.3em 3em;
+}
+
+.post > header .title h2 {
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+.post > header .title > :last-child {
+  margin-bottom: 0;
+}
+
+.post > header .meta {
+  padding: 3.75em 3em 1.75em 3em ;
+  border-left: solid 2px rgba(255, 255, 255, 0.5);
+  min-width: 17em;
+  text-align: right;
+  width: 17em;
+}
+
+.post > header .meta > * {
+  margin: 0 0 1em 0;
+}
+
+.post > header .meta > :last-child {
+  margin-bottom: 0;
+}
+
+.post > header .meta .published {
+  color: white;
+  display: block;
+  font-size: 0.7em;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  margin-top: 0.5em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.post > .ajustar .image.featured {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.post > .ajustar .image.featured img {
+  -moz-transition: -moz-transform 0.2s ease-out;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  -ms-transition: -ms-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  margin-bottom: 50px;
+}
+
+.post > .ajustar .image.featured:hover img {
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.post > footer {
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.post > footer .actions {
+  -moz-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  color: transparent;
+}
+
+.post > footer .stats {
+  cursor: default;
+  list-style: none;
+  padding: 0;
+}
+
+.post > footer .stats li {
+  border-left: solid 1px rgba(160, 160, 160, 0.3);
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  line-height: 1;
+  margin: 0 0 0 2em;
+  padding: 0 0 0 2em;
+  text-transform: uppercase;
+}
+
+.post > footer .stats li:first-child {
+  border-left: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.post > footer .stats li .icon {
+  border-bottom: 0;
+}
+
+.post > footer .stats li .icon:before {
+  color: rgba(160, 160, 160, 0.3);
+  margin-right: 0.75em;
+}
+
+@media screen and (max-width: 980px) {
+
+  .post {
+    border-left: 0;
+    border-right: 0;
+    left: -3em;
+    width: calc(100% + (3em * 2));
+  }
+
+  .post > header {
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 3.75em 3em 1.25em 3em ;
+    border-left: 0;
+  }
+
+  .post > header .title {
+    -ms-flex: 0 1 auto;
+    margin: 0 0 2em 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .post > header .meta {
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    border-left: 0;
+    margin: 0 0 2em 0;
+    padding-top: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .post > header .meta > * {
+    border-left: solid 1px rgba(160, 160, 160, 0.3);
+    margin-left: 2em;
+    padding-left: 2em;
+  }
+
+  .post > header .meta > :first-child {
+    border-left: 0;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .post > header .meta .published {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .post > header .meta .author {
+    -moz-flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    margin-bottom: 0;
+  }
+
+  .post > header .meta .author .name {
+    margin: 0 0 0 1.5em;
+  }
+
+  .post > header .meta .author img {
+    width: 3.5em;
+  }
+
+}
+
+@media screen and (max-width: 736px) {
+
+  .post {
+    padding: 1.5em 1.5em 0.1em 1.5em ;
+    left: -1.5em;
+    margin: 0 0 2em 0;
+    width: calc(100% + (1.5em * 2));
+  }
+
+  .post > header {
+    padding: 3em 1.5em 0.5em 1.5em ;
+    left: -1.5em;
+    margin: -1.5em 0 1.5em 0;
+    width: calc(100% + 3em);
+  }
+
+  .post > header .title h2 {
+    font-size: 1.1em;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .post > header .meta {
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .post > header .meta > * {
+    border-left: 0;
+    margin: 1em 0 0 0;
+    padding-left: 0;
+  }
+
+  .post > header .meta .author .name {
+    display: none;
+  }
+
+  .post > .image.featured {
+    margin-left: -1.5em;
+    margin-top: calc(-1.5em - 1px);
+    width: calc(100% + 3em);
+  }
+
+  .post > footer {
+    -moz-align-items: stretch;
+    -webkit-align-items: stretch;
+    -ms-align-items: stretch;
+    align-items: stretch;
+    -moz-flex-direction: column-reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  .post > footer .stats {
+    text-align: center;
+  }
+
+  .post > footer .stats li {
+    margin: 0 0 0 1.25em;
+    padding: 0 0 0 1.25em;
+  }
+
+}
+
+/* Section/Article */
+
+section.special, article.special {
+  text-align: center;
+}
+
+header p {
+  font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  line-height: 2.5;
+  margin-top: -1em;
+  text-transform: uppercase;
+}
+
+
+
+/*EVENTO DETALLE TERMINADO*/
+
+/*COMENTARIOS*/
+
+bodyCDAP {
+  max-width: 480px;
+  width: 100%;
+  margin: 30px auto 0 auto;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+/**
+ * Customs
+ */
+
+.comments:after {
+  border-color: blue;
+}
+
+.comments:before {
+  background-color: #fff;
+}
+
+.comments .comment {
+  background: rgba(93,109,123,0.2);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+.comments [class*="level-"] .photo:before {
+  background-color: #fff;
+}
+
+.comments .metaCDAP {
+  color: rgb(114, 197, 239);
+  word-spacing: 5px;
+}
+
+.comments .metaCDAP a {
+  color: currentColor;
+}
+
+.comments .metaCDAP a:hover {
+  color: #34b5d0;
+}
+
+.comments .bodyCDAP {
+  color: rgba(216,224,229,0.9);
+  word-break: break-word;
+  word-spacing: 2.5px;
+  font-size: small;
+}
+
+
+/**
+ * Comments Thread
+ */
+
+.comments {
+  list-style-type: none;
+  padding: 5px 0 0 46px;
+  position: relative;
+  margin: 0 0 0 12px;
+}
+
+.comments:before,
+.comments .comment,
+.comments .comment:after,
+.comments .comment:before,
+.comments .photo img,
+.comments [class*="level-"] .photo:before {
+  box-shadow: 0 20px 90px rgba(0, 0, 0, 0.9);
+}
+
+.comments:after,
+.comments:before {
+  display: block;
+  content: '';
+  position: absolute;
+}
+
+.comments:before {
+  border-radius: 0 0 5px 5px;
+  height: 100%;
+  width: 8px;
+  left: 0;
+  top: 0;
+}
+
+.comments:after {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 1px 3px rgba(0, 0, 0, .4) inset;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 18px;
+  height: 10px;
+  width: 10px;
+  left: -5px;
+  top: -16px;
+  z-index: -1;
+}
+
+.comments .comment {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.comments .comment:after,
+.comments .comment:before {
+  border-radius: 10px;
+  background-color: #fff;
+  position: absolute;
+  display: block;
+  content: '';
+}
+
+.comments .comment:after {
+  width: 12px;
+  height: 12px;
+  left: -14px;
+  top: 7px;
+}
+
+.comments .comment:before {
+  width: 5px;
+  height: 5px;
+  left: -22px;
+  top: 16px;
+}
+
+.comments .photo {
+  position: absolute;
+  left: -60px;
+  top: 2px;
+}
+
+.comments .photo img {
+  border: 1px solid #fff;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.comments .metaCDAP {
+  margin-bottom: 5px;
+}
+
+.comments .metaCDAP .reply {
+  display: none;
+  float: right;
+}
+
+.comments .comment:hover .reply {
+  display: block;
+}
+
+.comments [class*="level-"] .photo:before {
+  display: block;
+  content: '';
+  position: absolute;
+  margin-top: -2px;
+  height: 4px;
+  width: 20px;
+  left: -10px;
+  top: 50%;
+  z-index: -1;
+}
+
+.comments .level-2 {
+  margin-left: 30px;
+}
+
+.comments .level-3 {
+  margin-left: 50px;
+}
+
+.comments .level-4 {
+  margin-left: 70px;
+}
+
+.comments .level-5 {
+  margin-left: 90px;
+}
+
+.comments .level-6 {
+  margin-left: 110px;
+}
+
+.comments .level-3 .photo:before {
+  width: 40px;
+  left: -30px;
+}
+
+.comments .level-4 .photo:before {
+  width: 60px;
+  left: -50px;
+}
+
+.comments .level-5 .photo:before {
+  width: 80px;
+  left: -70px;
+}
+
+.comments .level-6 .photo:before {
+  width: 100px;
+  left: -90px;
+}
+
+
+/*COMENTARIOS TERMINADO*/
+
+/*Termina Eventos*/
+</style>
 <!--Activar Boton navbar-->
 <script>
 //    Reemplazar '.contInicioX' 
 //    por '.sitiosX' si es para Sitios
 //    por '.eventosX' si es para Eventos
-  $(document).ready(function () {
-    console.log("document loaded");
-    $('.sitiosX').addClass('active');
-    $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
-    $('parrafoX').addClass('limit');
+    $(document).ready(function () {
+        console.log("document loaded");
+        $('.sitiosX').addClass('active');
+        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
+        $('parrafoX').addClass('limit');
 
-  });
+    });
 
-  $(window).load(function () {
-    console.log("window loaded");
-    $('.sitiosX').addClass('active');
-    $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
-    $('.parrafoX').addClass('limit');
-  });
+    $(window).load(function () {
+        console.log("window loaded");
+        $('.sitiosX').addClass('active');
+        $('.columnaX').addClass('col-xs-12 col-sm-4 col-md-4 col-lg-4');
+        $('.parrafoX').addClass('limit');
+    });
 
-  $(document).ready(function () {
-  $(".mCustomScrollbar").mCustomScrollbar({axis: "x"})
-          ;
-</script>
-<!--
-<div>
-  <img class="imgarticleX" id="imgpeque" src="<?php echo asset('img/buguita2.jpg') ?>" alt="Imagen"/>
-</div>-->
+    $(document).ready(function () {
+    $(".mCustomScrollbar").mCustomScrollbar({axis: "x"})
+            ;</script>
 
-<div class="contenedor-imgX fxX"> 
-    <div class="imgback img-contenido" style=" lightcyan;  background-image: url('<?php echo asset('img/buguita4.jpg') ?>');">
-    </div>
-</div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <section class="container container-fluid main">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <hr class="lineaCDAP">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-      <!--EVENTO DETALLE-->
+            <!--EVENTO DETALLE-->
 
       <div class="innerCDAP">
-        <article class="descriptionCDAP">
-          <div class="content descriptionCDAP">
-            <article class="descriptionCDAP">
-            <h1 id="tituCDAP">GUADALAJARA DE BUGA TE INVITA A DISFRUTAR</h1>
+
+        <div>
+          <!-- Main -->
+          <div id="main">
+
+            <!-- Post -->
+            <article class="post">
+              <header>
+                <div class="title">
+                  <h1 id="tituCDAP"><?php echo ($evento->eve_nombre) ?></h1>
+                  <p class="texCDAP"><strong>Visita nuestro Facebook:</strong> <?php echo ($evento->eve_facebook) ?></p>
+                  <p class="texCDAP"><strong>Email del contacto:</strong> <?php echo ($evento->eve_correo_contacto) ?></p>
+                </div>
+                <div class="meta">
+                  <time class="published" datetime="2015-11-01"><?php echo ($evento->eve_fecha_hora) ?></time>
+                  <time class="published" datetime="2015-11-01"><strong>Teléfono:</strong> <?php echo ($evento->eve_telefono_contacto) ?></time>
+                  <a class="author">
+                    <span class="name"><?php echo ($evento->eve_nombre_contacto) ?></span><img src="<?php echo asset('img/buguita2.jpg') ?>" alt="" />
+                  </a>
+                </div>
+              </header>
+              <div class="ajustar">
+                <img class="image featured" src="<?php echo asset("media/img/eventos/" . $img_ruta) ?>" alt="" />
+              </div>
+              <hr class="lineaCDAP">
+              <p class="texCDAP"><?php echo ((strlen($evento->eve_descripcion) > 100) ? substr(($evento->eve_descripcion), 0, 1000) . " ..." : ($evento->eve_descripcion)) ?></p>
+              <footer>
+                <ul class="actions">
+                  <li><p class="texCDAP"><strong>Lugar:</strong> <?php echo ($evento->eve_direccion) ?></p></li>
+                  <li><p class="texCDAP"><strong>Precio de la entrada:</strong> <?php echo ($evento->eve_valor_boleta) ?></p></li>
+                  <li><p class="texCDAP">Del <?php echo ($evento->fecha_inicio_publicacion) ?> hasta el <?php echo ($evento->fecha_fin_publicacion) ?></p></li>
+
+                </ul>
+                <ul class="stats">
+                  <li><a href="#"><strong>Latitud y Longitud:</strong></a></li>
+                  <li><a href="#" class="icon fa-heart"><?php echo ($evento->eve_latitud) ?></a></li>
+                  <li><a href="#" class="icon fa-comment"><?php echo ($evento->eve_longitud) ?></a></li>
+                </ul>
+              </footer>
             </article>
-            <img src="<?php echo asset('img/buguita.jpg') ?>"/>
+
             <hr class="lineaCDAP">
-            <p class="texCDAP">El problema aparece cuando intentamos buscar 
-              en nuestro pasado y no somos capaces de encontrar nada o nos 
-              disgusta lo que encontramos. En cualquier caso, siempre hay algo 
-              que valga la pena. De todos modos, los recuerdos no aparecen solos, 
-              sino que se hacen. Y construir un recuerdo muchas veces parte de 
-              nosotros mismos; una experiencia, donde los protagonistas somos 
-              nosotros, se puede crear. Quiero decir con esto que estar sentados 
-              en el sofá todo el día, sin relacionarnos con nadie, no nos ayudará 
-              a construir recuerdos. Será el relacionarnos con otras personas 
-              o el hacer actividades lo que pueda convertirse en recuerdo.</p>
           </div>
-        </article>
 
+          <h1 id="tituCDAP">Comentarios</h1>
 
-
-        <h1 id="tituCDAP">Comentarios</h1>
-
-        <!-- Contenedor Principal -->
-        <div class="comments-container">
-          <ul id="comments-list" class="comments-list">
-            <li>
-              <div class="comment-main-level">
-                <!-- Avatar -->
-                <div class="comment-avatar"><img src="#" alt=""></div>
-                <!-- Contenedor del Comentario -->
-                <div class="comment-box">
-                  <div class="comment-head">
-                    <h6 class="comment-name by-author"><a href="#">Jerk off</a></h6>
-                    <span>hace 20 minutos</span>
-                    <i class="fa fa-reply"></i>
-                    <i class="fa fa-heart"></i>
-                  </div>
-                  <div class="comment-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                  </div>
-                </div>
-              </div>
-
-              <!-- Respuestas de los comentarios -->
-              <ul class="comments-list reply-list">
-                <li>
-                  <!-- Avatar -->
-                  <div class="comment-avatar"><img src="#" alt=""></div>
-                  <!-- Contenedor del Comentario -->
-                  <div class="comment-box">
-                    <div class="comment-head">
-                      <h6 class="comment-name"><a href="#">Cristina Carvajala</a></h6>
-                      <span>hace 10 minutos</span>
-                      <i class="fa fa-reply"></i>
-                      <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="comment-content">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                    </div>
-                  </div>
-                </li>
-              </ul>
+          <ul class="comments">
+            <li class="comment">
+              <a href="#" title="Ver usuario" class="photo"><img src="<?php echo asset('img/avatar2.png') ?>" alt="Kasper"></a>
+              <div class="metaCDAP">Luis | 2016.02.24 14:58 <a class="reply"> | Responder</a><a class="reply glyphicon glyphicon-heart"> </a></div>
+              <div class="bodyCDAP">Estuvo genial el evento recomiendo q vayan acompañados se disfruta más</div>
             </li>
-
-            <li>
-              <div class="comment-main-level">
-                <!-- Avatar -->
-                <div class="comment-avatar"><img src="#" alt=""></div>
-                <!-- Contenedor del Comentario -->
-                <div class="comment-box">
-                  <div class="comment-head">
-                    <h6 class="comment-name"><a href="#">Alzadita</a></h6>
-                    <span>hace 10 minutos</span>
-                    <i class="fa fa-reply"></i>
-                    <i class="fa fa-heart"></i>
-                  </div>
-                  <div class="comment-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                  </div>
-                </div>
-              </div>
+            <li class="comment level-2">
+              <a href="#" title="Ver usuario" class="photo"><img src="<?php echo asset('img/avatar.png') ?>" alt="Photo"></a>
+              <div class="metaCDAP">Lina | 2016.02.24 15:21 <a class="reply"> | Responder</a><a class="reply glyphicon glyphicon-heart"> </a></div>
+              <div class="bodyCDAP">Estoy de acuerdo contigo Luis, un evento para todos los públicos ;)</div>
+            </li>
+            <li class="comment level-3">
+              <a href="#" title="Ver usuario" class="photo"><img src="<?php echo asset('img/avatar3.png') ?>" alt="Photo"></a>
+              <div class="metaCDAP">Marcos | 2016.02.26 15:32 <a class="reply"> | Responder</a><a class="reply glyphicon glyphicon-heart"> </a></div>
+              <div class="bodyCDAP">Si estuvo bien, pero debería durar un poco más por si algunos queremos repetir</div>
+            </li>
+            <li class="comment level-4">
+              <a href="#" title="Ver usuario" class="photo"><img src="<?php echo asset('img/avatar2.png') ?>" alt="Photo"></a>
+              <div class="metaCDAP">Luis | 2016.03.03 21:08 <a class="reply"> | Responder</a><a class="reply glyphicon glyphicon-heart"> </a></div>
+              <div class="bodyCDAP">Deberás esperar al próximo año si esq lo vuelven a hacer XD</div>
+            </li>
+            <li class="comment">
+              <a href="#" title="Ver usuario" class="photo"><img src="<?php echo asset('img/avatar.png') ?>" alt="Kasper"></a>
+              <div class="metaCDAP">Lina | 2016.04.15 10:15 <a class="reply"> | Responder</a><a class="reply glyphicon glyphicon-heart"> </a></div>
+              <div class="bodyCDAP">Pregunte y puede que lo vuelvan a hacer ^^</div>
             </li>
           </ul>
+
+          <hr class="lineaCDAP">
+
+
+          <!--EVENTO DETALLE TERMINADO-->
         </div>
-        <hr class="lineaCDAP">
-
       </div>
-      <div style="clear:both;"></div>
-      <!--EVENTO DETALLE TERMINADO-->
-    </div>
-  </div>
-</section>
+      </section>
 
- <?php  $Loading = 'Cargando Evento...' ?>
-<?php include_once ('/../../Templates/Frontend/footer.php') ?>
-<?php include_once ('/../../Templates/Frontend/foot.php') ?>
+      <?php include_once ('/../../Templates/Frontend/footer.php') ?>
+      <?php include_once ('/../../Templates/Frontend/foot.php') ?>

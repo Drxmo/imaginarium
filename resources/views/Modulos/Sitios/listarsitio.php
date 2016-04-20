@@ -69,7 +69,7 @@ print_r($res_arr);
           <td><a href="<?php echo url("/sitios/sitios/versitio/" . $sitio->sit_id); ?>"><?php nombre ($id);  ?></a></td>
           <td><?php echo ((strlen($sitio->sit_descripcion) > 100) ? substr(($sitio->sit_descripcion), 0, 15) . " ..." : ($sitio->sit_descripcion)) ?></p></td>
           <td><?php $act= $sitio->est_id;if ($act== '1'):echo 'Sí' ; else: echo 'No'; endif?></td>         
-          <td><a href="<?php echo url("/sitios/sitios/update/" . $sitio->sit_id); ?>" >Editar</a></td>          
+          <td><form id="edFormId" method="post" action="<?php echo url("sitios/sitios/editar/") ?>" ><input type="hidden" value="<?php echo $sitio->sit_id; ?>" name="sitid"><input type="hidden" value="<?php echo $sitio->usu_id; ?>" name="usu"> <button id="editarId" type="submit"  >Editar</button></form></td>          
           <td><?php if(empty($sitio->sit_deleted_at) == true) : ?>
    <a href="<?php echo url("sitios/sitios/eliminar/" . $sitio->sit_id) ?>" ><?php   if (Session::has('super') === true):       ?> <span>Inhabilitar</span><?php   else:       ?> <span>Eliminar</span><?php   endif;      ?></a>
 <?php else : ?>
@@ -104,7 +104,7 @@ print_r($res_arr);
             </div>
             <!--/modal-body-collapse -->
             <div class="modal-footer">
-                <div class="modalmarquee" "><marquee >Irreversible!</marquee></div>
+                <div class="modalmarquee" ><marquee >Irreversible!</marquee></div>
                 <a type="button" class="btn btn-danger" id="btnDelteYes" href="<?php echo url("/sitios/sitios/borrar/" . $id) ?>">Yes</a>
                 <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
             </div>
@@ -117,7 +117,7 @@ print_r($res_arr);
                 <input id='gotour' type="hidden" value='<?php echo url('')?>'>
     
 </div>
-</div>
+<!--</div>-->
     
                 <br>
                 <br>
@@ -154,7 +154,7 @@ e.preventDefault();
 
 </script>
 
-</div> 
+<!--</div> -->
 <?php include("/../../Templates/backend/footer.php") ?>
 <?php include("/../../Templates/backend/foot.php") ?>
     

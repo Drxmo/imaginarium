@@ -1,6 +1,7 @@
 <?php include_once ('/../../Templates/Backend/head.php') ?>
 <?php include_once ('/../../Templates/Backend/header.php') ?>
-<script src="<?php echo asset('js/jquery/places.js') ?>"></script>
+<!--<script src="<?php echo asset('js/jquery/places.js') ?>"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=es"></script>
 
 
 

@@ -6,6 +6,7 @@
                      
                 
             <h2 style="height: 30px; width:300px">Cuenta</h2>
+                <p><a href="<?php echo url("/busqueda/busqueda/buscar"  ); ?>">buscar cosas</a>
                 <p><a href="<?php echo url("/usuarios/usuarios/editar/" . Session::get('user') ); ?>">Modificar</a>
                 <p><a href="<?php echo url("/usuarios/usuarios/eliminar") ?>">Eliminar cuenta</a></p>
                 <p><a href="#">Aqui va otro algo</a></p>

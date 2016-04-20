@@ -37,7 +37,7 @@ class SitiosController extends controller {
         
         
         
-        return view('Modulos.Sitios.versitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "img_ruta", "img", "imagenes"));
+        return view('Modulos.Sitios.versitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "img_ruta", "img", "imagenes", "id"));
     }
 
     function getIndex() {
@@ -143,11 +143,15 @@ class SitiosController extends controller {
                 . " sit_google_plus, usu_id ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", array($sit_id, $nombre,
             $descripcion, $cat_id, $subcat_id, $sub_subcat_id, $direccion, $latitud, $longitud, $activado, $facebook, $twitter, $google, $usu_id));
 
-
+ if (empty($filename)!==true) {
+//    $filename =($_FILES["fileToUpload"]["name"]);
         DB::insert("INSERT INTO bdp_imagen "
                 . "( sit_id , img_ruta ) VALUES (?,?)", array($sit_id,
             $filename));
-
+ }else{
+     DB::insert("INSERT INTO bdp_imagen "
+                . "( sit_id , img_ruta ) VALUES (?,'comodin.jpg')", array($sit_id));
+ }
 
 
        // Session::put('success', 'Usuario creado exitosamente');
@@ -184,9 +188,11 @@ class SitiosController extends controller {
         }
     }
 
-    function getUpdate($id) {
-        
-         if (Session::has('user') === true){
+    function postEditar() {
+        $usu = filter_input_array(INPUT_POST)['usu'];
+//        extract($sitio);
+         if (((Session::has('user') === true) and (Session::get('user') == $usu)) OR (Session::has('super') === true)) {
+             $id = filter_input_array(INPUT_POST)['sitid'];
              
       
 //        $sitio = filter_input_array(INPUT_POST)['sitio'];
@@ -195,11 +201,14 @@ class SitiosController extends controller {
         $nombre = "Administrador";
         $categorias = DB::select("SELECT * FROM bdp_categoria");
         $sub_subcategorias = array();
+        $usuarios = DB::select("SELECT usu_id, usu_usuario FROM bdp_usuario WHERE usu_deleted_at IS NULL AND usu_activado = '1' ");
         $sitio = DB::select("SELECT * FROM bdp_sitio WHERE sit_id = ?", array($id));
         $sitio = $sitio[0];
-        return view('Modulos.Sitios.modificarsitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio"));
+        return view('Modulos.Sitios.modificarsitio', compact("categorias", "subcategorias", "sub_subcategorias", "sitio", "usuarios"));
          
-        }else{
+        }
+        
+        else{
             echo 'Permiso denegado';
             return redirect(url("index"));
         }

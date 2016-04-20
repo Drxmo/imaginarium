@@ -60,12 +60,13 @@
                         <figure class="col-xs-12 col-sm-6 col-md-4">
                             <div class="contenedor-imgX fxX">
                                 <div class="imgback img-contenido" style=" background-image: url('<?php echo asset("media/img/sitios/".$sitio->img_ruta) ?>');">   
-                                <div class="mascara">
+                               <a class="link" href="<?php echo url("sitios/sitios/versitio/" . $sitio->sit_id) ?>">
+                                    <div class="mascara">
                                     <h2><?php echo ($sitio->sit_nombre) ?></h2>
                                     <p><?php echo ((strlen($sitio->sit_descripcion) > 100) ? substr(($sitio->sit_descripcion), 0, 200) . " ..." : ($sitio->sit_descripcion)) ?></p>
-                                    <a class="link" href="<?php echo url("sitios/sitios/versitio/" . $sitio->sit_id) ?>">Leer mas</a>
+                                    
                                 </div>
-                            </div>
+                            </a></div>
                         </figure>
                          <?php endforeach; ?>
                         

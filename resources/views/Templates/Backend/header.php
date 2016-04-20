@@ -228,6 +228,13 @@
               <li class="eventosX"><a href="<?php echo url("/categorias/categoria") ?>">Categorias</a></li>
 
             </ul>
+              <div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'id', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+}
+</script>
+<script async="async" type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             <div class="floatRightX">
 
               <ul class="nav navbar-nav navbar-right navbar-rightX">
@@ -267,9 +274,9 @@
                     </ul>
                   </li>
                 <?php endif ?>
-                <form action="#" class="navbar-form navbar-right" role="search">
+                  <form action="<?php echo url("/busqueda/busqueda/search") ?>" class="navbar-form navbar-right" method="post" role="search">
                   <div class="form-group">
-                    <input type="text" class="form-control searchX" placeholder="Search">
+                    <input type="text" class="form-control searchX" placeholder="Search" name="string">
                   </div>
                   <button type="submit" class="btn btn-default">
                     <span class="icon-magnifying-glass"></span>
